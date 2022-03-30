@@ -9,9 +9,9 @@ export const Container = styled.nav`
   > ul {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     width: 100%;
-    height: 46px;
-    padding: 0 24px;
+    padding: 16px 24px;
   }
 `

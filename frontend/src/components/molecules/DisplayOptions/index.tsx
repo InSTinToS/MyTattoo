@@ -11,11 +11,11 @@ const DisplayOptions = () => {
   return (
     <Container>
       <li onClick={() => onLiClick('horizontal')}>
-        <DisplayHorizontal size={24} color={horizontalColor} />
+        <DisplayHorizontal size={29} color={horizontalColor} />
       </li>
 
       <li onClick={() => onLiClick('vertical')}>
-        <DisplayVertical size={24} color={verticalColor} />
+        <DisplayVertical size={29} color={verticalColor} />
       </li>
     </Container>
   )

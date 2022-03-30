@@ -6,8 +6,14 @@ interface IContainer {
 }
 
 const Container = styled.div<IContainer>`
-  width: ${({ size }) => size}px;
-  height: ${({ size }) => size}px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: ${({ size }) => size}px;
+    height: ${({ size }) => size}px;
+  }
 
   path {
     fill: ${({ color }) => color};
