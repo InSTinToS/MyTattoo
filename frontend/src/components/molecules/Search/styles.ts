@@ -1,5 +1,6 @@
-import { Formik as OriginalFormik } from 'formik'
 import styled from 'styled-components'
+
+import { Formik as OriginalFormik } from 'formik'
 
 const Formik = styled(OriginalFormik)``
 

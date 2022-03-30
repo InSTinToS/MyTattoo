@@ -7,5 +7,23 @@
   "trailingComma": "none",
   "jsxSingleQuote": true,
   "arrowParens": "avoid",
-  "bracketSpacing": true
+  "bracketSpacing": true,
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrder": [
+    "^react$|^next$|^next/|^./styles|^styled-components",
+    "^./|^../",
+    "^components/atoms",
+    "^^components/molecules",
+    "^components/organisms",
+    "^components/templates",
+    "^pages",
+    "^store",
+    "^styles",
+    "^tests",
+    "^types",
+    "^utils",
+    "^@public",
+    "^"
+  ]
 }

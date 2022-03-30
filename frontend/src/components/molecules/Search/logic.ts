@@ -1,7 +1,8 @@
+import { useTheme } from 'styled-components'
+
 import { TOnSubmit } from 'types/formik'
 
 import { useFormik } from 'formik'
-import { useTheme } from 'styled-components'
 
 interface Values {
   search: string

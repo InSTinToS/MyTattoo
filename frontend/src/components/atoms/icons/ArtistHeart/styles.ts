@@ -1,9 +1,9 @@
-import {
-  Container as IconContainer,
-  IContainer as IIconContainer
-} from '../styles'
-
 import styled from 'styled-components'
+
+import {
+  IContainer as IIconContainer,
+  Container as IconContainer
+} from '../styles'
 
 interface IContainer extends IIconContainer {
   heartColor?: string

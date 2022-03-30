@@ -1,9 +1,10 @@
 import { Container } from './styles'
+import React from 'react'
+
 import { DisplayOptionsLogic } from './logic'
 
 import DisplayHorizontal from 'components/atoms/icons/DisplayHorizontal'
 import DisplayVertical from 'components/atoms/icons/DisplayVertical'
-import React from 'react'
 
 const DisplayOptions = () => {
   const { onLiClick, horizontalColor, verticalColor } = DisplayOptionsLogic()

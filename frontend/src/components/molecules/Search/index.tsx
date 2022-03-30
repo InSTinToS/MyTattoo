@@ -1,8 +1,9 @@
 import { Container } from './styles'
+import React from 'react'
+
 import { SearchFormLogic } from './logic'
 
 import SearchIcon from 'components/atoms/icons/Search'
-import React from 'react'
 
 const Search = () => {
   const { searchIconColor, formik } = SearchFormLogic()

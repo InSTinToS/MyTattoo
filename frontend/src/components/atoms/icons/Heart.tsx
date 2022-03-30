@@ -1,5 +1,4 @@
 import { Container, IContainer } from './styles'
-
 import React from 'react'
 
 const Heart = (props: IContainer) => (

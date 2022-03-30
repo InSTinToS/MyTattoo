@@ -1,11 +1,13 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 
-import favicon from '../../public/favicon.ico'
-import 'bootstrap/dist/css/bootstrap.css'
+import GlobalProvider from 'pages/_provider'
 
-import GlobalProvider from 'components/GlobalProvider'
 import 'styles/bootstrap.scss'
+
+import favicon from '@public/favicon.ico'
+
+import 'bootstrap/dist/css/bootstrap.css'
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <>
