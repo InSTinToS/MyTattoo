@@ -4,11 +4,11 @@ import { TOnSubmit } from 'types/formik'
 
 import { useFormik } from 'formik'
 
-interface Values {
+interface IValues {
   search: string
 }
 
-const initialValues: Values = { search: '' }
+const initialValues: IValues = { search: '' }
 
 const SearchFormLogic = () => {
   const theme = useTheme()
@@ -25,5 +25,4 @@ const SearchFormLogic = () => {
   return { formik, searchIconColor: theme.colors.secondary }
 }
 
-export type { Values }
 export { SearchFormLogic }

@@ -13,10 +13,6 @@ const Feed = () => {
 
       <Style>
         <Navbar />
-
-        <div>
-          <h1>Feed</h1>
-        </div>
       </Style>
     </>
   )
