@@ -1,12 +1,11 @@
-import { Container } from './styles'
-import React from 'react'
+import { NavbarStyle } from './styles'
 
 import DisplayOptions from 'components/molecules/DisplayOptions'
 import ProfileOptions from 'components/molecules/ProfileOptions'
 import Search from 'components/molecules/Search'
 
 const Navbar = () => (
-  <Container>
+  <NavbarStyle>
     <ul>
       <li>
         <DisplayOptions />
@@ -20,7 +19,7 @@ const Navbar = () => (
         <ProfileOptions />
       </li>
     </ul>
-  </Container>
+  </NavbarStyle>
 )
 
 export default Navbar

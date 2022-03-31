@@ -1,16 +1,15 @@
-import { Container } from './styles'
+import { PostHeaderStyle } from './styles'
+import type { IPostHeaderProps } from './types'
+
 import Image from 'next/image'
-import React from 'react'
 
-interface IProps {
-  name: string
-  avatar: string
-  isArtist: boolean
-  description: string
-}
-
-const PostHeader = ({ avatar, description, name, isArtist }: IProps) => (
-  <Container>
+const PostHeader = ({
+  avatar,
+  description,
+  name,
+  isArtist
+}: IPostHeaderProps) => (
+  <PostHeaderStyle>
     <Image src={avatar} alt='avatar' width={40} height={40} />
 
     <div>
@@ -20,8 +19,7 @@ const PostHeader = ({ avatar, description, name, isArtist }: IProps) => (
     </div>
 
     <p>{description}</p>
-  </Container>
+  </PostHeaderStyle>
 )
 
 export default PostHeader
-export type { IProps }

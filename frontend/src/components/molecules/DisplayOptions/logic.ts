@@ -1,9 +1,9 @@
+import type { TSelectedDisplay } from './types'
+
 import { useState } from 'react'
 import { useTheme } from 'styled-components'
 
-type TSelectedDisplay = 'vertical' | 'horizontal'
-
-const DisplayOptionsLogic = () => {
+const useDisplayOptions = () => {
   const theme = useTheme()
 
   const [selectedDisplay, setSelectedDisplay] =
@@ -26,4 +26,4 @@ const DisplayOptionsLogic = () => {
   return { onLiClick, horizontalColor, verticalColor }
 }
 
-export { DisplayOptionsLogic }
+export { useDisplayOptions }

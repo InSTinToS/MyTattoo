@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.ul`
+const ProfileOptionsStyle = styled.ul`
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -15,3 +15,5 @@ export const Container = styled.ul`
     }
   }
 `
+
+export { ProfileOptionsStyle }

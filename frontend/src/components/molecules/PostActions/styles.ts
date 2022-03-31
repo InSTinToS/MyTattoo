@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Container = styled.ul`
+const PostActionsStyle = styled.ul`
   display: flex;
   flex-wrap: wrap;
 
@@ -13,4 +13,4 @@ const Container = styled.ul`
   }
 `
 
-export { Container }
+export { PostActionsStyle }

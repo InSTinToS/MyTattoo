@@ -1,28 +1,26 @@
-import Head from 'next/head'
-
-import Style from './style'
+import { FeedStyle } from './style'
 
 import Navbar from 'components/organisms/Navbar'
 import Posts from 'components/organisms/Posts'
 
-const Feed = () => {
-  return (
-    <>
-      <Head>
-        <title>Feed</title>
-      </Head>
+import Head from 'next/head'
 
-      <Style>
-        <Navbar />
+const Feed = () => (
+  <>
+    <Head>
+      <title>Feed</title>
+    </Head>
 
-        <aside></aside>
+    <FeedStyle>
+      <Navbar />
 
-        <Posts />
+      <aside></aside>
 
-        <aside></aside>
-      </Style>
-    </>
-  )
-}
+      <Posts />
+
+      <aside></aside>
+    </FeedStyle>
+  </>
+)
 
 export default Feed

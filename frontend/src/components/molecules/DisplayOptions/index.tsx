@@ -1,16 +1,14 @@
-import { Container } from './styles'
-import React from 'react'
+import { useDisplayOptions } from './logic'
+import { DisplayOptionsStyle } from './styles'
 
-import { DisplayOptionsLogic } from './logic'
-
-import DisplayHorizontal from 'components/atoms/icons/DisplayHorizontal'
-import DisplayVertical from 'components/atoms/icons/DisplayVertical'
+import DisplayHorizontal from 'components/atoms/icons/DisplayHorizontal/DisplayHorizontal'
+import DisplayVertical from 'components/atoms/icons/DisplayVertical/DisplayVertical'
 
 const DisplayOptions = () => {
-  const { onLiClick, horizontalColor, verticalColor } = DisplayOptionsLogic()
+  const { onLiClick, horizontalColor, verticalColor } = useDisplayOptions()
 
   return (
-    <Container>
+    <DisplayOptionsStyle>
       <li onClick={() => onLiClick('horizontal')}>
         <DisplayHorizontal size={29} color={horizontalColor} />
       </li>
@@ -18,7 +16,7 @@ const DisplayOptions = () => {
       <li onClick={() => onLiClick('vertical')}>
         <DisplayVertical size={29} color={verticalColor} />
       </li>
-    </Container>
+    </DisplayOptionsStyle>
   )
 }
 

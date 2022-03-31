@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Container = styled.section`
+const PostsStyle = styled.section`
   flex: 2;
 
   > ul {
@@ -10,4 +10,4 @@ const Container = styled.section`
   }
 `
 
-export { Container }
+export { PostsStyle }

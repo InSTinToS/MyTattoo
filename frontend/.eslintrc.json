@@ -3,8 +3,7 @@
     "next/core-web-vitals",
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:@typescript-eslint/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -12,11 +11,9 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "react-hooks"],
+  "plugins": ["react", "@typescript-eslint"],
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
     "@typescript-eslint/no-explicit-any": ["off"],
     "@typescript-eslint/no-empty-interface": ["off"],
     "@typescript-eslint/no-unused-vars": [
@@ -31,7 +28,7 @@
         "custom": { "regex": "^I[A-Z]", "match": true }
       },
       {
-        "selector": "typeLike",
+        "selector": "typeAlias",
         "format": ["PascalCase"],
         "custom": { "regex": "^T[A-Z]", "match": true }
       }

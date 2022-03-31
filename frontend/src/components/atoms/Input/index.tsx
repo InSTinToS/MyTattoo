@@ -1,8 +1,6 @@
-import { Container, IContainer } from './styles'
-import React, { HTMLProps } from 'react'
+import { InputStyle } from './styles'
+import { IInputProps } from './types'
 
-interface IProps extends HTMLProps<HTMLInputElement>, IContainer {}
-
-const Input = (props: IProps) => <Container {...(props as any)} />
+const Input = (props: IInputProps) => <InputStyle {...(props as any)} />
 
 export default Input

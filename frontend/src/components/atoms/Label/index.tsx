@@ -1,10 +1,6 @@
-import { Container } from './styles'
-import React from 'react'
+import { LabelStyle } from './styles'
+import type { ILabelProps } from './types'
 
-interface IProps {
-  label: string
-}
+const Label = ({ label }: ILabelProps) => <LabelStyle>{label}</LabelStyle>
 
-const InputLabel = ({ label }: IProps) => <Container>{label}</Container>
-
-export default InputLabel
+export default Label

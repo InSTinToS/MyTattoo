@@ -1,8 +1,9 @@
-import { Container, IContainer } from './styles'
-import React from 'react'
+import type { IDisplayVerticalProps } from './types'
 
-const DisplayVertical = (props: IContainer) => (
-  <Container {...props}>
+import { IconStyle } from '../styles'
+
+const DisplayVertical = (props: IDisplayVerticalProps) => (
+  <IconStyle {...props}>
     <svg viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path d='M19.7917 2.08333H5.20835C4.63306 2.08333 4.16669 2.5497 4.16669 3.12499V5.20833C4.16669 5.78362 4.63306 6.24999 5.20835 6.24999H19.7917C20.367 6.24999 20.8334 5.78362 20.8334 5.20833V3.12499C20.8334 2.5497 20.367 2.08333 19.7917 2.08333Z' />
 
@@ -10,7 +11,7 @@ const DisplayVertical = (props: IContainer) => (
 
       <path d='M19.7917 8.33333H5.20835C4.63306 8.33333 4.16669 8.7997 4.16669 9.37499V15.625C4.16669 16.2003 4.63306 16.6667 5.20835 16.6667H19.7917C20.367 16.6667 20.8334 16.2003 20.8334 15.625V9.37499C20.8334 8.7997 20.367 8.33333 19.7917 8.33333Z' />
     </svg>
-  </Container>
+  </IconStyle>
 )
 
 export default DisplayVertical

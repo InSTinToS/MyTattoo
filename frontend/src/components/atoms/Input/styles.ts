@@ -1,10 +1,8 @@
+import type { IInputStyleProps } from './types'
+
 import styled, { css } from 'styled-components'
 
-interface IContainer {
-  outlined?: boolean
-}
-
-const Container = styled.input<IContainer>`
+const InputStyle = styled.input<IInputStyleProps>`
   width: 100%;
   height: 100%;
 
@@ -28,5 +26,4 @@ const Container = styled.input<IContainer>`
     `}
 `
 
-export { Container }
-export type { IContainer }
+export { InputStyle }

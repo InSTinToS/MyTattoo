@@ -1,5 +1,5 @@
-import { Container } from './styles'
-import React from 'react'
+import { useComments } from './logic'
+import { CommentsStyle } from './styles'
 
 import Input from 'components/atoms/Input'
 
@@ -7,8 +7,6 @@ import Comment from 'components/molecules/Comment'
 
 import avatar2 from '@public/avatar2.jpg'
 import avatar from '@public/avatar.png'
-
-import { useFormik } from 'formik'
 
 const fakeComments = [
   {
@@ -30,15 +28,10 @@ const fakeComments = [
 ]
 
 const Comments = () => {
-  const formik = useFormik({
-    initialValues: { newComment: '' },
-    onSubmit: values => {
-      console.log(values)
-    }
-  })
+  const { formik } = useComments()
 
   return (
-    <Container>
+    <CommentsStyle>
       <ul>
         {fakeComments.map(({ name, content, id, avatar, isArtist }) => (
           <li key={id}>
@@ -60,7 +53,7 @@ const Comments = () => {
           placeholder='Deixe um comentário!'
         />
       </form>
-    </Container>
+    </CommentsStyle>
   )
 }
 

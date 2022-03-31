@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Container = styled.div`
+const CommentsStyle = styled.div`
   ul {
     margin: 16px 0;
 
@@ -15,4 +15,4 @@ const Container = styled.div`
   }
 `
 
-export { Container }
+export { CommentsStyle }

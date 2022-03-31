@@ -1,10 +1,8 @@
+import type { ICommentStyleProps } from './types'
+
 import styled, { css } from 'styled-components'
 
-interface IContainerProps {
-  isArtist: boolean
-}
-
-const Container = styled.div<IContainerProps>`
+const CommentStyle = styled.div<ICommentStyleProps>`
   display: flex;
 
   img {
@@ -25,5 +23,4 @@ const Container = styled.div<IContainerProps>`
   }
 `
 
-export type { IContainerProps }
-export { Container }
+export { CommentStyle }

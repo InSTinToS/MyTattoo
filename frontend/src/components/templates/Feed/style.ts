@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Style = styled.main`
+const FeedStyle = styled.main`
   display: flex;
   overflow-x: hidden;
 
@@ -11,4 +11,4 @@ const Style = styled.main`
   }
 `
 
-export default Style
+export { FeedStyle }

@@ -1,10 +1,6 @@
 import styled from 'styled-components'
 
-import { Formik as OriginalFormik } from 'formik'
-
-const Formik = styled(OriginalFormik)``
-
-const Container = styled.div`
+const SearchStyle = styled.div`
   display: flex;
 
   padding: 8px;
@@ -20,4 +16,4 @@ const Container = styled.div`
   }
 `
 
-export { Container, Formik }
+export { SearchStyle }

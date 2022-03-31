@@ -1,15 +1,8 @@
+import type { IIconStyleProps, IOutlinedIconStyleProps } from './types'
+
 import styled, { css } from 'styled-components'
 
-interface IContainer {
-  size: number
-  color: string
-}
-
-interface IOutlined extends IContainer {
-  outlined?: boolean
-}
-
-const Container = styled.div<IContainer>`
+const IconStyle = styled.div<IIconStyleProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,7 +17,7 @@ const Container = styled.div<IContainer>`
   }
 `
 
-const Outlined = styled(Container)<IOutlined>`
+const OutlinedIconStyle = styled(IconStyle)<IOutlinedIconStyleProps>`
   ${({ outlined, color }) =>
     outlined &&
     css`
@@ -35,5 +28,4 @@ const Outlined = styled(Container)<IOutlined>`
     `};
 `
 
-export { Container, Outlined }
-export type { IContainer, IOutlined }
+export { IconStyle, OutlinedIconStyle }

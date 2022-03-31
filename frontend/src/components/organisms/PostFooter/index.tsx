@@ -1,24 +1,22 @@
-import { Container } from './styles'
-import React, { useState } from 'react'
+import { usePostFooter } from './logic'
+import { PostFooterStyle } from './styles'
 
 import PostActions from 'components/molecules/PostActions'
 
 import Comments from 'components/organisms/Comments'
 
 const PostFooter = () => {
-  const [isCommentsOpen, setIsCommentsOpen] = useState(false)
+  const { isCommentsOpen, onBalloonClick } = usePostFooter()
 
   return (
-    <Container>
+    <PostFooterStyle>
       <PostActions
         ballonFilled={isCommentsOpen}
-        onBalloonClick={() => {
-          setIsCommentsOpen(prev => !prev)
-        }}
+        onBalloonClick={onBalloonClick}
       />
 
       {isCommentsOpen && <Comments />}
-    </Container>
+    </PostFooterStyle>
   )
 }
 

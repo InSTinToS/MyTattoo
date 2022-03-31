@@ -1,18 +1,18 @@
-import { Container } from './styles'
-import Image from 'next/image'
-import React from 'react'
-import { useTheme } from 'styled-components'
+import { ProfileOptionsStyle } from './styles'
 
 import ArtistHeart from 'components/atoms/icons/ArtistHeart'
-import Heart from 'components/atoms/icons/Heart'
+import Heart from 'components/atoms/icons/Heart/Heart'
 
 import avatar from '@public/avatar.png'
+
+import Image from 'next/image'
+import { useTheme } from 'styled-components'
 
 const ProfileOptions = () => {
   const theme = useTheme()
 
   return (
-    <Container>
+    <ProfileOptionsStyle>
       <li>
         <ArtistHeart size={29} color={theme.colors.secondary} />
       </li>
@@ -24,7 +24,7 @@ const ProfileOptions = () => {
       <li>
         <Image src={avatar} alt='avatar' width={40} height={40} />
       </li>
-    </Container>
+    </ProfileOptionsStyle>
   )
 }
 

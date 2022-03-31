@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Container = styled.div`
+const LabelStyle = styled.div`
   padding: 2px 4px;
   font-style: italic;
   border-radius: 8px;
@@ -8,4 +8,4 @@ const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.primary};
 `
 
-export { Container }
+export { LabelStyle }

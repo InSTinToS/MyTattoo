@@ -1,5 +1,5 @@
 import styled from 'styled-components'
 
-const Container = styled.header``
+const PostHeaderStyle = styled.header``
 
-export { Container }
+export { PostHeaderStyle }

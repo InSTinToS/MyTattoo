@@ -1,16 +1,13 @@
-import { useTheme } from 'styled-components'
+import type { IValues } from './types'
 
-import { TOnSubmit } from 'types/formik'
+import type { TOnSubmit } from 'types/formik'
 
 import { useFormik } from 'formik'
-
-interface IValues {
-  search: string
-}
+import { useTheme } from 'styled-components'
 
 const initialValues: IValues = { search: '' }
 
-const SearchFormLogic = () => {
+const useSearch = () => {
   const theme = useTheme()
 
   const onSearchFormSubmit: TOnSubmit = values => {
@@ -25,4 +22,4 @@ const SearchFormLogic = () => {
   return { formik, searchIconColor: theme.colors.secondary }
 }
 
-export { SearchFormLogic }
+export { useSearch }

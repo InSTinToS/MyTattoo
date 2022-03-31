@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-export const Container = styled.ul`
+const DisplayOptionsStyle = styled.ul`
   display: flex;
   align-items: center;
 `
+
+export { DisplayOptionsStyle }

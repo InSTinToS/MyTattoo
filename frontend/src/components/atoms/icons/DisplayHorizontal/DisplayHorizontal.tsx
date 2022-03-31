@@ -1,8 +1,9 @@
-import { Container, IContainer } from './styles'
-import React from 'react'
+import type { IDisplayHorizontalProps } from './types'
 
-const DisplayHorizontal = (props: IContainer) => (
-  <Container {...props}>
+import { IconStyle } from '../styles'
+
+const DisplayHorizontal = (props: IDisplayHorizontalProps) => (
+  <IconStyle {...props}>
     <svg viewBox='0 0 29 29' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path d='M12.0833 3.625H4.83333C4.16599 3.625 3.625 4.16599 3.625 4.83333V14.5C3.625 15.1673 4.16599 15.7083 4.83333 15.7083H12.0833C12.7507 15.7083 13.2917 15.1673 13.2917 14.5V4.83333C13.2917 4.16599 12.7507 3.625 12.0833 3.625Z' />
 
@@ -12,7 +13,7 @@ const DisplayHorizontal = (props: IContainer) => (
 
       <path d='M12.0833 18.125H4.83333C4.16599 18.125 3.625 18.666 3.625 19.3333V24.1667C3.625 24.834 4.16599 25.375 4.83333 25.375H12.0833C12.7507 25.375 13.2917 24.834 13.2917 24.1667V19.3333C13.2917 18.666 12.7507 18.125 12.0833 18.125Z' />
     </svg>
-  </Container>
+  </IconStyle>
 )
 
 export default DisplayHorizontal

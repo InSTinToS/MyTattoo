@@ -1,21 +1,16 @@
-import { Container } from './styles'
-import Image from 'next/image'
-import React from 'react'
+import { PostStyle } from './styles'
+import { IPostProps } from './types'
 
-import PostFooter from '../PostFooter'
+import PostHeader from 'components/molecules/PostHeader'
 
-import PostHeader, {
-  IProps as IPostHeaderProps
-} from 'components/molecules/PostHeader'
+import PostFooter from 'components/organisms/PostFooter'
 
 import tattoo from '@public/tattoo.png'
 
-interface IProps {
-  postHeader: IPostHeaderProps
-}
+import Image from 'next/image'
 
-const Post = ({ postHeader }: IProps) => (
-  <Container>
+const Post = ({ postHeader }: IPostProps) => (
+  <PostStyle>
     <PostHeader
       name={postHeader.name}
       avatar={postHeader.avatar}
@@ -33,7 +28,7 @@ const Post = ({ postHeader }: IProps) => (
     />
 
     <PostFooter />
-  </Container>
+  </PostStyle>
 )
 
 export default Post

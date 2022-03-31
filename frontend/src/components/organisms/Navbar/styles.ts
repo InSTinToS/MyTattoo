@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.nav`
+const NavbarStyle = styled.nav`
   position: fixed;
   top: 0;
   left: 0;
@@ -26,3 +26,5 @@ export const Container = styled.nav`
     }
   }
 `
+
+export { NavbarStyle }

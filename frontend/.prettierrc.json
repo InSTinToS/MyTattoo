@@ -11,7 +11,7 @@
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
   "importOrder": [
-    "^react$|^next$|^next/|^./styles|^styled-components",
+    "^./types$|^./styles$|^./logic$",
     "^./|^../",
     "^components/atoms",
     "^^components/molecules",
@@ -24,6 +24,6 @@
     "^types",
     "^utils",
     "^@public",
-    "^"
+    "<THIRD_PARTY_MODULES>"
   ]
 }

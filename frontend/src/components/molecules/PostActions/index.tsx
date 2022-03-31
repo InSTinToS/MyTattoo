@@ -1,24 +1,20 @@
-import { Container } from './styles'
-import React from 'react'
-import { useTheme } from 'styled-components'
+import { PostActionsStyle } from './styles'
+import type { IPostActionsProps } from './types'
 
 import Label from 'components/atoms/Label'
-import Balloon from 'components/atoms/icons/Balloon'
-import Heart from 'components/atoms/icons/Heart'
-import OutlinedBalloon from 'components/atoms/icons/OutlinedBalloon'
+import Balloon from 'components/atoms/icons/Balloon/Balloon'
+import Heart from 'components/atoms/icons/Heart/Heart'
+import OutlinedBalloon from 'components/atoms/icons/OutlinedBalloon/OutlinedBalloon'
+
+import { useTheme } from 'styled-components'
 
 const fakeTattooStyles = ['Maori', 'Old School', 'Tribal', 'Trash', 'Aquarela']
 
-interface IPostActions {
-  ballonFilled: boolean
-  onBalloonClick: () => void
-}
-
-const PostActions = ({ onBalloonClick, ballonFilled }: IPostActions) => {
+const PostActions = ({ onBalloonClick, ballonFilled }: IPostActionsProps) => {
   const theme = useTheme()
 
   return (
-    <Container>
+    <PostActionsStyle>
       <li>
         <Heart color={theme.colors.secondary} size={24} outlined />
       </li>
@@ -36,7 +32,7 @@ const PostActions = ({ onBalloonClick, ballonFilled }: IPostActions) => {
           <Label label={tattooStyle} />
         </li>
       ))}
-    </Container>
+    </PostActionsStyle>
   )
 }
 

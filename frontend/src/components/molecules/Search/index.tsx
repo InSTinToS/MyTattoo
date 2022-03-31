@@ -1,16 +1,14 @@
-import { Container } from './styles'
-import React from 'react'
-
-import { SearchFormLogic } from './logic'
+import { useSearch } from './logic'
+import { SearchStyle } from './styles'
 
 import Input from 'components/atoms/Input'
-import SearchIcon from 'components/atoms/icons/Search'
+import SearchIcon from 'components/atoms/icons/SearchBalloon/Search'
 
 const Search = () => {
-  const { searchIconColor, formik } = SearchFormLogic()
+  const { searchIconColor, formik } = useSearch()
 
   return (
-    <Container>
+    <SearchStyle>
       <SearchIcon color={searchIconColor} size={20} />
 
       <form onSubmit={formik.handleSubmit}>
@@ -20,7 +18,7 @@ const Search = () => {
           placeholder='Procure as melhores tatuagens!'
         />
       </form>
-    </Container>
+    </SearchStyle>
   )
 }
 

@@ -1,5 +1,4 @@
-import { Container } from './styles'
-import React from 'react'
+import { PostsStyle } from './styles'
 
 import Post from '../Post'
 
@@ -25,7 +24,7 @@ const fakePosts = [
 ]
 
 const Posts = () => (
-  <Container>
+  <PostsStyle>
     <ul>
       {fakePosts.map(({ avatar, description, name, id, isArtist }) => (
         <li key={id}>
@@ -33,7 +32,7 @@ const Posts = () => (
         </li>
       ))}
     </ul>
-  </Container>
+  </PostsStyle>
 )
 
 export default Posts

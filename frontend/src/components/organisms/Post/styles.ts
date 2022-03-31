@@ -1,8 +1,7 @@
+import { lighten } from 'polished'
 import styled from 'styled-components'
 
-import { lighten } from 'polished'
-
-const Container = styled.div`
+const PostStyle = styled.div`
   padding: 16px;
   border-radius: 16px;
 
@@ -41,4 +40,4 @@ const Container = styled.div`
   }
 `
 
-export { Container }
+export { PostStyle }
