@@ -1,5 +1,5 @@
 interface IPostActionsProps {
-  ballonFilled: boolean
+  commenting: boolean
   onBalloonClick: () => void
 }
 

@@ -1,13 +1,13 @@
 import { useState } from 'react'
 
 const usePostFooter = () => {
-  const [isCommentsOpen, setIsCommentsOpen] = useState(false)
+  const [commenting, setIsCommenting] = useState(false)
 
   const onBalloonClick = () => {
-    setIsCommentsOpen(prev => !prev)
+    setIsCommenting(prev => !prev)
   }
 
-  return { isCommentsOpen, onBalloonClick }
+  return { commenting, onBalloonClick }
 }
 
 export { usePostFooter }

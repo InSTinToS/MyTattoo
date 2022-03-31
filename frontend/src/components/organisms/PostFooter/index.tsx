@@ -6,16 +6,13 @@ import PostActions from 'components/molecules/PostActions'
 import Comments from 'components/organisms/Comments'
 
 const PostFooter = () => {
-  const { isCommentsOpen, onBalloonClick } = usePostFooter()
+  const { commenting, onBalloonClick } = usePostFooter()
 
   return (
     <PostFooterStyle>
-      <PostActions
-        ballonFilled={isCommentsOpen}
-        onBalloonClick={onBalloonClick}
-      />
+      <PostActions commenting={commenting} onBalloonClick={onBalloonClick} />
 
-      {isCommentsOpen && <Comments />}
+      {commenting && <Comments />}
     </PostFooterStyle>
   )
 }

@@ -1,30 +1,25 @@
+import { usePostActions } from './logic'
 import { PostActionsStyle } from './styles'
 import type { IPostActionsProps } from './types'
 
-import Label from 'components/atoms/Label'
-import Balloon from 'components/atoms/icons/Balloon/Balloon'
-import Heart from 'components/atoms/icons/Heart/Heart'
-import OutlinedBalloon from 'components/atoms/icons/OutlinedBalloon/OutlinedBalloon'
+import BalloonButton from '../BalloonButton'
+import HeartButton from '../HeartButton'
 
-import { useTheme } from 'styled-components'
+import Label from 'components/atoms/Label'
 
 const fakeTattooStyles = ['Maori', 'Old School', 'Tribal', 'Trash', 'Aquarela']
 
-const PostActions = ({ onBalloonClick, ballonFilled }: IPostActionsProps) => {
-  const theme = useTheme()
+const PostActions = ({ commenting, onBalloonClick }: IPostActionsProps) => {
+  const { liked, onHeartClick } = usePostActions()
 
   return (
     <PostActionsStyle>
       <li>
-        <Heart color={theme.colors.secondary} size={24} outlined />
+        <HeartButton liked={liked} onClick={onHeartClick} />
       </li>
 
-      <li onClick={onBalloonClick}>
-        {ballonFilled ? (
-          <Balloon color={theme.colors.secondary} size={24} />
-        ) : (
-          <OutlinedBalloon color={theme.colors.secondary} size={24} />
-        )}
+      <li>
+        <BalloonButton outlined={!commenting} onClick={onBalloonClick} />
       </li>
 
       {fakeTattooStyles.map(tattooStyle => (

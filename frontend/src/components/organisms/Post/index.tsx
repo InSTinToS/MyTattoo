@@ -5,8 +5,6 @@ import PostHeader from 'components/molecules/PostHeader'
 
 import PostFooter from 'components/organisms/PostFooter'
 
-import tattoo from '@public/tattoo.png'
-
 import Image from 'next/image'
 
 const Post = ({ postHeader }: IPostProps) => (
@@ -19,9 +17,10 @@ const Post = ({ postHeader }: IPostProps) => (
     />
 
     <Image
-      src={tattoo}
       width='100%'
       height='100%'
+      priority={true}
+      src='/tattoo.png'
       alt='tattoo image'
       layout='responsive'
       objectFit='contain'
