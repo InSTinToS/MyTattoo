@@ -3,6 +3,7 @@ import React from 'react'
 
 import { SearchFormLogic } from './logic'
 
+import Input from 'components/atoms/Input'
 import SearchIcon from 'components/atoms/icons/Search'
 
 const Search = () => {
@@ -13,7 +14,7 @@ const Search = () => {
       <SearchIcon color={searchIconColor} size={20} />
 
       <form onSubmit={formik.handleSubmit}>
-        <input
+        <Input
           name='search'
           spellCheck='false'
           placeholder='Procure as melhores tatuagens!'

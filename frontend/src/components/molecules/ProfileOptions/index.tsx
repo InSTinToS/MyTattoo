@@ -3,7 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import { useTheme } from 'styled-components'
 
-import ArtistHeart from 'components/atoms/icons/ArtistHeart/ArtistHeart'
+import ArtistHeart from 'components/atoms/icons/ArtistHeart'
 import Heart from 'components/atoms/icons/Heart'
 
 import avatar from '@public/avatar.png'

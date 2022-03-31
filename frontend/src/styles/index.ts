@@ -1,14 +1,15 @@
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
-  * {
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    box-sizing: border-box;
-  }
+
+  html {  
+      * {
+      margin: 0;
+      padding: 0;
+      outline: 0;
+      box-sizing: border-box;
+    }
   
-  html {
     font-size: 62.5%;
     font-family: 'Roboto', sans-serif;
 
@@ -23,13 +24,8 @@ export default createGlobalStyle`
         color: ${({ theme }) => theme.colors.secondary};
       }
 
-      ul {
-        margin: 0;
-        padding: 0;
-
-        li {
-          list-style-type: none;
-        }
+      li {
+        list-style-type: none;
       }
 
       button {
