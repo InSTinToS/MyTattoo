@@ -5,6 +5,7 @@ import { FeedStyle } from './style'
 import LeftSide from 'components/organisms/LeftSide'
 import Navbar from 'components/organisms/Navbar'
 import Posts from 'components/organisms/Posts'
+import RightSide from 'components/organisms/RightSide'
 
 import Head from 'next/head'
 
@@ -25,7 +26,7 @@ const Feed = () => {
 
           <Posts />
 
-          <aside></aside>
+          <RightSide />
         </FeedContext.Provider>
       </FeedStyle>
     </>

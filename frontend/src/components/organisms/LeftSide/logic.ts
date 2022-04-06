@@ -11,22 +11,14 @@ const fakeStylesToFilter = [
   { name: 'Aquarela', id: '5' }
 ]
 
-const transition = 'all 0.3s ease-in-out'
-
 const useLeftSide = () => {
   const theme = useTheme()
 
   const [filters, setFilters] = useState<IFiltersState>()
-
   const [showUnsignedsFilters, setShowUnsignedsFilters] = useState(true)
 
-  const arrowAnimation = {
-    transition,
-    transform: showUnsignedsFilters ? 'rotate(0deg)' : 'rotate(180deg)'
-  }
-
   const notAddedFiltersAnimation = {
-    transition,
+    transition: 'all 0.3s ease-in-out',
     flex: showUnsignedsFilters ? '1' : 'none',
     height: showUnsignedsFilters ? '100%' : '0%'
   }
@@ -86,7 +78,6 @@ const useLeftSide = () => {
     filters,
     onArrowClick,
     onFilterClick,
-    arrowAnimation,
     showUnsignedsFilters,
     notAddedFiltersAnimation
   }

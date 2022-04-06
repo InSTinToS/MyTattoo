@@ -2,6 +2,7 @@ import { useLeftSide } from './logic'
 import { LeftSideStyle } from './styles'
 import type { ILeftSideProps } from './types'
 
+import DropArrow from 'components/atoms/DropArrow'
 import Input from 'components/atoms/Input'
 import Arrow from 'components/atoms/icons/Arrow'
 import Search from 'components/atoms/icons/Search'
@@ -15,8 +16,8 @@ const LeftSide = (props: ILeftSideProps) => {
     theme,
     filters,
     onArrowClick,
-    arrowAnimation,
     onFilterClick,
+    showUnsignedsFilters,
     notAddedFiltersAnimation
   } = useLeftSide()
 
@@ -30,11 +31,11 @@ const LeftSide = (props: ILeftSideProps) => {
             <Input name='filter' placeholder='Procure por filtros' />
           </form>
 
-          <Arrow
+          <DropArrow
             size={18}
-            style={arrowAnimation}
             onClick={onArrowClick}
             color={theme.colors.secondary}
+            condition={showUnsignedsFilters}
           />
         </header>
 
