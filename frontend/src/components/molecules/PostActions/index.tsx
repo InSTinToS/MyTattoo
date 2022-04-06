@@ -5,7 +5,7 @@ import type { IPostActionsProps } from './types'
 import BalloonButton from '../BalloonButton'
 import HeartButton from '../HeartButton'
 
-import Label from 'components/atoms/Label'
+import Label from 'components/molecules/Label'
 
 const fakeTattooStyles = ['Maori', 'Old School', 'Tribal', 'Trash', 'Aquarela']
 

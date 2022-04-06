@@ -2,14 +2,14 @@ import { useSearch } from './logic'
 import { SearchStyle } from './styles'
 
 import Input from 'components/atoms/Input'
-import SearchIcon from 'components/atoms/icons/SearchBalloon/Search'
+import SearchIcon from 'components/atoms/icons/Search'
 
 const Search = () => {
-  const { searchIconColor, formik } = useSearch()
+  const { theme, formik } = useSearch()
 
   return (
     <SearchStyle>
-      <SearchIcon color={searchIconColor} size={20} />
+      <SearchIcon color={theme.colors.secondary} size={20} />
 
       <form onSubmit={formik.handleSubmit}>
         <Input

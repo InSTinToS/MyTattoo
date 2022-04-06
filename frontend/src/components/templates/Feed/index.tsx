@@ -1,26 +1,35 @@
+import { FeedContext, useFeed } from './logic'
+
 import { FeedStyle } from './style'
 
+import LeftSide from 'components/organisms/LeftSide'
 import Navbar from 'components/organisms/Navbar'
 import Posts from 'components/organisms/Posts'
 
 import Head from 'next/head'
 
-const Feed = () => (
-  <>
-    <Head>
-      <title>Feed</title>
-    </Head>
+const Feed = () => {
+  const { showLeftSide, contextValue } = useFeed()
 
-    <FeedStyle>
-      <Navbar />
+  return (
+    <>
+      <Head>
+        <title>Feed</title>
+      </Head>
 
-      <aside></aside>
+      <FeedStyle>
+        <FeedContext.Provider value={contextValue}>
+          <Navbar />
 
-      <Posts />
+          {showLeftSide && <LeftSide />}
 
-      <aside></aside>
-    </FeedStyle>
-  </>
-)
+          <Posts />
+
+          <aside></aside>
+        </FeedContext.Provider>
+      </FeedStyle>
+    </>
+  )
+}
 
 export default Feed

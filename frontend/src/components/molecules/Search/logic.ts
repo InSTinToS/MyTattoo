@@ -14,12 +14,9 @@ const useSearch = () => {
     console.log(values)
   }
 
-  const formik = useFormik({
-    initialValues,
-    onSubmit: onSearchFormSubmit
-  })
+  const formik = useFormik({ initialValues, onSubmit: onSearchFormSubmit })
 
-  return { formik, searchIconColor: theme.colors.secondary }
+  return { formik, theme }
 }
 
 export { useSearch }

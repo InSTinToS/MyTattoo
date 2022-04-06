@@ -23,7 +23,7 @@ const useDisplayOptions = () => {
       ? theme.colors.primary
       : theme.colors.secondary
 
-  return { onLiClick, horizontalColor, verticalColor }
+  return { onLiClick, horizontalColor, verticalColor, theme }
 }
 
 export { useDisplayOptions }

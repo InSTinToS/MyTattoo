@@ -7,6 +7,8 @@ const NavbarStyle = styled.nav`
   right: 0;
   z-index: 1;
 
+  min-width: 320px;
+
   background-color: ${({ theme }) => theme.colors.background};
 
   > ul {
@@ -16,13 +18,30 @@ const NavbarStyle = styled.nav`
     width: 100%;
     padding: 16px 24px;
 
-    > li:first-child,
-    > li:last-child {
-      flex: 1;
-    }
+    > li {
+      display: flex;
+      align-items: center;
 
-    > li:nth-child(2) {
-      width: 500px;
+      height: 46px;
+
+      :not(:nth-child(2)) {
+        flex: 1;
+      }
+
+      :nth-child(2) {
+        flex: 3;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    > ul {
+      > li {
+        :nth-child(2) {
+          flex: none;
+          width: min(100%, 65vh);
+        }
+      }
     }
   }
 `

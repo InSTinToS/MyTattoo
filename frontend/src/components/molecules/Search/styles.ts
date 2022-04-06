@@ -3,8 +3,8 @@ import styled from 'styled-components'
 const SearchStyle = styled.div`
   display: flex;
 
+  width: 100%;
   padding: 8px;
-  width: 500px;
   height: 40px;
   border-radius: 16px;
 

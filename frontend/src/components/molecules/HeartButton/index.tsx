@@ -2,7 +2,7 @@ import { useHeartButton } from './logic'
 import { HeartButtonStyle } from './styles'
 import type { IHeartButtonProps } from './types'
 
-import Heart from 'components/atoms/icons/Heart/Heart'
+import Heart from 'components/atoms/icons/Heart'
 
 const HeartButton = ({
   liked,

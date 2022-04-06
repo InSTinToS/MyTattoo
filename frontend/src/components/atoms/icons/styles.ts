@@ -8,7 +8,6 @@ const IconStyle = styled.div<IIconStyleProps>`
   justify-content: center;
 
   svg {
-    width: ${({ size }) => size}px;
     height: ${({ size }) => size}px;
   }
 

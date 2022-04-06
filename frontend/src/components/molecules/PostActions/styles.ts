@@ -9,6 +9,10 @@ const PostActionsStyle = styled.ul`
   margin: 16px 0;
 
   > li + li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     margin-left: 16px;
   }
 `

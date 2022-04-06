@@ -1,4 +1,6 @@
-interface IIconStyleProps {
+import { HTMLAttributes, HTMLProps } from 'react'
+
+interface IIconStyleProps extends HTMLAttributes<HTMLDivElement> {
   size: number
   color: string
 }
