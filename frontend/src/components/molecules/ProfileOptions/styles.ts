@@ -6,6 +6,7 @@ const ProfileOptionsStyle = styled.ul`
   justify-content: flex-end;
 
   width: 100%;
+  padding-right: 24px;
 
   li {
     :not(:last-child) {
@@ -17,7 +18,7 @@ const ProfileOptionsStyle = styled.ul`
     }
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1080px) {
     li {
       &:not(:last-child) {
         display: block;

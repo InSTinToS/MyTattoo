@@ -1,8 +1,8 @@
-import { HTMLAttributes, HTMLProps } from 'react'
+import { HTMLAttributes } from 'react'
 
 interface IIconStyleProps extends HTMLAttributes<HTMLDivElement> {
   size: number
-  color: string
+  color?: string
 }
 
 interface IOutlinedIconStyleProps extends IIconStyleProps {

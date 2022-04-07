@@ -12,7 +12,11 @@ const IconStyle = styled.div<IIconStyleProps>`
   }
 
   path {
-    fill: ${({ color }) => color};
+    ${({ color }) =>
+      color &&
+      css`
+        fill: ${color};
+      `};
   }
 `
 

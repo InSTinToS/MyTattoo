@@ -8,6 +8,7 @@ const NavbarStyle = styled.nav`
   z-index: 1;
 
   min-width: 320px;
+  height: 78px;
 
   background-color: ${({ theme }) => theme.colors.background};
 
@@ -16,31 +17,57 @@ const NavbarStyle = styled.nav`
     align-items: center;
 
     width: 100%;
-    padding: 16px 24px;
+    height: 100%;
 
     > li {
       display: flex;
       align-items: center;
+      justify-content: center;
 
       height: 46px;
 
-      :not(:nth-child(2)) {
-        flex: 1;
+      &:first-child {
+        padding-left: 8px;
       }
 
-      :nth-child(2) {
-        flex: 3;
+      &:nth-child(2) {
+        flex: 1;
+        padding: 0 16px;
+      }
+
+      &:last-child {
+        padding-right: 8px;
       }
     }
   }
 
-  @media screen and (min-width: 1024px) {
-    > ul {
-      > li {
-        :nth-child(2) {
-          flex: none;
-          width: min(100%, 65vh);
-        }
+  @media screen and (min-width: 560px) {
+    > ul > li {
+      &:first-child {
+      }
+
+      &:nth-child(2) {
+      }
+
+      &:last-child {
+      }
+    }
+  }
+
+  @media screen and (min-width: 1080px) {
+    > ul > li {
+      width: 25vw;
+
+      &:first-child {
+        padding-left: 24px;
+      }
+
+      &:nth-child(2) {
+        width: 50vw;
+      }
+
+      &:last-child {
+        padding-right: 24px;
       }
     }
   }

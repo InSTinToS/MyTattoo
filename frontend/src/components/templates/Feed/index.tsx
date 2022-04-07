@@ -1,7 +1,7 @@
 import { FeedContext, useFeed } from './logic'
+import { FeedStyle } from './styles'
 
-import { FeedStyle } from './style'
-
+import AuthModal from 'components/organisms/AuthModal'
 import LeftSide from 'components/organisms/LeftSide'
 import Navbar from 'components/organisms/Navbar'
 import Posts from 'components/organisms/Posts'
@@ -10,7 +10,7 @@ import RightSide from 'components/organisms/RightSide'
 import Head from 'next/head'
 
 const Feed = () => {
-  const { showLeftSide, contextValue } = useFeed()
+  const { showLeftSide, showAuthModal, contextValue } = useFeed()
 
   return (
     <>
@@ -27,6 +27,8 @@ const Feed = () => {
           <Posts />
 
           <RightSide />
+
+          {showAuthModal.open && <AuthModal />}
         </FeedContext.Provider>
       </FeedStyle>
     </>

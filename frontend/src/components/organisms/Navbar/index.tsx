@@ -1,5 +1,7 @@
 import { NavbarStyle } from './styles'
 
+import AuthOptions from '../AuthOptions'
+
 import DisplayOptions from 'components/molecules/DisplayOptions'
 import ProfileOptions from 'components/molecules/ProfileOptions'
 import Search from 'components/molecules/Search'
@@ -15,9 +17,7 @@ const Navbar = () => (
         <Search />
       </li>
 
-      <li>
-        <ProfileOptions />
-      </li>
+      <li>{false ? <ProfileOptions /> : <AuthOptions />}</li>
     </ul>
   </NavbarStyle>
 )

@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 const DisplayOptionsStyle = styled.ul`
   display: flex;
-  align-items: center;
+
+  width: 100%;
 
   li + li {
     margin-left: 8px;
@@ -12,7 +13,7 @@ const DisplayOptionsStyle = styled.ul`
     display: none;
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1080px) {
     .feedOrientation {
       display: block;
     }

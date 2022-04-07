@@ -1,3 +1,4 @@
+import { darken, transparentize } from 'polished'
 import styled from 'styled-components'
 
 const FeedStyle = styled.main`
@@ -15,7 +16,7 @@ const FeedStyle = styled.main`
     display: none;
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1080px) {
     > section {
       width: calc(50vw - 16px);
     }
