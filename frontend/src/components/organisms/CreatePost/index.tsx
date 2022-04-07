@@ -1,0 +1,31 @@
+import { useCreatePost } from './logic'
+import { CreatePostStyle } from './styles'
+import { AddButton, ShareButton } from './styles'
+import type { ICreatePostProps } from './types'
+
+import AddPhoto from 'components/atoms/icons/AddPhoto'
+import Plus from 'components/atoms/icons/Plus'
+
+const CreatePost = (props: ICreatePostProps) => {
+  const { theme } = useCreatePost()
+
+  return (
+    <CreatePostStyle {...props}>
+      <textarea />
+
+      <div>
+        <AddButton icon={<Plus size={18} color={theme.colors.primary} />}>
+          Adicionar vertentes
+        </AddButton>
+
+        <AddButton icon={<AddPhoto size={24} color={theme.colors.primary} />}>
+          Adicionar imagem
+        </AddButton>
+
+        <ShareButton type='submit'>Publicar</ShareButton>
+      </div>
+    </CreatePostStyle>
+  )
+}
+
+export default CreatePost

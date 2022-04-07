@@ -1,15 +1,19 @@
 import styled from 'styled-components'
 
 const PostsStyle = styled.section`
+  > header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
   > ul {
     > li {
       display: flex;
+      align-items: center;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-    }
 
-    > li + li {
       margin-top: 24px;
     }
   }

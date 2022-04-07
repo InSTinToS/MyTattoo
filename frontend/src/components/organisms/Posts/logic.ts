@@ -1,5 +1,7 @@
 import { IFormattedData, TPostsResponse } from './types'
 
+import { useTheme } from 'styled-components'
+
 const fakePosts: TPostsResponse = [
   {
     id: '2',
@@ -16,6 +18,8 @@ const fakePosts: TPostsResponse = [
 ]
 
 const usePosts = () => {
+  const theme = useTheme()
+
   const formattedPosts: IFormattedData[] = fakePosts.map(
     ({ id, author, description }) => ({
       id: id,
@@ -28,7 +32,7 @@ const usePosts = () => {
     })
   )
 
-  return { formattedPosts }
+  return { formattedPosts, theme }
 }
 
 export { usePosts }

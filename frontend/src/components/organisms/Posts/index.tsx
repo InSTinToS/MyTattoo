@@ -1,6 +1,7 @@
 import { usePosts } from './logic'
 import { PostsStyle } from './styles'
 
+import CreatePost from '../CreatePost'
 import Post from '../Post'
 
 const Posts = () => {
@@ -8,6 +9,10 @@ const Posts = () => {
 
   return (
     <PostsStyle>
+      <header>
+        <CreatePost />
+      </header>
+
       <ul>
         {formattedPosts.map(({ headerData, id }) => (
           <li key={id}>

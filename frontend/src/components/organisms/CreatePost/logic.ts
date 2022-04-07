@@ -1,9 +1,9 @@
 import { useTheme } from 'styled-components'
 
-const useLabel = () => {
+const useCreatePost = () => {
   const theme = useTheme()
 
   return { theme }
 }
 
-export { useLabel }
+export { useCreatePost }

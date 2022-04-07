@@ -5,7 +5,7 @@ import type { IPostActionsProps } from './types'
 import BalloonButton from '../BalloonButton'
 import HeartButton from '../HeartButton'
 
-import Label from 'components/molecules/Label'
+import Button from 'components/molecules/Button'
 
 const fakeTattooStyles = ['Maori', 'Old School', 'Tribal', 'Trash', 'Aquarela']
 
@@ -24,7 +24,7 @@ const PostActions = ({ commenting, onBalloonClick }: IPostActionsProps) => {
 
       {fakeTattooStyles.map(tattooStyle => (
         <li key={tattooStyle}>
-          <Label label={tattooStyle} />
+          <Button>{tattooStyle}</Button>
         </li>
       ))}
     </PostActionsStyle>
