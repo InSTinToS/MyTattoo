@@ -1,5 +1,5 @@
-import { THandle } from './ReadBooks.types'
-import { ReadUsersService } from './ReadBooksService'
+import { THandle } from './ReadUsers.types'
+import { ReadUsersService } from './ReadUsersService'
 
 import { container } from 'tsyringe'
 
@@ -8,6 +8,8 @@ class ReadUsersController {
     const id = req.params.id
 
     const readUsersService = container.resolve(ReadUsersService)
+
+    console.log(res.locals.user.id)
 
     const Users = await readUsersService.execute(id)
 

@@ -2,7 +2,11 @@ import { UserModel } from '@modules/Users/models/UserModel'
 
 import { RequestHandler } from 'express'
 
-interface IRequest extends Omit<UserModel, 'id' | 'created_at'> {}
+interface IRequest {
+  email: UserModel['email']
+  username: UserModel['username']
+  password: UserModel['password']
+}
 
 interface IResponse extends UserModel {}
 

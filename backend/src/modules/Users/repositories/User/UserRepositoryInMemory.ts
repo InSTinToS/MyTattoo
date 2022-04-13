@@ -15,6 +15,10 @@ class UsersRepository implements IUsersRepository {
   }
 
   findAll: IUsersRepository['findAll'] = async () => this.Users
+
+  findById: (id: string) => Promise<UserModel>
+  findByEmail: (email: string) => Promise<UserModel>
+  findByUsername: (username: string) => Promise<UserModel>
 }
 
 export { UsersRepository }

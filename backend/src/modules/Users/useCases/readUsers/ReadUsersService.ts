@@ -1,4 +1,4 @@
-import { TExecute } from './ReadBooks.types'
+import { TExecute } from './ReadUsers.types'
 
 import { IUsersRepository } from '@modules/Users/repositories/User/IUserRepository.types'
 
@@ -11,8 +11,10 @@ class ReadUsersService {
     private UsersRepository: IUsersRepository
   ) {}
 
-  execute: TExecute = async () => {
-    const Users = await this.UsersRepository.findAll()
+  execute: TExecute = async id => {
+    const Users = id
+      ? await this.UsersRepository.findById(id)
+      : await this.UsersRepository.findAll()
 
     return Users
   }

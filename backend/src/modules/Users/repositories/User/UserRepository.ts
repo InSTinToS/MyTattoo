@@ -1,17 +1,36 @@
-import { UserModel } from '../models/UserModel'
-import { IUsersRepository } from './IUsersRepository.types'
+import { UserModel } from '../../models/UserModel'
 
 import { connectToDB } from '@config/connectToDB'
 
+import type { IUsersRepository } from './IUserRepository.types'
+
 class UsersRepository implements IUsersRepository {
-  create: IUsersRepository['create'] = async data => {
+  create: IUsersRepository['create'] = async ({
+    created_at,
+    id,
+    email,
+    password,
+    updated_at,
+    username
+  }) => {
     const database = await connectToDB()
 
     const query = `
-    INSERT INTO Users 
-      (id, created_at, name, author) 
-    VALUES
-      ('${data.id}', '${data.created_at}', '${data.name}', '${data.author}')
+      INSERT INTO users (
+        id,
+        email,
+        username,
+        password,
+        created_at,
+        updated_at
+      ) VALUES (
+        '${id}',
+        '${email}',
+        '${username}',
+        '${password}',
+        '${created_at}',
+        '${updated_at}'
+      );
     `
 
     const createdUser = (await database.query<UserModel>(query)).rows[0]
@@ -27,6 +46,36 @@ class UsersRepository implements IUsersRepository {
     const allUsers = (await database.query<UserModel[]>(query)).rows
 
     return allUsers
+  }
+
+  findById: IUsersRepository['findById'] = async id => {
+    const database = await connectToDB()
+
+    const query = `SELECT * FROM Users WHERE id='${id}'`
+
+    const foundUser = (await database.query<UserModel>(query)).rows[0]
+
+    return foundUser
+  }
+
+  findByEmail: IUsersRepository['findByEmail'] = async email => {
+    const database = await connectToDB()
+
+    const query = `SELECT * FROM Users WHERE email='${email}'`
+
+    const foundUser = (await database.query<UserModel>(query)).rows[0]
+
+    return foundUser
+  }
+
+  findByUsername: IUsersRepository['findByUsername'] = async username => {
+    const database = await connectToDB()
+
+    const query = `SELECT * FROM Users WHERE username='${username}'`
+
+    const foundUser = (await database.query<UserModel>(query)).rows[0]
+
+    return foundUser
   }
 }
 
