@@ -26,7 +26,9 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "incremental": true,
     "paths": {
-      "@public/*": ["../public/*"]
+      "@public/*": ["../public/*"],
+      "@backend/*": ["../../backend/src/*"]
     }
-  }
+  },
+  "references": [{ "path": "../backend" }]
 }

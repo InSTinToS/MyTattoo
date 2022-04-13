@@ -3,6 +3,8 @@ import { AuthModalStyle } from './styles'
 import { GoogleButton, InputLabel, ModalButton, SignInButton } from './styles'
 import type { IAuthModalProps } from './types'
 
+import SignUp from '../SignUp'
+
 import Input from 'components/atoms/Input'
 import Arrow from 'components/atoms/icons/Arrow'
 import Close from 'components/atoms/icons/Close'
@@ -76,37 +78,7 @@ const AuthModal = (props: IAuthModalProps) => {
             />
           </nav>
 
-          <form>
-            <InputLabel>
-              <label htmlFor=''>Nome de usuário</label>
-
-              <Input />
-            </InputLabel>
-
-            <InputLabel>
-              <label htmlFor=''>E-mail</label>
-
-              <Input />
-            </InputLabel>
-
-            <InputLabel>
-              <label htmlFor=''>Senha</label>
-
-              <Input />
-            </InputLabel>
-
-            <InputLabel>
-              <label htmlFor=''>Confirmar Senha</label>
-
-              <Input />
-            </InputLabel>
-
-            <ModalButton>Cadastrar</ModalButton>
-
-            <GoogleButton icon={<Google size={24} />}>
-              Cadastrar com o Google
-            </GoogleButton>
-          </form>
+          <SignUp />
         </section>
       )}
     </AuthModalStyle>

@@ -40,7 +40,7 @@ const SignInButton = styled(ModalButton)`
   border: solid 1px ${({ theme }) => theme.colors.primary};
 `
 
-const GoogleButton = styled(ModalButton)`
+const GoogleButton = styled(ModalButton).attrs({ type: 'button' })`
   color: gray;
   margin-top: 16px;
   background-color: white;
