@@ -52,14 +52,39 @@ const AuthModalStyle = styled.div`
 
     nav {
       display: flex;
-      justify-content: flex-end;
 
       margin-bottom: 24px;
+
+      #arrow {
+        svg {
+          height: 24px;
+          transform: rotate(-90deg);
+
+          path {
+            fill: ${({ theme }) => theme.colors.secondary};
+          }
+        }
+      }
+
+      #close {
+        svg {
+          height: 16px;
+
+          path {
+            fill: ${({ theme }) => theme.colors.secondary};
+          }
+        }
+      }
     }
   }
 
-  #sign-up nav {
-    justify-content: space-between;
+  .transparentBackground {
+    position: fixed;
+    z-index: -1;
+
+    background-color: transparent;
+    width: 100vw;
+    height: 100vh;
   }
 `
 

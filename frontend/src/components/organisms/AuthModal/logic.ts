@@ -1,13 +1,20 @@
 import { FeedContext } from 'components/templates/Feed/logic'
 
 import { useContext } from 'react'
-import { useTheme } from 'styled-components'
 
 const useAuthModal = () => {
-  const theme = useTheme()
-  const { toggleShowAuthModal, showAuthModal } = useContext(FeedContext)
+  const { showAuthModal, toggleShowAuthModal } = useContext(FeedContext)
 
-  return { theme, toggleShowAuthModal, page: showAuthModal.page }
+  document.addEventListener('keypress', e => {
+    if (e.key === 'Escape')
+      toggleShowAuthModal({ open: false, page: 'sign-in' })
+  })
+
+  const onBackgroundClick = () => {
+    toggleShowAuthModal({ open: false, page: 'sign-in' })
+  }
+
+  return { page: showAuthModal.page, onBackgroundClick }
 }
 
 export { useAuthModal }

@@ -45,7 +45,19 @@ const signupSchema = Yup.object().shape({
 
 const useSignUp = () => {
   const theme = useTheme()
-  const { triggeringFeedback } = useContext(FeedContext)
+  const { triggeringFeedback, toggleShowAuthModal } = useContext(FeedContext)
+
+  const onSignUpSubmit: TOnSignupSubmit = async ({
+    email,
+    password,
+    username
+  }) => await createUser({ email, password, username })
+
+  const formik = useFormik({
+    initialValues,
+    onSubmit: onSignUpSubmit,
+    validationSchema: signupSchema
+  })
 
   const createUser = async (dataToCreate: IRequest) => {
     try {
@@ -64,25 +76,21 @@ const useSignUp = () => {
     } catch (error) {
       triggeringFeedback({
         title: 'Error',
-        content: 'Error ao se cadastrar, tente novamente mais tarde.',
-        color: theme.colors.red
+        color: theme.colors.red,
+        content: 'Error ao se cadastrar, tente novamente mais tarde.'
       })
     }
   }
 
-  const onSignUpSubmit: TOnSignupSubmit = async ({
-    email,
-    password,
-    username
-  }) => await createUser({ email, password, username })
+  const onArrowClick = () => {
+    toggleShowAuthModal({ page: 'sign-in', open: true })
+  }
 
-  const formik = useFormik({
-    initialValues,
-    onSubmit: onSignUpSubmit,
-    validationSchema: signupSchema
-  })
+  const onCloseClick = () => {
+    toggleShowAuthModal({ page: 'sign-in', open: false })
+  }
 
-  return { formik }
+  return { formik, onArrowClick, onCloseClick }
 }
 
 export { useSignUp }

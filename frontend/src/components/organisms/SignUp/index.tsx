@@ -4,33 +4,43 @@ import type { ISignUpProps } from './types'
 
 import { GoogleButton, ModalButton } from '../AuthModal/styles'
 
+import Arrow from 'components/atoms/icons/Arrow'
+import Close from 'components/atoms/icons/Close'
 import Google from 'components/atoms/icons/Google'
 
 import Field from 'components/molecules/Field'
 
 const SignUp = (props: ISignUpProps) => {
-  const { formik } = useSignUp()
+  const { formik, onArrowClick, onCloseClick } = useSignUp()
 
   return (
-    <SignUpStyle {...props} onSubmit={formik.handleSubmit}>
-      <Field name='username' label='Nome de usuário' formik={formik} />
+    <SignUpStyle {...props}>
+      <nav>
+        <Arrow id='arrow' onClick={onArrowClick} />
 
-      <Field type='email' name='email' label='E-mail' formik={formik} />
+        <Close id='close' onClick={onCloseClick} />
+      </nav>
 
-      <Field type='password' name='password' label='Senha' formik={formik} />
+      <form onSubmit={formik.handleSubmit}>
+        <Field name='username' label='Nome de usuário' formik={formik} />
 
-      <Field
-        type='password'
-        formik={formik}
-        name='confirmPassword'
-        label='Confirmar senha'
-      />
+        <Field type='email' name='email' label='E-mail' formik={formik} />
 
-      <ModalButton type='submit'>Cadastrar</ModalButton>
+        <Field type='password' name='password' label='Senha' formik={formik} />
 
-      <GoogleButton icon={<Google size={24} />}>
-        Cadastrar com o Google
-      </GoogleButton>
+        <Field
+          type='password'
+          formik={formik}
+          name='confirmPassword'
+          label='Confirmar senha'
+        />
+
+        <ModalButton type='submit'>Cadastrar</ModalButton>
+
+        <GoogleButton icon={<Google size={24} />}>
+          Cadastrar com o Google
+        </GoogleButton>
+      </form>
     </SignUpStyle>
   )
 }
