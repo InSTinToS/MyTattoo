@@ -1,7 +1,7 @@
 import { HTMLAttributes } from 'react'
 
 interface IIconStyleProps extends HTMLAttributes<HTMLDivElement> {
-  size: number
+  size?: number
   color?: string
 }
 

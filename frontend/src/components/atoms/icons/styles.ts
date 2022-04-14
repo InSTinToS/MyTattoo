@@ -8,7 +8,11 @@ const IconStyle = styled.div<IIconStyleProps>`
   justify-content: center;
 
   svg {
-    height: ${({ size }) => size}px;
+    ${({ size }) =>
+      size &&
+      css`
+        height: ${size}px;
+      `};
   }
 
   path {

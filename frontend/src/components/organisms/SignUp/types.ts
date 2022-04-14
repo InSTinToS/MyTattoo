@@ -5,8 +5,8 @@ interface ISignUpStyleProps {}
 
 interface ISignUpProps extends ISignUpStyleProps {}
 
-interface ISignUpValues extends IRequest {
-  confirmPassword: IRequest['password']
+interface ISignUpValues extends Partial<IRequest> {
+  confirmPassword?: IRequest['password']
 }
 
 type TOnSignupSubmit = FormikConfig<ISignUpValues>['onSubmit']

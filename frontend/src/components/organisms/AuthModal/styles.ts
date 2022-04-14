@@ -3,47 +3,25 @@ import Button from 'components/molecules/Button'
 import { darken, transparentize } from 'polished'
 import styled from 'styled-components'
 
-const InputLabel = styled.div`
-  position: relative;
-  border: solid 1px ${({ theme }) => theme.colors.secondary};
-
-  border-radius: 16px;
-  margin-bottom: 24px;
-
-  input {
-    height: 40px;
-  }
-
-  label {
-    position: absolute;
-    top: -50%;
-
-    padding: 0 8px;
-    margin-left: 16px;
-    transform: translateY(50%);
-
-    background-color: ${({ theme }) => theme.colors.background};
-  }
-`
-
 const ModalButton = styled(Button)`
   display: flex;
   justify-content: center;
 
-  padding: 8px;
+  width: 100%;
+  height: 50px;
 `
 
 const SignInButton = styled(ModalButton)`
-  margin-bottom: 8px;
   background-color: transparent;
+
   color: ${({ theme }) => theme.colors.primary};
   border: solid 1px ${({ theme }) => theme.colors.primary};
 `
 
 const GoogleButton = styled(ModalButton).attrs({ type: 'button' })`
   color: gray;
-  margin-top: 16px;
   background-color: white;
+  margin-top: 24px;
 
   span {
     margin-left: 16px;
@@ -78,19 +56,11 @@ const AuthModalStyle = styled.div`
 
       margin-bottom: 24px;
     }
-
-    form {
-      > * {
-        width: 100%;
-      }
-    }
   }
 
-  #sign-up {
-    nav {
-      justify-content: space-between;
-    }
+  #sign-up nav {
+    justify-content: space-between;
   }
 `
 
-export { InputLabel, SignInButton, ModalButton, GoogleButton, AuthModalStyle }
+export { ModalButton, SignInButton, GoogleButton, AuthModalStyle }

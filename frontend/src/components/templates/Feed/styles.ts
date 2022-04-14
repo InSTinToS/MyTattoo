@@ -1,4 +1,3 @@
-import { darken, transparentize } from 'polished'
 import styled from 'styled-components'
 
 const FeedStyle = styled.main`

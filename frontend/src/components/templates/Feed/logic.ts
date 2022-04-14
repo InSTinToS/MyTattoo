@@ -1,19 +1,20 @@
-import type { IFeedContext, IShowAuthModalState } from './types'
+import type { IFeedContext, IFeedbackState, IShowAuthModalState } from './types'
 
 import { createContext, useState } from 'react'
-import { useTheme } from 'styled-components'
 
 const FeedContext = createContext<IFeedContext>({
   showLeftSide: true,
   toggleShowLeftSide: null,
   toggleShowAuthModal: null,
+  triggeringFeedback: null,
   showAuthModal: { page: 'sign-in', open: false }
 })
 
 const useFeed = () => {
-  const theme = useTheme()
-
   const [showLeftSide, setShowLeftSide] = useState(true)
+  const [feedback, setFeedback] = useState<IFeedbackState>({
+    open: false
+  })
   const [showAuthModal, setShowAuthModal] = useState<IShowAuthModalState>({
     open: false,
     page: 'sign-in'
@@ -27,14 +28,23 @@ const useFeed = () => {
     setShowAuthModal(newState)
   }
 
-  const contextValue = {
+  const triggeringFeedback = (props: IFeedbackState['props']) => {
+    setFeedback({ open: true, props })
+
+    setTimeout(() => {
+      setFeedback({ open: false })
+    }, 3000)
+  }
+
+  const contextValue: IFeedContext = {
     showLeftSide,
     showAuthModal,
     toggleShowLeftSide,
+    triggeringFeedback,
     toggleShowAuthModal
   }
 
-  return { showLeftSide, contextValue, theme, showAuthModal }
+  return { showLeftSide, contextValue, showAuthModal, feedback }
 }
 
 export { useFeed, FeedContext }

@@ -1,14 +1,11 @@
 import { useAuthModal } from './logic'
 import { AuthModalStyle } from './styles'
-import { GoogleButton, InputLabel, ModalButton, SignInButton } from './styles'
 import type { IAuthModalProps } from './types'
 
 import SignUp from '../SignUp'
 
-import Input from 'components/atoms/Input'
 import Arrow from 'components/atoms/icons/Arrow'
 import Close from 'components/atoms/icons/Close'
-import Google from 'components/atoms/icons/Google'
 
 const AuthModal = (props: IAuthModalProps) => {
   const { theme, toggleShowAuthModal, page } = useAuthModal()
@@ -27,7 +24,7 @@ const AuthModal = (props: IAuthModalProps) => {
             />
           </nav>
 
-          <form>
+          {/* <form>
             <InputLabel>
               <label htmlFor=''>Nome de usuário ou E-mail</label>
 
@@ -53,7 +50,7 @@ const AuthModal = (props: IAuthModalProps) => {
             <GoogleButton icon={<Google size={24} />}>
               Entrar com o Google
             </GoogleButton>
-          </form>
+          </form> */}
         </section>
       )}
 

@@ -2,57 +2,31 @@ import { useSignUp } from './logic'
 import { SignUpStyle } from './styles'
 import type { ISignUpProps } from './types'
 
-import { GoogleButton, InputLabel, ModalButton } from '../AuthModal/styles'
+import { GoogleButton, ModalButton } from '../AuthModal/styles'
 
-import Input from 'components/atoms/Input'
 import Google from 'components/atoms/icons/Google'
+
+import Field from 'components/molecules/Field'
 
 const SignUp = (props: ISignUpProps) => {
   const { formik } = useSignUp()
 
   return (
     <SignUpStyle {...props} onSubmit={formik.handleSubmit}>
-      <InputLabel>
-        <label htmlFor='username'>Nome de usuário</label>
+      <Field name='username' label='Nome de usuário' formik={formik} />
 
-        <Input
-          name='username'
-          onChange={formik.handleChange}
-          value={formik.values.username}
-        />
-      </InputLabel>
+      <Field type='email' name='email' label='E-mail' formik={formik} />
 
-      <InputLabel>
-        <label htmlFor='email'>E-mail</label>
+      <Field type='password' name='password' label='Senha' formik={formik} />
 
-        <Input
-          name='email'
-          onChange={formik.handleChange}
-          value={formik.values.email}
-        />
-      </InputLabel>
+      <Field
+        type='password'
+        formik={formik}
+        name='confirmPassword'
+        label='Confirmar senha'
+      />
 
-      <InputLabel>
-        <label htmlFor='password'>Senha</label>
-
-        <Input
-          name='password'
-          onChange={formik.handleChange}
-          value={formik.values.password}
-        />
-      </InputLabel>
-
-      <InputLabel>
-        <label htmlFor='confirmPassword'>Confirmar Senha</label>
-
-        <Input
-          name='confirmPassword'
-          onChange={formik.handleChange}
-          value={formik.values.confirmPassword}
-        />
-      </InputLabel>
-
-      <ModalButton>Cadastrar</ModalButton>
+      <ModalButton type='submit'>Cadastrar</ModalButton>
 
       <GoogleButton icon={<Google size={24} />}>
         Cadastrar com o Google

@@ -1,6 +1,6 @@
-import type { HTMLProps } from 'react'
+import { HTMLProps } from 'react'
 
-interface IInputProps extends HTMLProps<HTMLInputElement>, IInputStyleProps {}
+interface IInputProps extends HTMLProps<HTMLInputElement> {}
 
 interface IInputStyleProps {
   outlined?: boolean
