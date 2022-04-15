@@ -1,12 +1,12 @@
 import { RequestHandler } from 'express'
 
 interface IRequest {
-  email?: string
   password: string
-  username?: string
+  usernameOrEmail: string
 }
 
 interface IResponse {
+  id: string
   token: string
 }
 

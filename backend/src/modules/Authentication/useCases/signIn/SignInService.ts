@@ -14,16 +14,16 @@ class SignInService {
     private usersRepository: IUsersRepository
   ) {}
 
-  execute: TExecute = async ({ email, password, username }) => {
-    if ((!email && !username) || !password)
+  execute: TExecute = async ({ usernameOrEmail, password }) => {
+    if (!usernameOrEmail || !password)
       throw new AppError(
         'Needed to inform username or email, and password',
         400
       )
 
-    const foundUser = email
-      ? await this.usersRepository.findByEmail(email)
-      : await this.usersRepository.findByUsername(username)
+    const foundUser = usernameOrEmail.includes('@')
+      ? await this.usersRepository.findByEmail(usernameOrEmail)
+      : await this.usersRepository.findByUsername(usernameOrEmail)
 
     if (!foundUser) throw new AppError('Email or password invalid', 401)
 
@@ -36,7 +36,7 @@ class SignInService {
       expiresIn: '1d'
     })
 
-    return { token }
+    return { token, id: foundUser.id }
   }
 }
 

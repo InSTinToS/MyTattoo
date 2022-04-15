@@ -16,6 +16,6 @@ type TResponse = UserModel[] | UserModel
 
 type TExecute = (id?: IParams['id']) => Promise<TResponse>
 
-type THandle = RequestHandler<IParams, TResponse, void, void, ILocals>
+type THandle = RequestHandler<IParams, TResponse, any, any, ILocals>
 
-export { TExecute, THandle }
+export { TExecute, THandle, TResponse, UserModel }
