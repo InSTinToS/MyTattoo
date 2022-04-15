@@ -4,7 +4,7 @@ import Button from 'components/molecules/Button'
 
 import styled from 'styled-components'
 
-const AuthOptionsStyle = styled.div<IAuthOptionsStyleProps>`
+const AuthOptionsStyle = styled.ul<IAuthOptionsStyleProps>`
   display: flex;
   justify-content: flex-end;
 

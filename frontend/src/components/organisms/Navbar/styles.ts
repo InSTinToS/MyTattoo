@@ -27,7 +27,7 @@ const NavbarStyle = styled.nav`
       height: 46px;
 
       &:first-child {
-        padding-left: 8px;
+        display: none;
       }
 
       &:nth-child(2) {
@@ -36,20 +36,28 @@ const NavbarStyle = styled.nav`
       }
 
       &:last-child {
-        padding-right: 8px;
+        display: none;
       }
     }
   }
 
-  @media screen and (min-width: 560px) {
-    > ul > li {
-      &:first-child {
-      }
+  @media screen and (min-width: 425px) {
+    > ul {
+      > li {
+        &:first-child {
+          display: flex;
+          padding-left: 8px;
+        }
 
-      &:nth-child(2) {
-      }
+        &:nth-child(2) {
+          flex: 1;
+          padding: 0 16px;
+        }
 
-      &:last-child {
+        &:last-child {
+          display: flex;
+          padding-right: 8px;
+        }
       }
     }
   }

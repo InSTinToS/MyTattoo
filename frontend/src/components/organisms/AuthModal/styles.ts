@@ -11,13 +11,6 @@ const ModalButton = styled(Button)`
   height: 50px;
 `
 
-const SignInButton = styled(ModalButton)`
-  background-color: transparent;
-
-  color: ${({ theme }) => theme.colors.primary};
-  border: solid 1px ${({ theme }) => theme.colors.primary};
-`
-
 const GoogleButton = styled(ModalButton).attrs({ type: 'button' })`
   color: gray;
   background-color: white;
@@ -46,7 +39,7 @@ const AuthModalStyle = styled.div`
   > section {
     width: 400px;
     padding: 24px;
-    border-radius: 16px;
+    border-radius: 8px;
 
     background-color: ${({ theme }) => theme.colors.background};
 
@@ -88,4 +81,4 @@ const AuthModalStyle = styled.div`
   }
 `
 
-export { ModalButton, SignInButton, GoogleButton, AuthModalStyle }
+export { ModalButton, GoogleButton, AuthModalStyle }

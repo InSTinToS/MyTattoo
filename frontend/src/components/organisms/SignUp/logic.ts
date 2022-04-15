@@ -2,14 +2,10 @@ import type { ISignUpValues, TOnSignupSubmit } from './types'
 
 import { FeedContext } from 'components/templates/Feed/logic'
 
-import type {
-  IRequest,
-  IResponse
-} from '@backend/modules/Users/useCases/createUser/CreateUser.types'
+import type { IRequest } from '@backend/modules/Users/useCases/createUser/CreateUser.types'
 import { api } from 'api'
-import { AxiosResponse } from 'axios'
 import { useFormik } from 'formik'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { useTheme } from 'styled-components'
 import * as Yup from 'yup'
 
@@ -45,26 +41,14 @@ const signupSchema = Yup.object().shape({
 
 const useSignUp = () => {
   const theme = useTheme()
+  const [loading, setLoading] = useState(false)
   const { triggeringFeedback, toggleShowAuthModal } = useContext(FeedContext)
 
-  const onSignUpSubmit: TOnSignupSubmit = async ({
-    email,
-    password,
-    username
-  }) => await createUser({ email, password, username })
+  const onSignUpSubmit: TOnSignupSubmit = async (dataToCreate: IRequest) => {
+    setLoading(true)
 
-  const formik = useFormik({
-    initialValues,
-    onSubmit: onSignUpSubmit,
-    validationSchema: signupSchema
-  })
-
-  const createUser = async (dataToCreate: IRequest) => {
     try {
-      const response: AxiosResponse<IResponse> = await api.post(
-        '/users',
-        dataToCreate
-      )
+      await api.post('/users', dataToCreate)
 
       triggeringFeedback({
         title: 'Sucesso',
@@ -72,15 +56,23 @@ const useSignUp = () => {
         color: theme.colors.green
       })
 
-      return response
+      toggleShowAuthModal({ page: 'sign-in', open: true })
     } catch (error) {
       triggeringFeedback({
         title: 'Error',
         color: theme.colors.red,
         content: 'Error ao se cadastrar, tente novamente mais tarde.'
       })
+    } finally {
+      setLoading(false)
     }
   }
+
+  const formik = useFormik({
+    initialValues,
+    onSubmit: onSignUpSubmit,
+    validationSchema: signupSchema
+  })
 
   const onArrowClick = () => {
     toggleShowAuthModal({ page: 'sign-in', open: true })
@@ -90,7 +82,7 @@ const useSignUp = () => {
     toggleShowAuthModal({ page: 'sign-in', open: false })
   }
 
-  return { formik, onArrowClick, onCloseClick }
+  return { formik, onArrowClick, onCloseClick, loading, theme }
 }
 
 export { useSignUp }

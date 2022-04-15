@@ -6,20 +6,24 @@ import DisplayOptions from 'components/molecules/DisplayOptions'
 import ProfileOptions from 'components/molecules/ProfileOptions'
 import Search from 'components/molecules/Search'
 
-const Navbar = () => (
-  <NavbarStyle>
-    <ul>
-      <li>
-        <DisplayOptions />
-      </li>
+const Navbar = () => {
+  const auth = false
 
-      <li>
-        <Search />
-      </li>
+  return (
+    <NavbarStyle>
+      <ul>
+        <li>
+          <DisplayOptions />
+        </li>
 
-      <li>{false ? <ProfileOptions /> : <AuthOptions />}</li>
-    </ul>
-  </NavbarStyle>
-)
+        <li>
+          <Search />
+        </li>
+
+        <li>{auth ? <ProfileOptions /> : <AuthOptions />}</li>
+      </ul>
+    </NavbarStyle>
+  )
+}
 
 export default Navbar

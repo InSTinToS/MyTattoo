@@ -1,16 +1,23 @@
 import { useSignIn } from './logic'
-import { SignInStyle } from './styles'
+import { SignInButton, SignInStyle } from './styles'
 import type { ISignInProps } from './types'
 
-import { GoogleButton, ModalButton } from '../AuthModal/styles'
+import { ModalButton } from '../AuthModal/styles'
 
 import Close from 'components/atoms/icons/Close'
-import Google from 'components/atoms/icons/Google'
+import Loading from 'components/atoms/icons/Loading'
 
 import Field from 'components/molecules/Field'
 
 const SignIn = (props: ISignInProps) => {
-  const { onCloseClick, onSignUpClick, formik } = useSignIn()
+  const {
+    theme,
+    formik,
+    loading,
+    onCloseClick,
+    isSignInFilled,
+    onSignUpClick
+  } = useSignIn()
 
   return (
     <SignInStyle {...props}>
@@ -18,21 +25,38 @@ const SignIn = (props: ISignInProps) => {
         <Close id='close' onClick={onCloseClick} />
       </nav>
 
-      <form>
-        <Field
-          name='username'
-          formik={formik}
-          label='Nome de usuário ou E-mail'
-        />
+      {loading ? (
+        <Loading color={theme.colors.secondary} size={48} />
+      ) : (
+        <form onSubmit={formik.handleSubmit}>
+          <Field
+            formik={formik}
+            name='usernameOrEmail'
+            label='Nome de usuário ou E-mail'
+          />
 
-        <Field type='password' label='Senha' name='password' formik={formik} />
+          <Field
+            type='password'
+            label='Senha'
+            name='password'
+            formik={formik}
+          />
 
-        <ModalButton onClick={onSignUpClick}>Cadastrar</ModalButton>
+          <SignInButton
+            type='submit'
+            disabled={!isSignInFilled}
+            active={isSignInFilled}
+          >
+            Entrar
+          </SignInButton>
 
-        <GoogleButton icon={<Google size={24} />}>
-          Entrar com o Google
-        </GoogleButton>
-      </form>
+          <ModalButton onClick={onSignUpClick}>Cadastrar</ModalButton>
+
+          {/* <GoogleButton icon={<Google size={24} />}>
+            Entrar com o Google
+          </GoogleButton> */}
+        </form>
+      )}
     </SignInStyle>
   )
 }
