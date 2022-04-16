@@ -1,6 +1,5 @@
 import { useCreatePost } from './logic'
-import { CreatePostStyle } from './styles'
-import { AddButton, ShareButton } from './styles'
+import { AddButton, CreatePostStyle, ShareButton } from './styles'
 import type { ICreatePostProps } from './types'
 
 import AddPhoto from 'components/atoms/icons/AddPhoto'

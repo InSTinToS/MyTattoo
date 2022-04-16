@@ -1,6 +1,6 @@
-import { IArrowProps } from '../icons/Arrow/types'
+import { IIconStyleProps } from '../icons/types'
 
-interface IDropArrowProps extends IArrowProps {
+interface IDropArrowProps extends IIconStyleProps {
   condition: boolean
 }
 

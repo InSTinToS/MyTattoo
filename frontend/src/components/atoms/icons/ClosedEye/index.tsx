@@ -1,8 +1,7 @@
-import { IClosedEyeProps } from './types'
-
 import { IconStyle } from '../styles'
+import type { IIconStyleProps } from '../types'
 
-const ClosedEye = (props: IClosedEyeProps) => (
+const ClosedEye = (props: IIconStyleProps) => (
   <IconStyle {...props}>
     <svg viewBox='0 0 22 18' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path

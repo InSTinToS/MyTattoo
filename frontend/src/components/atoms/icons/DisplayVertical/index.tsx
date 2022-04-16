@@ -1,8 +1,7 @@
-import type { IDisplayVerticalProps } from './types'
-
 import { IconStyle } from '../styles'
+import type { IIconStyleProps } from '../types'
 
-const DisplayVertical = (props: IDisplayVerticalProps) => (
+const DisplayVertical = (props: IIconStyleProps) => (
   <IconStyle {...props}>
     <svg viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path d='M19.7917 2.08333H5.20835C4.63306 2.08333 4.16669 2.5497 4.16669 3.12499V5.20833C4.16669 5.78362 4.63306 6.24999 5.20835 6.24999H19.7917C20.367 6.24999 20.8334 5.78362 20.8334 5.20833V3.12499C20.8334 2.5497 20.367 2.08333 19.7917 2.08333Z' />

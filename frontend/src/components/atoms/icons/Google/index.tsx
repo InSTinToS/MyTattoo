@@ -1,8 +1,7 @@
-import { IGoogleProps } from './types'
-
 import { IconStyle } from '../styles'
+import type { IIconStyleProps } from '../types'
 
-const Google = (props: IGoogleProps) => (
+const Google = (props: IIconStyleProps) => (
   <IconStyle {...props}>
     <svg viewBox='0 0 39 39' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path

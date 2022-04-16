@@ -1,8 +1,7 @@
-import { IArrowProps } from './types'
-
 import { IconStyle } from '../styles'
+import type { IIconStyleProps } from '../types'
 
-const Arrow = (props: IArrowProps) => (
+const Arrow = (props: IIconStyleProps) => (
   <IconStyle {...props}>
     <svg
       width='18'

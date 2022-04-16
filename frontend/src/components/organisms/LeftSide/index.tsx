@@ -2,11 +2,10 @@ import { useLeftSide } from './logic'
 import { LeftSideStyle } from './styles'
 import type { ILeftSideProps } from './types'
 
-import Close from '../../atoms/icons/Close'
-
 import DropArrow from 'components/atoms/DropArrow'
 import Input from 'components/atoms/Input'
 import Check from 'components/atoms/icons/Check'
+import Close from 'components/atoms/icons/Close'
 import Plus from 'components/atoms/icons/Plus'
 import Search from 'components/atoms/icons/Search'
 

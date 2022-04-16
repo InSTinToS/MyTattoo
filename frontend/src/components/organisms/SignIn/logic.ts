@@ -7,6 +7,7 @@ import type {
   IResponse
 } from '@backend/modules/Authentication/useCases/signIn/SignIn.types'
 import type { UserModel } from '@backend/modules/Users/useCases/readUsers/ReadUsers.types'
+
 import { api } from 'api'
 import { AxiosResponse } from 'axios'
 import { useFormik } from 'formik'

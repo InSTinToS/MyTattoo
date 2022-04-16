@@ -11,10 +11,10 @@
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
   "importOrder": [
-    "^./types$|^./styles$|^./logic$",
+    "^./types$|^./styles|^./logic$",
     "^./|^../",
     "^components/atoms",
-    "^^components/molecules",
+    "^components/molecules",
     "^components/organisms",
     "^components/templates",
     "^pages",
@@ -24,6 +24,7 @@
     "^types",
     "^utils",
     "^@public",
+    "^@backend",
     "<THIRD_PARTY_MODULES>"
   ]
 }

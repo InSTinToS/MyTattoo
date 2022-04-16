@@ -1,13 +1,13 @@
+import { useProfileOptions } from './logic'
 import { ProfileOptionsStyle } from './styles'
 
 import ArtistHeart from 'components/atoms/icons/ArtistHeart'
 import Heart from 'components/atoms/icons/Heart'
 
 import Image from 'next/image'
-import { useTheme } from 'styled-components'
 
 const ProfileOptions = () => {
-  const theme = useTheme()
+  const { theme } = useProfileOptions()
 
   return (
     <ProfileOptionsStyle>
