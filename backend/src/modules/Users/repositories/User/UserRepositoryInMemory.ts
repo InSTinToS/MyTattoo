@@ -1,4 +1,4 @@
-import { IUsersRepository } from '@modules/Users/repositories/User/IUserRepository.types'
+import type { IUsersRepository } from '@modules/Users/repositories/User/IUserRepository.types'
 import { UserModel } from '@modules/Users/models/UserModel'
 
 class UsersRepository implements IUsersRepository {
@@ -14,11 +14,10 @@ class UsersRepository implements IUsersRepository {
     return newUser
   }
 
-  findAll: IUsersRepository['findAll'] = async () => this.Users
-
   findById: (id: string) => Promise<UserModel>
   findByEmail: (email: string) => Promise<UserModel>
   findByUsername: (username: string) => Promise<UserModel>
+  findAll: IUsersRepository['findAll'] = async () => this.Users
 }
 
 export { UsersRepository }

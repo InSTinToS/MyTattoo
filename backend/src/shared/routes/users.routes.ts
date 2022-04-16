@@ -1,4 +1,4 @@
-import { ensureAuthentication } from '@shared/middlewares/ensureAuthentication/ensureAuthentication'
+import { ensureAuthentication } from '@shared/middlewares/ensureAuthentication'
 
 import { CreateUserController } from '@modules/Users/useCases/createUser/CreateUserController'
 import { ReadUsersController } from '@modules/Users/useCases/readUsers/ReadUsersController'

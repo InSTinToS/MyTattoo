@@ -14,4 +14,4 @@ type THandle = RequestHandler<void, IResponse, IRequest>
 
 type TExecute = (data: IRequest) => Promise<IResponse>
 
-export { THandle, IRequest, IResponse, TExecute }
+export type { THandle, IRequest, IResponse, TExecute }

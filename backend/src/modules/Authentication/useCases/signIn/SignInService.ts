@@ -1,11 +1,11 @@
 import type { TExecute } from './SignIn.types'
 import { AppError } from '@shared/errors/AppError'
 
-import { IUsersRepository } from '@modules/Users/repositories/User/IUserRepository.types'
-
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { inject, injectable } from 'tsyringe'
+
+import type { IUsersRepository } from '@modules/Users/repositories/User/IUserRepository.types'
 
 @injectable()
 class SignInService {

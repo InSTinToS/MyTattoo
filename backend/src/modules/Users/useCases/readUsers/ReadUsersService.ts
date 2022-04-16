@@ -1,8 +1,8 @@
-import { TExecute } from './ReadUsers.types'
-
-import { IUsersRepository } from '@modules/Users/repositories/User/IUserRepository.types'
+import type { TExecute } from './ReadUsers.types'
 
 import { inject, injectable } from 'tsyringe'
+
+import type { IUsersRepository } from '@modules/Users/repositories/User/IUserRepository.types'
 
 @injectable()
 class ReadUsersService {

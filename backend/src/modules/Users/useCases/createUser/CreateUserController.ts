@@ -1,4 +1,4 @@
-import { THandle } from './CreateUser.types'
+import type { THandle } from './CreateUser.types'
 import { CreateUserService } from './CreateUserService'
 
 import { container } from 'tsyringe'
