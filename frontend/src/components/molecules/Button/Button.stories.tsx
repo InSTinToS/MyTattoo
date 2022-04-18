@@ -1,11 +1,10 @@
 import Button from './index'
 
-import GlobalProvider from 'components/templates/GlobalProvider'
-
 import theme from 'styles/theme'
 
 import { addDecorator } from '@storybook/react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import GlobalProvider from 'components/providers/GlobalProvider'
 import React from 'react'
 
 addDecorator(content => <GlobalProvider>{content()}</GlobalProvider>)

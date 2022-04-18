@@ -1,10 +1,9 @@
-import GlobalProvider from 'components/templates/GlobalProvider'
-
 import 'styles/bootstrap.scss'
 
 import favicon from '@public/favicon.ico'
 
 import 'bootstrap/dist/css/bootstrap.css'
+import GlobalProvider from 'components/providers/GlobalProvider'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 

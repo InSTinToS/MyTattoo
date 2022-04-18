@@ -16,6 +16,7 @@
     "^components/atoms",
     "^components/molecules",
     "^components/organisms",
+    "^components/providers",
     "^components/templates",
     "^pages",
     "^store",
