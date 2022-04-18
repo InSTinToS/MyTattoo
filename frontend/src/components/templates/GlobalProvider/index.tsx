@@ -7,9 +7,11 @@ import { ThemeProvider } from 'styled-components'
 
 const GlobalProvider = ({ children }: IGlobalProviderProps) => (
   <ThemeProvider theme={theme}>
-    <GlobalStyle />
+    <>
+      <GlobalStyle />
 
-    {children}
+      {children}
+    </>
   </ThemeProvider>
 )
 
