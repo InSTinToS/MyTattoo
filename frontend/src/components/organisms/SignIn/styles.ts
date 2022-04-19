@@ -10,18 +10,6 @@ interface ISignInButtonStyleProps {
 
 const SignInButton = styled(ModalButton)<ISignInButtonStyleProps>`
   margin-bottom: 24px;
-
-  ${({ theme, active }) =>
-    active
-      ? css`
-          color: ${theme.colors.secondary};
-          background-color: ${theme.colors.primary};
-        `
-      : css`
-          background-color: transparent;
-          color: ${theme.colors.primary};
-          border: solid 1px ${theme.colors.primary};
-        `}
 `
 
 const SignInStyle = styled.section<ISignInStyleProps>`

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const PostStyle = styled.div`
   padding: 16px;
   border-radius: 16px;
-  width: clamp(304px, 100% - 16px, 65vh);
+  width: 100%;
 
   background-color: ${({ theme }) => lighten(0.03, theme.colors.background)};
 

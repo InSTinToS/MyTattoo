@@ -1,6 +1,10 @@
 import type { ILeftSideStyleProps } from './types'
 
+import Button from 'components/molecules/Button'
+
 import styled from 'styled-components'
+
+const AddButton = styled(Button)``
 
 const LeftSideStyle = styled.aside<ILeftSideStyleProps>`
   left: 0;
@@ -62,4 +66,4 @@ const LeftSideStyle = styled.aside<ILeftSideStyleProps>`
     }
   }
 `
-export { LeftSideStyle }
+export { LeftSideStyle, AddButton }

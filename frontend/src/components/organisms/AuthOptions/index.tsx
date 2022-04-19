@@ -8,7 +8,9 @@ const AuthOptions = (props: IAuthOptionsProps) => {
   return (
     <AuthOptionsStyle {...props}>
       <li>
-        <SignInButton onClick={onSignInClick}>Entrar</SignInButton>
+        <SignInButton onClick={onSignInClick} buttonTheme='secondary'>
+          Entrar
+        </SignInButton>
       </li>
 
       <li>

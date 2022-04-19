@@ -1,25 +1,41 @@
 import Button from './index'
 
-import theme from 'styles/theme'
+import Plus from 'components/atoms/icons/Plus'
 
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 const metadata: ComponentMeta<typeof Button> = {
   component: Button,
-  title: 'Components/Button'
+  title: 'Components/Molecules/Button',
+  argTypes: {
+    icon: {
+      control: false,
+      description:
+        'Any icon passed by props example <Plus /> (inside Atoms/Icons/Plus)'
+    }
+  }
 }
 
 const Template: ComponentStory<typeof Button> = args => (
-  <Button {...args}>test</Button>
+  <Button {...args}>{args.children}</Button>
 )
 
-const Primary = Template.bind({})
+const WithIcon = Template.bind({})
+const WithoutIcon = Template.bind({})
 
-Primary.args = {
-  stroke: 0,
-  colors: { text: theme.colors.secondary, background: theme.colors.red }
+WithIcon.args = {
+  variant: 'primary',
+  children: 'Button',
+  disabled: false,
+  icon: <Plus />
 } as ComponentStory<typeof Button>['args']
 
-export { Primary }
+WithoutIcon.args = {
+  variant: 'primary',
+  children: 'Button',
+  disabled: false
+} as ComponentStory<typeof Button>['args']
+
+export { WithIcon, WithoutIcon }
 
 export default metadata

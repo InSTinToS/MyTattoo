@@ -9,4 +9,6 @@ interface IOutlinedIconStyleProps extends IIconStyleProps {
   outlined?: boolean
 }
 
-export type { IIconStyleProps, IOutlinedIconStyleProps }
+interface IIconProps extends IIconStyleProps {}
+
+export type { IIconStyleProps, IOutlinedIconStyleProps, IIconProps }

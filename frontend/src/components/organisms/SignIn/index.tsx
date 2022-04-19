@@ -44,8 +44,9 @@ const SignIn = (props: ISignInProps) => {
 
           <SignInButton
             type='submit'
-            disabled={!isSignInFilled}
             active={isSignInFilled}
+            disabled={!isSignInFilled}
+            buttonTheme='secondary'
           >
             Entrar
           </SignInButton>

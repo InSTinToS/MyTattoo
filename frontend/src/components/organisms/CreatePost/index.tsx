@@ -13,11 +13,11 @@ const CreatePost = (props: ICreatePostProps) => {
       <textarea />
 
       <div>
-        <AddButton icon={<Plus size={18} color={theme.colors.primary} />}>
+        <AddButton icon={<Plus size={18} color={theme.colors.secondary} />}>
           Adicionar vertentes
         </AddButton>
 
-        <AddButton icon={<AddPhoto size={24} color={theme.colors.primary} />}>
+        <AddButton icon={<AddPhoto size={24} color={theme.colors.secondary} />}>
           Adicionar imagem
         </AddButton>
 

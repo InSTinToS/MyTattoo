@@ -9,17 +9,15 @@ const IconStyle = styled.div<IIconStyleProps>`
 
   svg {
     ${({ size }) =>
-      size &&
       css`
-        height: ${size}px;
+        height: ${size || 24}px;
       `};
   }
 
   path {
-    ${({ color }) =>
-      color &&
+    ${({ color, theme }) =>
       css`
-        fill: ${color};
+        fill: ${color || theme.colors.primary};
       `};
   }
 `

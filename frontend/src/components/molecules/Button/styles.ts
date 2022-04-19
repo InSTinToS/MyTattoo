@@ -1,23 +1,64 @@
-import type { IButtonStyleProps } from './types'
+import { IButtonStyleProps } from './types'
 
+import { darken, transparentize } from 'polished'
 import styled, { css } from 'styled-components'
 
 const ButtonStyle = styled.button<IButtonStyleProps>`
   display: flex;
   align-items: center;
 
-  border-radius: 8px;
+  padding: 4px 8px;
+  border-radius: 4px;
 
-  ${({ theme, colors, stroke, padding }) => css`
-    padding: ${padding || '4px 8px'};
-    color: ${colors?.text || theme.colors.secondary};
-    background-color: ${colors?.background || theme.colors.primary};
-    border: ${`solid ${stroke}px ${colors?.border || theme.colors.secondary}`};
-  `};
-
-  span {
-    margin-left: 4px;
+  .Icon + .content {
+    margin-left: 8px;
   }
+
+  .Icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  ${({ theme, variant }) =>
+    variant === 'primary'
+      ? css`
+          color: ${theme.colors.secondary};
+          background-color: ${theme.colors.primary};
+          border: solid 1px ${theme.colors.primary};
+
+          .Icon path {
+            fill: ${theme.colors.secondary};
+          }
+
+          &:disabled {
+            color: ${darken(0.3, theme.colors.secondary)};
+            border: solid 1px ${transparentize(0.6, theme.colors.primary)};
+            background-color: ${transparentize(0.6, theme.colors.primary)};
+
+            .Icon path {
+              fill: ${transparentize(0.6, theme.colors.secondary)};
+            }
+          }
+        `
+      : css`
+          color: ${theme.colors.secondary};
+          background-color: ${theme.colors.primary};
+          border: solid 1px ${theme.colors.primary};
+
+          .Icon path {
+            fill: ${theme.colors.secondary};
+          }
+
+          &:disabled {
+            color: ${theme.colors.primary};
+            background-color: ${theme.colors.background};
+            border: solid 1px ${theme.colors.primary};
+
+            .Icon path {
+              fill: ${theme.colors.primary};
+            }
+          }
+        `}
 `
 
 export { ButtonStyle }

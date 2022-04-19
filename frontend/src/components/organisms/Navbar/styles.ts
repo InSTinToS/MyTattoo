@@ -7,7 +7,6 @@ const NavbarStyle = styled.nav`
   right: 0;
   z-index: 1;
 
-  min-width: 320px;
   height: 78px;
 
   background-color: ${({ theme }) => theme.colors.background};
@@ -15,6 +14,7 @@ const NavbarStyle = styled.nav`
   > ul {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     width: 100%;
     height: 100%;
@@ -32,7 +32,7 @@ const NavbarStyle = styled.nav`
 
       &:nth-child(2) {
         flex: 1;
-        padding: 0 16px;
+        padding: 0 8px;
       }
 
       &:last-child {
@@ -50,7 +50,6 @@ const NavbarStyle = styled.nav`
         }
 
         &:nth-child(2) {
-          flex: 1;
           padding: 0 16px;
         }
 
@@ -71,7 +70,8 @@ const NavbarStyle = styled.nav`
       }
 
       &:nth-child(2) {
-        width: 50vw;
+        padding: 0px;
+        max-width: 65vh;
       }
 
       &:last-child {

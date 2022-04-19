@@ -1,5 +1,5 @@
 import { useLeftSide } from './logic'
-import { LeftSideStyle } from './styles'
+import { AddButton, LeftSideStyle } from './styles'
 import type { ILeftSideProps } from './types'
 
 import DropArrow from 'components/atoms/DropArrow'
@@ -10,8 +10,6 @@ import Plus from 'components/atoms/icons/Plus'
 import Search from 'components/atoms/icons/Search'
 
 import Button from 'components/molecules/Button'
-
-import { transparentize } from 'polished'
 
 const LeftSide = (props: ILeftSideProps) => {
   const {
@@ -45,19 +43,14 @@ const LeftSide = (props: ILeftSideProps) => {
           <ul>
             {filters?.unsigned?.map(({ id, name }) => (
               <li key={id}>
-                <Button
-                  stroke={2}
+                <AddButton
                   icon={<Plus size={12} color={theme.colors.secondary} />}
-                  colors={{
-                    border: theme.colors.primary,
-                    background: transparentize(0.6, theme.colors.primary)
-                  }}
                   onClick={() => {
                     onFilterClick({ id, name }, 'add')
                   }}
                 >
                   {name}
-                </Button>
+                </AddButton>
               </li>
             ))}
           </ul>
@@ -68,7 +61,6 @@ const LeftSide = (props: ILeftSideProps) => {
             {filters?.removed?.map(({ id, name }) => (
               <li key={id}>
                 <Button
-                  colors={{ background: theme.colors.red }}
                   icon={<Close color={theme.colors.secondary} size={12} />}
                   onClick={() => {
                     onFilterClick({ id, name }, 'unsign')

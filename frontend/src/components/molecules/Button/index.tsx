@@ -1,18 +1,23 @@
 import { ButtonStyle } from './styles'
 import type { IButtonProps } from './types'
 
+import { composeClassName } from 'utils/composeClassName'
+
 const Button = ({
   children,
+  className,
   icon: Icon,
-  colors,
-  stroke,
-  padding,
+  variant = 'primary',
   ...props
 }: IButtonProps) => (
-  <ButtonStyle colors={colors} stroke={stroke} padding={padding} {...props}>
+  <ButtonStyle
+    variant={variant}
+    className={composeClassName('Button', className)}
+    {...props}
+  >
     {Icon && Icon}
 
-    <span>{children}</span>
+    <div className='content'>{children}</div>
   </ButtonStyle>
 )
 
