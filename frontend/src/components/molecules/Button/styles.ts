@@ -10,13 +10,13 @@ const ButtonStyle = styled.button<IButtonStyleProps>`
   padding: 4px 8px;
   border-radius: 4px;
 
-  .Icon + .content {
-    margin-left: 8px;
-  }
-
   .Icon {
     width: 15px;
     height: 15px;
+  }
+
+  .Icon + .content {
+    margin-left: 8px;
   }
 
   ${({ theme, variant }) =>

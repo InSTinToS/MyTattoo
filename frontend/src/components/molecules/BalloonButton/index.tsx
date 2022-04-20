@@ -1,26 +1,17 @@
-import { useBalloonButton } from './logic'
 import { BalloonButtonStyle } from './styles'
 import type { IBalloonButtonProps } from './types'
 
-import Balloon from 'components/atoms/icons/Balloon'
-import OutlinedBalloon from 'components/atoms/icons/OutlinedBalloon'
+import Balloon from 'components/atoms/Icon/icons/Balloon'
+import OutlinedBalloon from 'components/atoms/Icon/icons/OutlinedBalloon'
 
 const BalloonButton = ({
   outlined,
   type = 'button',
   ...buttonProps
-}: IBalloonButtonProps) => {
-  const { theme } = useBalloonButton()
-
-  return (
-    <BalloonButtonStyle type={type} {...buttonProps}>
-      {outlined ? (
-        <OutlinedBalloon color={theme.colors.secondary} size={24} />
-      ) : (
-        <Balloon color={theme.colors.secondary} size={24} />
-      )}
-    </BalloonButtonStyle>
-  )
-}
+}: IBalloonButtonProps) => (
+  <BalloonButtonStyle type={type} {...buttonProps}>
+    {outlined ? <OutlinedBalloon /> : <Balloon />}
+  </BalloonButtonStyle>
+)
 
 export default BalloonButton

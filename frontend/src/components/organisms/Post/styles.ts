@@ -2,9 +2,9 @@ import { lighten } from 'polished'
 import styled from 'styled-components'
 
 const PostStyle = styled.div`
+  width: 100%;
   padding: 16px;
   border-radius: 16px;
-  width: 100%;
 
   background-color: ${({ theme }) => lighten(0.03, theme.colors.background)};
 

@@ -13,8 +13,9 @@ const ModalButton = styled(Button)`
 
 const GoogleButton = styled(ModalButton).attrs({ type: 'button' })`
   color: gray;
-  background-color: white;
   margin-top: 24px;
+
+  background-color: white;
 
   span {
     margin-left: 16px;
@@ -48,24 +49,21 @@ const AuthModalStyle = styled.div`
 
       margin-bottom: 24px;
 
-      #arrow {
-        svg {
-          height: 24px;
-          transform: rotate(-90deg);
+      .Icon {
+        width: 16px;
+        height: 16px;
+      }
 
-          path {
-            fill: ${({ theme }) => theme.colors.secondary};
-          }
+      .Arrow {
+        transform: rotate(-90deg);
+        svg path {
+          fill: ${({ theme }) => theme.colors.secondary};
         }
       }
 
-      #close {
-        svg {
-          height: 16px;
-
-          path {
-            fill: ${({ theme }) => theme.colors.secondary};
-          }
+      .Close {
+        svg path {
+          fill: ${({ theme }) => theme.colors.secondary};
         }
       }
     }
@@ -75,9 +73,26 @@ const AuthModalStyle = styled.div`
     position: fixed;
     z-index: -1;
 
-    background-color: transparent;
     width: 100vw;
     height: 100vh;
+
+    background-color: transparent;
+  }
+  .loadingWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .Loading {
+      width: 48px;
+      height: 48px;
+
+      border: solid red 1px;
+
+      svg path {
+        fill: ${({ theme }) => theme.colors.secondary};
+      }
+    }
   }
 `
 

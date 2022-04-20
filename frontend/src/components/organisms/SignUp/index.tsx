@@ -4,25 +4,27 @@ import type { ISignUpProps } from './types'
 
 import { ModalButton } from '../AuthModal/styles'
 
-import Arrow from 'components/atoms/icons/Arrow'
-import Close from 'components/atoms/icons/Close'
-import Loading from 'components/atoms/icons/Loading'
+import Arrow from 'components/atoms/Icon/icons/Arrow'
+import Close from 'components/atoms/Icon/icons/Close'
+import Loading from 'components/atoms/Icon/icons/Loading'
 
 import Field from 'components/molecules/Field'
 
 const SignUp = (props: ISignUpProps) => {
-  const { formik, onArrowClick, onCloseClick, loading, theme } = useSignUp()
+  const { formik, onArrowClick, onCloseClick, loading } = useSignUp()
 
   return (
     <SignUpStyle {...props}>
       <nav>
-        <Arrow id='arrow' onClick={onArrowClick} />
+        <Arrow onClick={onArrowClick} />
 
-        <Close id='close' onClick={onCloseClick} />
+        <Close onClick={onCloseClick} />
       </nav>
 
       {loading ? (
-        <Loading color={theme.colors.secondary} size={48} />
+        <div className='loadingWrapper'>
+          <Loading />
+        </div>
       ) : (
         <form onSubmit={formik.handleSubmit}>
           <Field name='username' label='Nome de usuário' formik={formik} />

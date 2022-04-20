@@ -10,6 +10,15 @@ const SearchStyle = styled.div`
 
   border: solid 1px ${({ theme }) => theme.colors.secondary};
 
+  > .Icon {
+    width: 20px;
+    height: 20px;
+
+    svg path {
+      fill: ${({ theme }) => theme.colors.secondary};
+    }
+  }
+
   form {
     width: 100%;
     height: 100%;

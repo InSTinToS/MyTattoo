@@ -1,12 +1,19 @@
 import { useDropArrow } from './logic'
+import { DropArrowStyle } from './styles'
 import type { IDropArrowProps } from './types'
 
-import Arrow from '../icons/Arrow'
+import { composeClassName } from 'utils/composeClassName'
 
-const DropArrow = ({ condition, ...props }: IDropArrowProps) => {
+const DropArrow = ({ condition, className, ...props }: IDropArrowProps) => {
   const { arrowAnimation } = useDropArrow(condition)
 
-  return <Arrow size={18} style={arrowAnimation} {...props} />
+  return (
+    <DropArrowStyle
+      style={arrowAnimation}
+      className={composeClassName('DropArrow', className)}
+      {...props}
+    />
+  )
 }
 
 export default DropArrow

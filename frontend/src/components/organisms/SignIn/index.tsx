@@ -4,29 +4,25 @@ import type { ISignInProps } from './types'
 
 import { ModalButton } from '../AuthModal/styles'
 
-import Close from 'components/atoms/icons/Close'
-import Loading from 'components/atoms/icons/Loading'
+import Close from 'components/atoms/Icon/icons/Close'
+import Loading from 'components/atoms/Icon/icons/Loading'
 
 import Field from 'components/molecules/Field'
 
 const SignIn = (props: ISignInProps) => {
-  const {
-    theme,
-    formik,
-    loading,
-    onCloseClick,
-    isSignInFilled,
-    onSignUpClick
-  } = useSignIn()
+  const { formik, loading, onCloseClick, isSignInFilled, onSignUpClick } =
+    useSignIn()
 
   return (
     <SignInStyle {...props}>
       <nav>
-        <Close id='close' onClick={onCloseClick} />
+        <Close onClick={onCloseClick} />
       </nav>
 
       {loading ? (
-        <Loading color={theme.colors.secondary} size={48} />
+        <div className='loadingWrapper'>
+          <Loading />
+        </div>
       ) : (
         <form onSubmit={formik.handleSubmit}>
           <Field
@@ -36,17 +32,17 @@ const SignIn = (props: ISignInProps) => {
           />
 
           <Field
-            type='password'
             label='Senha'
             name='password'
+            type='password'
             formik={formik}
           />
 
           <SignInButton
             type='submit'
+            variant='secondary'
             active={isSignInFilled}
             disabled={!isSignInFilled}
-            buttonTheme='secondary'
           >
             Entrar
           </SignInButton>

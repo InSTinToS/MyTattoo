@@ -1,7 +1,6 @@
 import type { IFiltersState, TOnFilterClick } from './types'
 
 import { useEffect, useState } from 'react'
-import { useTheme } from 'styled-components'
 
 const fakeStylesToFilter = [
   { name: 'Maori', id: '1' },
@@ -12,8 +11,6 @@ const fakeStylesToFilter = [
 ]
 
 const useLeftSide = () => {
-  const theme = useTheme()
-
   const [filters, setFilters] = useState<IFiltersState>()
   const [showUnsignedsFilters, setShowUnsignedsFilters] = useState(true)
 
@@ -74,7 +71,6 @@ const useLeftSide = () => {
   }, [])
 
   return {
-    theme,
     filters,
     onArrowClick,
     onFilterClick,

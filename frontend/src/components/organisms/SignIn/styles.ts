@@ -2,7 +2,7 @@ import type { ISignInStyleProps } from './types'
 
 import { ModalButton } from '../AuthModal/styles'
 
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 interface ISignInButtonStyleProps {
   active?: boolean

@@ -2,7 +2,7 @@ import { useTooltip } from './logic'
 import { TooltipStyle } from './styles'
 import type { ITooltipProps } from './types'
 
-import TooltipArrow from 'components/atoms/icons/TooltipArrow'
+import TooltipArrow from 'components/atoms/Icon/icons/TooltipArrow'
 
 const Tooltip = ({
   trigger: Trigger,
@@ -18,7 +18,7 @@ const Tooltip = ({
         <div className='content'>
           {Content}
 
-          <TooltipArrow className='tooltipArrow' />
+          <TooltipArrow />
         </div>
       )}
 

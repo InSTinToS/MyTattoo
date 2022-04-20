@@ -1,16 +1,16 @@
 import { PostHeaderStyle } from './styles'
 import type { IPostHeaderProps } from './types'
 
-import Image from 'next/image'
+import Avatar from 'components/atoms/Avatar'
 
 const PostHeader = ({
-  avatar,
-  description,
   name,
-  isArtist
+  avatar,
+  isArtist,
+  description
 }: IPostHeaderProps) => (
   <PostHeaderStyle>
-    <Image src={avatar} alt='avatar' width={40} height={40} />
+    <Avatar src={avatar} size={40} />
 
     <div>
       <span>{name}</span>

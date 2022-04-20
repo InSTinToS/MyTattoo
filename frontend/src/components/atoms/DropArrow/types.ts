@@ -1,4 +1,4 @@
-import { IIconStyleProps } from '../icons/types'
+import { IIconStyleProps } from 'components/atoms/Icon/types'
 
 interface IDropArrowProps extends IIconStyleProps {
   condition: boolean

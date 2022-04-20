@@ -46,6 +46,7 @@ const NavbarStyle = styled.nav`
       > li {
         &:first-child {
           display: flex;
+
           padding-left: 8px;
         }
 
@@ -55,6 +56,7 @@ const NavbarStyle = styled.nav`
 
         &:last-child {
           display: flex;
+
           padding-right: 8px;
         }
       }

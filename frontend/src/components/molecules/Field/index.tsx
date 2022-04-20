@@ -2,10 +2,10 @@ import { useField } from './logic'
 import { Error, FieldStyle, Tooltip } from './styles'
 import type { IFieldProps } from './types'
 
+import Alert from 'components/atoms/Icon/icons/Alert'
+import ClosedEye from 'components/atoms/Icon/icons/ClosedEye'
+import Eye from 'components/atoms/Icon/icons/Eye'
 import Input from 'components/atoms/Input'
-import Alert from 'components/atoms/icons/Alert'
-import ClosedEye from 'components/atoms/icons/ClosedEye'
-import Eye from 'components/atoms/icons/Eye'
 
 const Field = <FormValues,>({
   name,
@@ -57,9 +57,9 @@ const Field = <FormValues,>({
 
       {showEyes &&
         (showEye ? (
-          <Eye className='eye' size={18} onClick={onEyeClick} />
+          <Eye className='eye' onClick={onEyeClick} />
         ) : (
-          <ClosedEye className='eye' size={18} onClick={onClosedEyeClick} />
+          <ClosedEye className='eye' onClick={onClosedEyeClick} />
         ))}
     </FieldStyle>
   )

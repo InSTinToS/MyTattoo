@@ -1,11 +1,11 @@
 import { CommentStyle } from './styles'
 import type { ICommentProps } from './types'
 
-import Image from 'next/image'
+import Avatar from 'components/atoms/Avatar'
 
 const Comment = ({ name, content, avatar, isArtist }: ICommentProps) => (
   <CommentStyle isArtist={isArtist}>
-    <Image width={40} height={40} alt='avatar' src={avatar} layout='fixed' />
+    <Avatar size={40} src={avatar} />
 
     <p>
       <b>{name}</b> {content}

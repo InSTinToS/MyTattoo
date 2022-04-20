@@ -1,6 +1,6 @@
 import Button from './index'
 
-import Plus from 'components/atoms/icons/Plus'
+import Plus from 'components/atoms/Icon/icons/Plus'
 
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 

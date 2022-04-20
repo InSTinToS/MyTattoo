@@ -16,12 +16,10 @@ const AuthOptionsStyle = styled.ul<IAuthOptionsStyleProps>`
 `
 
 const SignInButton = styled(Button)`
-  padding: 4px 16px;
   border-radius: 16px;
 `
 
 const SignUpButton = styled(Button)`
-  padding: 4px 16px;
   border-radius: 16px;
 `
 

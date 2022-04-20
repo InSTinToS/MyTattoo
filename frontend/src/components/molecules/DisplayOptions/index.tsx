@@ -1,44 +1,37 @@
 import { useDisplayOptions } from './logic'
-import { DisplayOptionsStyle } from './styles'
+import {
+  DisplayHorizontal,
+  DisplayOptionsStyle,
+  DisplayVertical
+} from './styles'
 
-import DisabledFilter from 'components/atoms/icons/DisabledFilter'
-import DisplayHorizontal from 'components/atoms/icons/DisplayHorizontal'
-import DisplayVertical from 'components/atoms/icons/DisplayVertical'
-import Filter from 'components/atoms/icons/Filter'
-
-import { FeedContext } from 'components/templates/Feed/logic'
-
-import { useContext } from 'react'
+import DisabledFilter from 'components/atoms/Icon/icons/DisabledFilter'
+import Filter from 'components/atoms/Icon/icons/Filter'
 
 const DisplayOptions = () => {
-  const { showLeftSide, toggleShowLeftSide } = useContext(FeedContext)
-
-  const { onLiClick, horizontalColor, theme, verticalColor } =
-    useDisplayOptions()
+  const {
+    onLiClick,
+    horizontalColor,
+    verticalColor,
+    showLeftSide,
+    toggleShowLeftSide
+  } = useDisplayOptions()
 
   return (
     <DisplayOptionsStyle>
       <li className='feedOrientation' onClick={() => onLiClick('horizontal')}>
-        <DisplayHorizontal size={29} color={horizontalColor} />
+        <DisplayHorizontal color={horizontalColor} />
       </li>
 
       <li className='feedOrientation' onClick={() => onLiClick('vertical')}>
-        <DisplayVertical size={29} color={verticalColor} />
+        <DisplayVertical color={verticalColor} />
       </li>
 
       <li>
         {showLeftSide ? (
-          <DisabledFilter
-            size={28}
-            color={theme.colors.primary}
-            onClick={toggleShowLeftSide}
-          />
+          <DisabledFilter onClick={toggleShowLeftSide} />
         ) : (
-          <Filter
-            size={25}
-            color={theme.colors.secondary}
-            onClick={toggleShowLeftSide}
-          />
+          <Filter onClick={toggleShowLeftSide} />
         )}
       </li>
     </DisplayOptionsStyle>

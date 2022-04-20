@@ -1,3 +1,7 @@
 type TSelectedDisplay = 'vertical' | 'horizontal'
 
-export type { TSelectedDisplay }
+interface IDisplayProps {
+  color: string
+}
+
+export type { TSelectedDisplay, IDisplayProps }

@@ -1,5 +1,5 @@
 import { InputStyle } from './styles'
-import { IInputProps } from './types'
+import type { IInputProps } from './types'
 
 const Input = (props: IInputProps) => <InputStyle {...(props as any)} />
 

@@ -16,21 +16,22 @@ const AddButton = styled(Button)`
   border: none;
   background-color: transparent;
 
-  svg {
-    margin-right: 0px;
-  }
-
   span {
     display: none;
+  }
+
+  .Icon {
+    width: 18px;
+    height: 18px;
+
+    svg path {
+      fill: ${({ theme }) => theme.colors.secondary};
+    }
   }
 
   @media screen and (min-width: 528px) {
     span {
       display: block;
-    }
-
-    svg {
-      margin-right: 8px;
     }
   }
 `

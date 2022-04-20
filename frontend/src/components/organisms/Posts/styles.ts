@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 const PostsStyle = styled.section`
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
 
   width: 100%;
 

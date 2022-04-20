@@ -87,7 +87,7 @@ const useSignIn = () => {
     toggleShowAuthModal({ page: 'sign-in', open: false })
   }
 
-  return { onCloseClick, onSignUpClick, formik, isSignInFilled, loading, theme }
+  return { onCloseClick, onSignUpClick, formik, isSignInFilled, loading }
 }
 
 export { useSignIn }

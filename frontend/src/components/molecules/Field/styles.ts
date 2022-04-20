@@ -42,7 +42,7 @@ const Tooltip = styled(OriginalTooltip).attrs({ className: 'Tooltip' })`
       }
     }
 
-    .tooltipArrow {
+    .TooltipArrow {
       position: absolute;
       left: 18px;
       bottom: 8px;
@@ -86,7 +86,10 @@ const FieldStyle = styled.div<IFieldStyleProps>`
   }
 
   .eye {
-    padding: 0 16px;
+    width: 30px;
+    height: 30px;
+
+    margin: 0 16px;
 
     svg path {
       stroke: ${({ theme }) => theme.colors.secondary};

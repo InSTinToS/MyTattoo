@@ -39,6 +39,7 @@ const FeedbackStyle = styled.div<IFeedbackStyleProps>`
 
   .content {
     width: 100%;
+
     word-wrap: break-word;
   }
 `

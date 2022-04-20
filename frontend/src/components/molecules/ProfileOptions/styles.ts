@@ -13,8 +13,17 @@ const ProfileOptionsStyle = styled.ul`
       display: none;
     }
 
-    img {
-      border-radius: 50%;
+    .Icon {
+      width: 25px;
+      height: 25px;
+
+      &.Heart svg path {
+        fill: ${({ theme }) => theme.colors.red};
+      }
+
+      &.ArtistHeart svg path {
+        fill: ${({ theme }) => theme.colors.secondary};
+      }
     }
   }
 

@@ -1,5 +1,5 @@
 import { PostStyle } from './styles'
-import { IPostProps } from './types'
+import type { IPostProps } from './types'
 
 import PostHeader from 'components/molecules/PostHeader'
 

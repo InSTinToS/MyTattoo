@@ -3,7 +3,8 @@ import { RecommendationsStyle } from './styles'
 import type { IRecommendationsProps } from './types'
 
 import DropArrow from 'components/atoms/DropArrow'
-import UserCard from 'components/atoms/UserCard'
+
+import UserCard from 'components/molecules/UserCard'
 
 import avatar from '@public/avatar2.jpg'
 
@@ -23,19 +24,14 @@ const fakeRecommendations = [
 ]
 
 const Recommendations = ({ title, ...props }: IRecommendationsProps) => {
-  const { theme, onArrowClick, show } = useRecommendations()
+  const { onArrowClick, show } = useRecommendations()
 
   return (
     <RecommendationsStyle {...props}>
       <header>
         <span>{title}</span>
 
-        <DropArrow
-          size={18}
-          condition={show}
-          onClick={onArrowClick}
-          color={theme.colors.secondary}
-        />
+        <DropArrow condition={show} onClick={onArrowClick} />
       </header>
 
       <ul>

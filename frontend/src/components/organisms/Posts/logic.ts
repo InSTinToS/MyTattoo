@@ -1,4 +1,4 @@
-import { IFormattedData, TPostsResponse } from './types'
+import type { IFormattedData, TPostsResponse } from './types'
 
 import { useTheme } from 'styled-components'
 

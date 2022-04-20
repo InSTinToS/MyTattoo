@@ -1,29 +1,23 @@
-import { useProfileOptions } from './logic'
 import { ProfileOptionsStyle } from './styles'
 
-import ArtistHeart from 'components/atoms/icons/ArtistHeart'
-import Heart from 'components/atoms/icons/Heart'
+import Avatar from 'components/atoms/Avatar'
+import ArtistHeart from 'components/atoms/Icon/icons/ArtistHeart'
+import Heart from 'components/atoms/Icon/icons/Heart'
 
-import Image from 'next/image'
+const ProfileOptions = () => (
+  <ProfileOptionsStyle>
+    <li>
+      <ArtistHeart />
+    </li>
 
-const ProfileOptions = () => {
-  const { theme } = useProfileOptions()
+    <li>
+      <Heart />
+    </li>
 
-  return (
-    <ProfileOptionsStyle>
-      <li>
-        <ArtistHeart size={25} color={theme.colors.secondary} />
-      </li>
-
-      <li>
-        <Heart size={25} color={theme.colors.red} />
-      </li>
-
-      <li>
-        <Image width={46} height={46} alt='avatar' src='/avatar.png' />
-      </li>
-    </ProfileOptionsStyle>
-  )
-}
+    <li>
+      <Avatar size={46} src='/avatar.png' />
+    </li>
+  </ProfileOptionsStyle>
+)
 
 export default ProfileOptions

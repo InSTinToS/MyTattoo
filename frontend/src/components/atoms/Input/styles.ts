@@ -5,7 +5,6 @@ import styled, { css } from 'styled-components'
 const InputStyle = styled.input<IInputStyleProps>`
   width: 100%;
   height: 100%;
-
   padding-left: 16px;
 
   border: none;
@@ -22,6 +21,7 @@ const InputStyle = styled.input<IInputStyleProps>`
     outlined &&
     css`
       border-radius: 16px;
+
       border: solid 1px ${theme.colors.secondary};
     `}
 `

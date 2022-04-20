@@ -6,6 +6,7 @@ const RecommendationsStyle = styled.section<IRecommendationsStyleProps>`
   header {
     display: flex;
     justify-content: space-between;
+
     margin-bottom: 8px;
   }
 

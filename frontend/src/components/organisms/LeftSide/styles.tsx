@@ -1,10 +1,6 @@
 import type { ILeftSideStyleProps } from './types'
 
-import Button from 'components/molecules/Button'
-
 import styled from 'styled-components'
-
-const AddButton = styled(Button)``
 
 const LeftSideStyle = styled.aside<ILeftSideStyleProps>`
   left: 0;
@@ -23,13 +19,36 @@ const LeftSideStyle = styled.aside<ILeftSideStyleProps>`
       padding: 12px;
 
       li {
-        padding: 8px 12px;
         cursor: pointer;
+        padding: 8px 12px;
+
+        .Button {
+          &.close {
+            border: solid 1px ${({ theme }) => theme.colors.red};
+            background-color: ${({ theme }) => theme.colors.red};
+          }
+
+          &.check {
+            border: solid 1px ${({ theme }) => theme.colors.green};
+            background-color: ${({ theme }) => theme.colors.green};
+          }
+
+          .Icon {
+            width: 12px;
+            height: 12px;
+
+            svg path {
+              fill: ${({ theme }) => theme.colors.secondary};
+            }
+          }
+        }
       }
     }
 
     header {
       display: flex;
+      align-items: center;
+
       padding: 0 24px;
 
       form {
@@ -44,6 +63,15 @@ const LeftSideStyle = styled.aside<ILeftSideStyleProps>`
 
         input {
           padding-left: 8px;
+        }
+
+        .Search {
+          width: 18px;
+          height: 18px;
+
+          svg path {
+            fill: ${({ theme }) => theme.colors.secondary};
+          }
         }
       }
     }
@@ -62,8 +90,9 @@ const LeftSideStyle = styled.aside<ILeftSideStyleProps>`
 
     > div {
       flex: 1;
+
       overflow: hidden;
     }
   }
 `
-export { LeftSideStyle, AddButton }
+export { LeftSideStyle }

@@ -5,10 +5,6 @@ import styled, { css } from 'styled-components'
 const CommentStyle = styled.div<ICommentStyleProps>`
   display: flex;
 
-  img {
-    border-radius: 50%;
-  }
-
   p {
     margin-left: 16px;
     width: calc(100% - 40px - 16px);

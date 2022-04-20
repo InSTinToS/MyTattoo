@@ -1,19 +1,18 @@
 import { useLeftSide } from './logic'
-import { AddButton, LeftSideStyle } from './styles'
+import { LeftSideStyle } from './styles'
 import type { ILeftSideProps } from './types'
 
 import DropArrow from 'components/atoms/DropArrow'
+import Check from 'components/atoms/Icon/icons/Check'
+import Close from 'components/atoms/Icon/icons/Close'
+import Plus from 'components/atoms/Icon/icons/Plus'
+import Search from 'components/atoms/Icon/icons/Search'
 import Input from 'components/atoms/Input'
-import Check from 'components/atoms/icons/Check'
-import Close from 'components/atoms/icons/Close'
-import Plus from 'components/atoms/icons/Plus'
-import Search from 'components/atoms/icons/Search'
 
 import Button from 'components/molecules/Button'
 
 const LeftSide = (props: ILeftSideProps) => {
   const {
-    theme,
     filters,
     onArrowClick,
     onFilterClick,
@@ -26,31 +25,26 @@ const LeftSide = (props: ILeftSideProps) => {
       <section>
         <header>
           <form>
-            <Search color={theme.colors.secondary} size={18} />
+            <Search />
 
             <Input name='filter' placeholder='Procure por filtros' />
           </form>
 
-          <DropArrow
-            size={18}
-            onClick={onArrowClick}
-            color={theme.colors.secondary}
-            condition={showUnsignedsFilters}
-          />
+          <DropArrow onClick={onArrowClick} condition={showUnsignedsFilters} />
         </header>
 
         <div style={notAddedFiltersAnimation}>
           <ul>
             {filters?.unsigned?.map(({ id, name }) => (
               <li key={id}>
-                <AddButton
-                  icon={<Plus size={12} color={theme.colors.secondary} />}
+                <Button
+                  icon={<Plus />}
                   onClick={() => {
                     onFilterClick({ id, name }, 'add')
                   }}
                 >
                   {name}
-                </AddButton>
+                </Button>
               </li>
             ))}
           </ul>
@@ -61,7 +55,8 @@ const LeftSide = (props: ILeftSideProps) => {
             {filters?.removed?.map(({ id, name }) => (
               <li key={id}>
                 <Button
-                  icon={<Close color={theme.colors.secondary} size={12} />}
+                  className='close'
+                  icon={<Close />}
                   onClick={() => {
                     onFilterClick({ id, name }, 'unsign')
                   }}
@@ -76,7 +71,8 @@ const LeftSide = (props: ILeftSideProps) => {
             {filters?.added?.map(({ id, name }) => (
               <li key={id}>
                 <Button
-                  icon={<Check color={theme.colors.secondary} size={12} />}
+                  className='check'
+                  icon={<Check />}
                   onClick={() => {
                     onFilterClick({ id, name }, 'remove')
                   }}
