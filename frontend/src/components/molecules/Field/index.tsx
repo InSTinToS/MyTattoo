@@ -33,12 +33,20 @@ const Field = <FormValues,>({
     <FieldStyle className={className} hasError={hasError} hasFilled={hasFilled}>
       {hasError && (
         <Tooltip
-          trigger={<Alert className='triggerAlert' />}
+          trigger={
+            <Alert
+              title={`${name}Trigger`}
+              className='triggerAlert'
+              aria-describedby={`${name}Error`}
+            />
+          }
           content={
             <Error>
               <Alert className='contentAlert' />
 
-              <div>{errorMessage}</div>
+              <div role='tooltip' id={`${name}Error`}>
+                {errorMessage}
+              </div>
             </Error>
           }
         />
@@ -47,6 +55,7 @@ const Field = <FormValues,>({
       <label htmlFor={name}>{label}</label>
 
       <Input
+        id={name}
         name={name}
         type={inputType}
         value={inputValue}

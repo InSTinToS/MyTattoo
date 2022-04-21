@@ -11,7 +11,8 @@ import Loading from 'components/atoms/Icon/icons/Loading'
 import Field from 'components/molecules/Field'
 
 const SignUp = (props: ISignUpProps) => {
-  const { formik, onArrowClick, onCloseClick, loading } = useSignUp()
+  const { formik, onArrowClick, onCloseClick, loading, enableSubmit } =
+    useSignUp()
 
   return (
     <SignUpStyle {...props}>
@@ -32,9 +33,9 @@ const SignUp = (props: ISignUpProps) => {
           <Field type='email' name='email' label='E-mail' formik={formik} />
 
           <Field
+            label='Senha'
             type='password'
             name='password'
-            label='Senha'
             formik={formik}
           />
 
@@ -45,7 +46,9 @@ const SignUp = (props: ISignUpProps) => {
             label='Confirmar senha'
           />
 
-          <ModalButton type='submit'>Cadastrar</ModalButton>
+          <ModalButton type='submit' disabled={!enableSubmit}>
+            Cadastrar
+          </ModalButton>
 
           {/* <GoogleButton icon={<Google size={24} />}>
             Cadastrar com o Google

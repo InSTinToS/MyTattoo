@@ -23,6 +23,7 @@ const Tooltip = ({
       )}
 
       <div
+        role='button'
         className='trigger'
         onMouseEnter={onTriggerMouseEnter}
         onMouseLeave={onTriggerMouseLeave}

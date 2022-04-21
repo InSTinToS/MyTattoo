@@ -75,6 +75,10 @@ const useSignUp = () => {
     validationSchema: signupSchema
   })
 
+  const { email, confirmPassword, password, username } = formik.errors
+  const enableSubmit =
+    !confirmPassword && !email && !password && !username && formik.dirty
+
   const onArrowClick = () => {
     toggleShowAuthModal({ page: 'sign-in', open: true })
   }
@@ -83,7 +87,7 @@ const useSignUp = () => {
     toggleShowAuthModal({ page: 'sign-in', open: false })
   }
 
-  return { formik, onArrowClick, onCloseClick, loading }
+  return { formik, onArrowClick, onCloseClick, loading, enableSubmit }
 }
 
 export { useSignUp }
