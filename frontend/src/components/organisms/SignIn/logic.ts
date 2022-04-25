@@ -29,7 +29,10 @@ const signInSchema = Yup.object().shape({
     .required('Informe uma senha!')
 })
 
-const initialValues: ISignInValues = {}
+const initialValues: ISignInValues = {
+  password: '',
+  usernameOrEmail: ''
+}
 
 const useSignIn = () => {
   const { toggleShowAuthModal, triggeringFeedback } = useContext(FeedContext)
@@ -58,8 +61,6 @@ const useSignIn = () => {
 
       toggleShowAuthModal({ page: 'sign-in', open: false })
     } catch (error) {
-      console.log(error)
-
       triggeringFeedback({
         title: 'Error',
         color: theme.colors.red,

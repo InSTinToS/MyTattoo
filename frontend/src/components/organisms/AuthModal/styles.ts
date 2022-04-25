@@ -87,8 +87,6 @@ const AuthModalStyle = styled.div`
       width: 48px;
       height: 48px;
 
-      border: solid red 1px;
-
       svg path {
         fill: ${({ theme }) => theme.colors.secondary};
       }

@@ -1,3 +1,5 @@
+process.env.IS_REACT_ACT_ENVIRONMENT = true
+
 module.exports = {
   bail: 1,
   clearMocks: true,
