@@ -17,7 +17,7 @@ const Button = ({
   >
     {Icon && Icon}
 
-    <div className='content'>{children}</div>
+    {children}
   </ButtonStyle>
 )
 

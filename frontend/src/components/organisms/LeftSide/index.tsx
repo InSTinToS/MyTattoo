@@ -2,7 +2,6 @@ import { useLeftSide } from './logic'
 import { LeftSideStyle } from './styles'
 import type { ILeftSideProps } from './types'
 
-import DropArrow from 'components/atoms/DropArrow'
 import Check from 'components/atoms/Icon/icons/Check'
 import Close from 'components/atoms/Icon/icons/Close'
 import Plus from 'components/atoms/Icon/icons/Plus'
@@ -12,78 +11,85 @@ import Input from 'components/atoms/Input'
 import Button from 'components/molecules/Button'
 
 const LeftSide = (props: ILeftSideProps) => {
-  const {
-    filters,
-    onArrowClick,
-    onFilterClick,
-    showUnsignedsFilters,
-    notAddedFiltersAnimation
-  } = useLeftSide()
+  const { filters, onFilterClick } = useLeftSide()
 
   return (
     <LeftSideStyle {...props}>
-      <section>
-        <header>
-          <form>
+      <header>
+        <form>
+          <label htmlFor='search'>
             <Search />
 
-            <Input name='filter' placeholder='Procure por filtros' />
-          </form>
+            <Input
+              id='search'
+              name='filter'
+              placeholder='Procure por filtros'
+            />
+          </label>
+        </form>
+      </header>
 
-          <DropArrow onClick={onArrowClick} condition={showUnsignedsFilters} />
-        </header>
+      <ul id='filters'>
+        <li id='filtersToAdd'>
+          {filters?.unsigned?.length > 0 && (
+            <ul>
+              {filters?.unsigned?.map(({ id, name }) => (
+                <li key={id}>
+                  <Button
+                    type='button'
+                    icon={<Plus />}
+                    onClick={() => {
+                      onFilterClick({ id, name }, 'add')
+                    }}
+                  >
+                    {name}
+                  </Button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
 
-        <div style={notAddedFiltersAnimation}>
-          <ul>
-            {filters?.unsigned?.map(({ id, name }) => (
-              <li key={id}>
-                <Button
-                  icon={<Plus />}
-                  onClick={() => {
-                    onFilterClick({ id, name }, 'add')
-                  }}
-                >
-                  {name}
-                </Button>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {filters?.removed?.length > 0 && (
+          <li id='removedFilters'>
+            <ul>
+              {filters?.removed?.map(({ id, name }) => (
+                <li key={id}>
+                  <Button
+                    type='button'
+                    icon={<Close />}
+                    onClick={() => {
+                      onFilterClick({ id, name }, 'unsign')
+                    }}
+                  >
+                    {name}
+                  </Button>
+                </li>
+              ))}
+            </ul>
+          </li>
+        )}
 
-        <footer>
-          <ul>
-            {filters?.removed?.map(({ id, name }) => (
-              <li key={id}>
-                <Button
-                  className='close'
-                  icon={<Close />}
-                  onClick={() => {
-                    onFilterClick({ id, name }, 'unsign')
-                  }}
-                >
-                  {name}
-                </Button>
-              </li>
-            ))}
-          </ul>
-
-          <ul>
-            {filters?.added?.map(({ id, name }) => (
-              <li key={id}>
-                <Button
-                  className='check'
-                  icon={<Check />}
-                  onClick={() => {
-                    onFilterClick({ id, name }, 'remove')
-                  }}
-                >
-                  {name}
-                </Button>
-              </li>
-            ))}
-          </ul>
-        </footer>
-      </section>
+        {filters?.added?.length > 0 && (
+          <li id='addedFilters'>
+            <ul>
+              {filters?.added?.map(({ id, name }) => (
+                <li key={id}>
+                  <Button
+                    type='button'
+                    icon={<Check />}
+                    onClick={() => {
+                      onFilterClick({ id, name }, 'remove')
+                    }}
+                  >
+                    {name}
+                  </Button>
+                </li>
+              ))}
+            </ul>
+          </li>
+        )}
+      </ul>
     </LeftSideStyle>
   )
 }

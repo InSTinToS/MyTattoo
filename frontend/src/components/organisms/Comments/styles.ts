@@ -1,18 +1,21 @@
 import styled from 'styled-components'
 
-const CommentsStyle = styled.div`
-  ul {
-    margin: 16px 0;
-
-    li + li {
-      margin-top: 24px;
-    }
-  }
-
-  form {
+const CreateCommentStyle = styled.form`
+  label {
     width: 100%;
-    height: 36px;
+    border-radius: 4px;
+
+    padding: 8px;
+    border: solid ${({ theme }) => theme.colors.secondary} 1px;
   }
 `
 
-export { CommentsStyle }
+const CommentsStyle = styled.ul`
+  margin: 16px 0;
+
+  li {
+    margin-bottom: 24px;
+  }
+`
+
+export { CommentsStyle, CreateCommentStyle }

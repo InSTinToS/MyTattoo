@@ -15,8 +15,8 @@ const ButtonStyle = styled.button<IButtonStyleProps>`
     height: 15px;
   }
 
-  .Icon + .content {
-    margin-left: 8px;
+  .Icon {
+    margin-right: 8px;
   }
 
   ${({ theme, variant }) =>

@@ -54,12 +54,18 @@ const CreatePostStyle = styled.div<ICreatePostStyleProps>`
     color: ${({ theme }) => theme.colors.secondary};
   }
 
-  > div {
-    display: flex;
-    justify-content: flex-end;
+  footer {
+    width: 100%;
 
-    button + button {
-      margin-left: 8px;
+    ul {
+      display: flex;
+
+      align-items: center;
+      justify-content: flex-end;
+
+      li + li {
+        margin-left: 8px;
+      }
     }
   }
 `

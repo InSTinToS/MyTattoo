@@ -1,27 +1,24 @@
 import styled from 'styled-components'
 
-const SearchStyle = styled.div`
+const SearchStyle = styled.form`
   display: flex;
+  align-items: center;
 
   width: 100%;
-  padding: 8px;
+
   height: 40px;
   border-radius: 16px;
 
   border: solid 1px ${({ theme }) => theme.colors.secondary};
 
-  > .Icon {
+  .Search {
+    margin-left: 16px;
     width: 20px;
     height: 20px;
 
-    svg path {
+    path {
       fill: ${({ theme }) => theme.colors.secondary};
     }
-  }
-
-  form {
-    width: 100%;
-    height: 100%;
   }
 `
 

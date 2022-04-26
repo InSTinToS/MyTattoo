@@ -10,8 +10,8 @@ const RecommendationsStyle = styled.section<IRecommendationsStyleProps>`
     margin-bottom: 8px;
   }
 
-  ul li {
-    cursor: pointer;
+  ul li button {
+    width: 100%;
   }
 `
 

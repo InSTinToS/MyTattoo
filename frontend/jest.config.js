@@ -11,6 +11,6 @@ module.exports = {
   testPathIgnorePatterns: [
     '<rootDir>/.next/',
     '<rootDir>/node_modules/',
-    '<rootDir>/src/frontend/tests/cypress/'
+    '<rootDir>/src/tests/cypress/'
   ]
 }

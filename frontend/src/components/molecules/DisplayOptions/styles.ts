@@ -23,9 +23,12 @@ const DisplayOptionsStyle = styled.ul`
   width: 100%;
 
   li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    &,
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     & + li {
       margin-left: 8px;

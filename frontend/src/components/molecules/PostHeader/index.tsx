@@ -8,18 +8,20 @@ const PostHeader = ({
   avatar,
   isArtist,
   description
-}: IPostHeaderProps) => (
-  <PostHeaderStyle>
-    <Avatar src={avatar} size={40} />
+}: IPostHeaderProps) => {
+  const avatarSize = 40
 
-    <div>
-      <span>{name}</span>
+  return (
+    <PostHeaderStyle avatarSize={avatarSize}>
+      <Avatar src={avatar} size={avatarSize} />
 
-      {isArtist && <div>Artist</div>}
-    </div>
+      <strong>{name}</strong>
 
-    <p>{description}</p>
-  </PostHeaderStyle>
-)
+      {isArtist && <b className='isArtist'>Artist</b>}
+
+      <p>{description}</p>
+    </PostHeaderStyle>
+  )
+}
 
 export default PostHeader

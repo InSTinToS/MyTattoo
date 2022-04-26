@@ -20,19 +20,29 @@ const DisplayOptions = () => {
   return (
     <DisplayOptionsStyle>
       <li className='feedOrientation' onClick={() => onLiClick('horizontal')}>
-        <DisplayHorizontal color={horizontalColor} />
+        <button>
+          <DisplayHorizontal color={horizontalColor} />
+        </button>
       </li>
 
       <li className='feedOrientation' onClick={() => onLiClick('vertical')}>
-        <DisplayVertical color={verticalColor} />
+        <button>
+          <DisplayVertical color={verticalColor} />
+        </button>
       </li>
 
       <li>
-        {showLeftSide ? (
-          <DisabledFilter onClick={toggleShowLeftSide} />
-        ) : (
-          <Filter onClick={toggleShowLeftSide} />
-        )}
+        <button
+          onClick={() => {
+            showLeftSide ? toggleShowLeftSide() : toggleShowLeftSide()
+          }}
+        >
+          {showLeftSide ? (
+            <DisabledFilter aria-label='Desabilitar filtro' />
+          ) : (
+            <Filter aria-label='Habilitar filtro' />
+          )}
+        </button>
       </li>
     </DisplayOptionsStyle>
   )

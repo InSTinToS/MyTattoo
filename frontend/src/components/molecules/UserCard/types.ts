@@ -4,7 +4,7 @@ interface IUserCardStyleProps {}
 
 interface IUserCardProps
   extends IUserCardStyleProps,
-    HTMLAttributes<HTMLDivElement> {
+    HTMLAttributes<HTMLButtonElement> {
   name: string
   avatar: string
   smallBio: string

@@ -4,94 +4,78 @@ import styled from 'styled-components'
 
 const LeftSideStyle = styled.aside<ILeftSideStyleProps>`
   left: 0;
-  height: 100%;
+  flex-flow: column nowrap;
 
-  section {
-    display: flex;
-    flex-flow: column nowrap;
+  header {
+    padding: 0 24px;
 
-    height: 100%;
+    input {
+      height: 100%;
+    }
 
-    ul {
+    label {
       display: flex;
-      flex-wrap: wrap;
+      flex: 1;
 
-      padding: 12px;
+      padding: 8px;
+      border-radius: 8px;
 
-      li {
-        cursor: pointer;
-        padding: 8px 12px;
+      border: solid 1px ${({ theme }) => theme.colors.secondary};
 
-        .Button {
-          &.close {
-            border: solid 1px ${({ theme }) => theme.colors.red};
-            background-color: ${({ theme }) => theme.colors.red};
-          }
+      .Search {
+        width: 18px;
+        height: 18px;
 
-          &.check {
-            border: solid 1px ${({ theme }) => theme.colors.green};
-            background-color: ${({ theme }) => theme.colors.green};
-          }
+        path {
+          fill: ${({ theme }) => theme.colors.secondary};
+        }
+      }
+    }
+  }
+
+  ul#filters {
+    display: flex;
+    flex: 1;
+    flex-flow: column nowrap;
+    padding: 12px;
+
+    > li {
+      &#filtersToAdd {
+        flex: 1;
+      }
+
+      &#addedFilters .Button {
+        border: solid 1px ${({ theme }) => theme.colors.green};
+        background-color: ${({ theme }) => theme.colors.green};
+      }
+
+      &#removedFilters .Button {
+        border: solid 1px ${({ theme }) => theme.colors.red};
+        background-color: ${({ theme }) => theme.colors.red};
+      }
+
+      ul {
+        display: flex;
+        flex-flow: row wrap;
+
+        width: 100%;
+
+        background-color: ${({ theme }) => theme.colors.background};
+
+        li {
+          cursor: pointer;
+          padding: 8px 12px;
 
           .Icon {
             width: 12px;
             height: 12px;
 
-            svg path {
+            path {
               fill: ${({ theme }) => theme.colors.secondary};
             }
           }
         }
       }
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-
-      padding: 0 24px;
-
-      form {
-        display: flex;
-        flex: 1;
-
-        padding: 8px;
-        border-radius: 8px;
-        margin-right: 16px;
-
-        border: solid 1px ${({ theme }) => theme.colors.secondary};
-
-        input {
-          padding-left: 8px;
-        }
-
-        .Search {
-          width: 18px;
-          height: 18px;
-
-          svg path {
-            fill: ${({ theme }) => theme.colors.secondary};
-          }
-        }
-      }
-    }
-
-    footer {
-      ul {
-        :first-child {
-          padding-bottom: 0;
-        }
-
-        + ul {
-          padding-top: 0;
-        }
-      }
-    }
-
-    > div {
-      flex: 1;
-
-      overflow: hidden;
     }
   }
 `

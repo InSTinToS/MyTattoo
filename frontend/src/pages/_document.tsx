@@ -30,7 +30,7 @@ class MyDocument extends Document {
             {initialProps.styles}
             {sheet.getStyleElement()}
           </>
-        )
+        ) as any
       }
     } finally {
       sheet.seal()
@@ -39,7 +39,7 @@ class MyDocument extends Document {
 
   render(): JSX.Element {
     return (
-      <Html lang='pt'>
+      <Html lang='pt-br'>
         <Head>
           <meta charSet='utf-8' />
 

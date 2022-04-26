@@ -31,17 +31,20 @@ const Recommendations = ({ title, ...props }: IRecommendationsProps) => {
       <header>
         <span>{title}</span>
 
-        <DropArrow condition={show} onClick={onArrowClick} />
+        <button type='button'>
+          <DropArrow condition={show} onClick={onArrowClick} />
+        </button>
       </header>
 
-      <ul>
-        {show &&
-          fakeRecommendations.map(({ avatar, id, name, smallBio }) => (
+      {show && (
+        <ul>
+          {fakeRecommendations.map(({ avatar, id, name, smallBio }) => (
             <li key={id}>
               <UserCard name={name} smallBio={smallBio} avatar={avatar} />
             </li>
           ))}
-      </ul>
+        </ul>
+      )}
     </RecommendationsStyle>
   )
 }

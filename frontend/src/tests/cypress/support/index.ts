@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-namespace */
+
+/* eslint-disable @typescript-eslint/naming-convention */
 import './commands'
 
 // custom commands types

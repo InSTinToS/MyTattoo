@@ -3,7 +3,7 @@ import type { IUserCardStyleProps } from './types'
 import { darken, lighten } from 'polished'
 import styled from 'styled-components'
 
-const UserCardStyle = styled.div<IUserCardStyleProps>`
+const UserCardStyle = styled.button<IUserCardStyleProps>`
   display: grid;
   grid:
     'avatar name' 23px
@@ -17,8 +17,12 @@ const UserCardStyle = styled.div<IUserCardStyleProps>`
   }
 
   span {
+    text-align: left;
+
     &.name {
       grid-area: name;
+
+      color: ${({ theme }) => theme.colors.secondary};
     }
 
     &.smallBio {

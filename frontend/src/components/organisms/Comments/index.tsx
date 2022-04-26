@@ -1,5 +1,5 @@
 import { useComments } from './logic'
-import { CommentsStyle } from './styles'
+import { CommentsStyle, CreateCommentStyle } from './styles'
 
 import Input from 'components/atoms/Input'
 
@@ -7,6 +7,8 @@ import Comment from 'components/molecules/Comment'
 
 import avatar2 from '@public/avatar2.jpg'
 import avatar from '@public/avatar.png'
+
+import { memo } from 'react'
 
 const fakeComments = [
   {
@@ -31,30 +33,32 @@ const Comments = () => {
   const { formik } = useComments()
 
   return (
-    <CommentsStyle>
-      <ul>
+    <>
+      <CommentsStyle>
         {fakeComments.map(({ name, content, id, avatar, isArtist }) => (
-          <li key={id}>
-            <Comment
-              name={name}
-              avatar={avatar}
-              content={content}
-              isArtist={isArtist}
-            />
-          </li>
+          <Comment
+            key={id}
+            name={name}
+            avatar={avatar}
+            forwardedAs='li'
+            content={content}
+            isArtist={isArtist}
+          />
         ))}
-      </ul>
+      </CommentsStyle>
 
-      <form onSubmit={formik.handleSubmit}>
-        <Input
-          outlined
-          type='text'
-          name='newComment'
-          placeholder='Deixe um comentário!'
-        />
-      </form>
-    </CommentsStyle>
+      <CreateCommentStyle onSubmit={formik.handleSubmit}>
+        <label htmlFor='newComment'>
+          <Input
+            id='newComment'
+            type='text'
+            name='newComment'
+            placeholder='Deixe um comentário!'
+          />
+        </label>
+      </CreateCommentStyle>
+    </>
   )
 }
 
-export default Comments
+export default memo(Comments)

@@ -2,14 +2,20 @@ import { usePostActions } from './logic'
 import { PostActionsStyle } from './styles'
 import type { IPostActionsProps } from './types'
 
-import BalloonButton from '../BalloonButton'
 import HeartButton from '../HeartButton'
+import IconButton from '../IconButton'
 
-import Button from 'components/molecules/Button'
+import Balloon from 'components/atoms/Icon/icons/Balloon'
+import OutlinedBalloon from 'components/atoms/Icon/icons/OutlinedBalloon'
+import OutlinedTattoo from 'components/atoms/Icon/icons/OutlinedTattoo'
+import Tattoo from 'components/atoms/Icon/icons/Tattoo'
 
-const fakeTattooStyles = ['Maori', 'Old School', 'Tribal', 'Trash', 'Aquarela']
-
-const PostActions = ({ commenting, onBalloonClick }: IPostActionsProps) => {
+const PostActions = ({
+  commenting,
+  onBalloonClick,
+  showingStyles,
+  onTattooClick
+}: IPostActionsProps) => {
   const { liked, onHeartClick } = usePostActions()
 
   return (
@@ -19,14 +25,22 @@ const PostActions = ({ commenting, onBalloonClick }: IPostActionsProps) => {
       </li>
 
       <li>
-        <BalloonButton outlined={!commenting} onClick={onBalloonClick} />
+        <IconButton
+          icon={<Balloon />}
+          outlined={!commenting}
+          onClick={onBalloonClick}
+          outlinedIcon={<OutlinedBalloon />}
+        />
       </li>
 
-      {fakeTattooStyles.map(tattooStyle => (
-        <li key={tattooStyle}>
-          <Button>{tattooStyle}</Button>
-        </li>
-      ))}
+      <li>
+        <IconButton
+          icon={<Tattoo />}
+          onClick={onTattooClick}
+          outlined={!showingStyles}
+          outlinedIcon={<OutlinedTattoo />}
+        />
+      </li>
     </PostActionsStyle>
   )
 }

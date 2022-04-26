@@ -5,17 +5,17 @@ const HeartButtonStyle = styled.button`
   height: 100%;
 
   .Icon {
-    width: 24px;
     height: 24px;
 
-    svg path {
+    path {
       stroke: ${({ theme }) => theme.colors.secondary};
+      fill: transparent;
     }
+  }
 
-    &.liked svg path {
-      fill: ${({ theme }) => theme.colors.red};
-      stroke: ${({ theme }) => theme.colors.red};
-    }
+  .liked path {
+    fill: ${({ theme }) => theme.colors.red};
+    stroke: ${({ theme }) => theme.colors.red};
   }
 `
 

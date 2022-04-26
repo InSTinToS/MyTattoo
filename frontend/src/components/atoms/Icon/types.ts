@@ -1,8 +1,8 @@
-import { HTMLAttributes } from 'react'
+import { SVGAttributes } from 'react'
 
-interface IIconStyleProps extends HTMLAttributes<HTMLDivElement> {}
+interface IIconStyleProps {}
 
-interface IIconProps extends IIconStyleProps {
+interface IIconProps extends SVGAttributes<SVGElement>, IIconStyleProps {
   title?: string
 }
 

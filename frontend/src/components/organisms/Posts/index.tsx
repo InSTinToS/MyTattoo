@@ -9,14 +9,12 @@ const Posts = () => {
 
   return (
     <PostsStyle>
-      <header>
-        <CreatePost />
-      </header>
+      <CreatePost forwardedAs='header' />
 
       <ul>
         {formattedPosts.map(({ headerData, id }) => (
           <li key={id}>
-            <Post postHeader={headerData} />
+            <Post postHeader={headerData} forwardedAs='section' />
           </li>
         ))}
       </ul>

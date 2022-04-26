@@ -8,16 +8,14 @@ const Search = () => {
   const { formik } = useSearch()
 
   return (
-    <SearchStyle>
+    <SearchStyle onSubmit={formik.handleSubmit}>
       <SearchIcon />
 
-      <form onSubmit={formik.handleSubmit}>
-        <Input
-          name='search'
-          spellCheck='false'
-          placeholder='Procure as melhores tatuagens!'
-        />
-      </form>
+      <Input
+        name='search'
+        spellCheck='false'
+        placeholder='Procure as melhores tatuagens!'
+      />
     </SearchStyle>
   )
 }

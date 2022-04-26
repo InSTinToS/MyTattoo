@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const BalloonButtonStyle = styled.button`
+const IconButtonStyle = styled.button`
   .Icon {
     width: 24px;
     height: 24px;
@@ -11,4 +11,4 @@ const BalloonButtonStyle = styled.button`
   }
 `
 
-export { BalloonButtonStyle }
+export { IconButtonStyle }

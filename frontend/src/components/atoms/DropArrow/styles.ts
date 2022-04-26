@@ -6,7 +6,7 @@ const DropArrowStyle = styled(Arrow)`
   width: 18px;
   height: 18px;
 
-  svg path {
+  path {
     fill: ${({ theme }) => theme.colors.secondary};
   }
 `

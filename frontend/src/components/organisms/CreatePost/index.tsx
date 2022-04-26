@@ -4,20 +4,26 @@ import type { ICreatePostProps } from './types'
 import AddPhoto from 'components/atoms/Icon/icons/AddPhoto'
 import Plus from 'components/atoms/Icon/icons/Plus'
 
-const CreatePost = (props: ICreatePostProps) => {
-  return (
-    <CreatePostStyle {...props}>
-      <textarea />
+const CreatePost = ({ forwardedAs, ...props }: ICreatePostProps) => (
+  <CreatePostStyle as={forwardedAs} {...props}>
+    <textarea />
 
-      <div>
-        <AddButton icon={<Plus />}>Adicionar vertentes</AddButton>
+    <footer>
+      <ul>
+        <li>
+          <AddButton icon={<Plus />}>Adicionar vertentes</AddButton>
+        </li>
 
-        <AddButton icon={<AddPhoto />}>Adicionar imagem</AddButton>
+        <li>
+          <AddButton icon={<AddPhoto />}>Adicionar imagem</AddButton>
+        </li>
 
-        <ShareButton type='submit'>Publicar</ShareButton>
-      </div>
-    </CreatePostStyle>
-  )
-}
+        <li>
+          <ShareButton type='submit'>Publicar</ShareButton>
+        </li>
+      </ul>
+    </footer>
+  </CreatePostStyle>
+)
 
 export default CreatePost

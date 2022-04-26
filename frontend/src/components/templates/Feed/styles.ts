@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const FeedStyle = styled.main`
+const FeedStyle = styled.div`
   display: flex;
   overflow-x: hidden;
   justify-content: center;
@@ -23,7 +23,7 @@ const FeedStyle = styled.main`
     > aside {
       position: fixed;
 
-      display: block;
+      display: flex;
 
       width: 25vw;
       height: calc(100vh - 78px);

@@ -2,12 +2,12 @@ import { useSignIn } from './logic'
 import { SignInButton, SignInStyle } from './styles'
 import type { ISignInProps } from './types'
 
-import { ModalButton } from '../AuthModal/styles'
-
 import Close from 'components/atoms/Icon/icons/Close'
 import Loading from 'components/atoms/Icon/icons/Loading'
 
 import Field from 'components/molecules/Field'
+
+import { ModalButton } from 'components/organisms/AuthModal/styles'
 
 const SignIn = (props: ISignInProps) => {
   const { formik, loading, onCloseClick, isSignInFilled, onSignUpClick } =

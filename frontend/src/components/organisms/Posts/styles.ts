@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const PostsStyle = styled.section`
+const PostsStyle = styled.main`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -26,6 +26,10 @@ const PostsStyle = styled.section`
 
       margin-top: 24px;
     }
+  }
+
+  @media screen and (min-width: 1080px) {
+    width: calc(50vw - 16px);
   }
 `
 
