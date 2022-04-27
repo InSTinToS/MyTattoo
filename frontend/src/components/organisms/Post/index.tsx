@@ -18,13 +18,14 @@ const Post = ({ postHeader, forwardedAs, ...props }: IPostProps) => (
       />
 
       <Image
+        tabIndex={0}
         width='100%'
         height='100%'
         priority={true}
         src='/tattoo.png'
-        alt='tattoo image'
         layout='responsive'
         objectFit='contain'
+        alt='Tatuagem no antebraço com a representação do deus Anúbis'
       />
     </article>
 

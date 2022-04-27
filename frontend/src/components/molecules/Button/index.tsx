@@ -11,6 +11,7 @@ const Button = ({
   ...props
 }: IButtonProps) => (
   <ButtonStyle
+    type='button'
     variant={variant}
     className={composeClassName('Button', className)}
     {...props}

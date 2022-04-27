@@ -9,8 +9,16 @@ const HeartButton = ({
   ...props
 }: IHeartButtonProps) => {
   return (
-    <HeartButtonStyle type={type} {...props}>
-      {liked ? <Heart className='liked' /> : <Heart />}
+    <HeartButtonStyle
+      type={type}
+      aria-label={`${liked ? 'Descurtir' : 'Curtir'} postagem`}
+      {...props}
+    >
+      {liked ? (
+        <Heart className='liked' aria-live='polite' />
+      ) : (
+        <Heart aria-live='polite' />
+      )}
     </HeartButtonStyle>
   )
 }

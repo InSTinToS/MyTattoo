@@ -20,7 +20,7 @@ const email = {
 }
 
 const password = {
-  required: { error: 'Informe um e-mail!' },
+  required: { error: 'Informe uma senha!' },
   min: { value: 8, error: `Sua senha deve conter mais que 8 caracteres!` },
   max: { value: 30, error: 'Nome de usuário muito longo!' },
   matches: [

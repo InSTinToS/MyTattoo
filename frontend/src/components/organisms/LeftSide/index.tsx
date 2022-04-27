@@ -14,7 +14,13 @@ const LeftSide = (props: ILeftSideProps) => {
   const { filters, onFilterClick } = useLeftSide()
 
   return (
-    <LeftSideStyle {...props}>
+    <LeftSideStyle
+      id='leftSide'
+      role='alert'
+      aria-atomic='true'
+      aria-live='assertive'
+      {...props}
+    >
       <header>
         <form>
           <label htmlFor='search'>
@@ -36,7 +42,6 @@ const LeftSide = (props: ILeftSideProps) => {
               {filters?.unsigned?.map(({ id, name }) => (
                 <li key={id}>
                   <Button
-                    type='button'
                     icon={<Plus />}
                     onClick={() => {
                       onFilterClick({ id, name }, 'add')
@@ -56,7 +61,6 @@ const LeftSide = (props: ILeftSideProps) => {
               {filters?.removed?.map(({ id, name }) => (
                 <li key={id}>
                   <Button
-                    type='button'
                     icon={<Close />}
                     onClick={() => {
                       onFilterClick({ id, name }, 'unsign')
@@ -76,7 +80,6 @@ const LeftSide = (props: ILeftSideProps) => {
               {filters?.added?.map(({ id, name }) => (
                 <li key={id}>
                   <Button
-                    type='button'
                     icon={<Check />}
                     onClick={() => {
                       onFilterClick({ id, name }, 'remove')

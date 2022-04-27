@@ -29,6 +29,10 @@ const PostActionsStyle = styled.ul`
     }
   }
 
+  .tattooButton {
+    outline-offset: -2px;
+  }
+
   .IconButton .Tattoo {
     path {
       fill: ${({ theme }) => theme.colors.primary};

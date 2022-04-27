@@ -5,11 +5,11 @@ import Avatar from 'components/atoms/Avatar'
 
 const UserCard = ({ avatar, name, smallBio, ...props }: IUserCardProps) => (
   <UserCardStyle {...props}>
-    <span className='name'>{name}</span>
+    <Avatar size={46} src={avatar} alt='Avatar do usuário' />
+
+    <strong>{name}</strong>
 
     <span className='smallBio'>{smallBio}</span>
-
-    <Avatar size={46} src={avatar} />
   </UserCardStyle>
 )
 

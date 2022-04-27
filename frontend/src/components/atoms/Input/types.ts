@@ -1,9 +1,12 @@
-import { HTMLProps } from 'react'
+import { ComponentPropsWithoutRef } from 'react'
 
 interface IInputStyleProps {
+  outline?: string
   outlined?: boolean
 }
 
-interface IInputProps extends HTMLProps<HTMLInputElement>, IInputStyleProps {}
+interface IInputProps
+  extends ComponentPropsWithoutRef<'input'>,
+    IInputStyleProps {}
 
 export type { IInputStyleProps, IInputProps }

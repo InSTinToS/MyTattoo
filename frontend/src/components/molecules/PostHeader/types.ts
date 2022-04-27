@@ -1,3 +1,7 @@
+interface IPostHeaderStyleProps {
+  avatarSize: number
+}
+
 interface IPostHeaderProps {
   name: string
   avatar: string
@@ -5,4 +9,4 @@ interface IPostHeaderProps {
   description: string
 }
 
-export type { IPostHeaderProps }
+export type { IPostHeaderProps, IPostHeaderStyleProps }

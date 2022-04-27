@@ -5,16 +5,21 @@ const SearchStyle = styled.form`
   align-items: center;
 
   width: 100%;
-
   height: 40px;
+  padding-right: 8px;
   border-radius: 16px;
 
   border: solid 1px ${({ theme }) => theme.colors.secondary};
 
+  input:focus {
+    border-radius: 8px;
+    outline-offset: -6px;
+  }
+
   .Search {
-    margin-left: 16px;
     width: 20px;
     height: 20px;
+    margin-left: 16px;
 
     path {
       fill: ${({ theme }) => theme.colors.secondary};

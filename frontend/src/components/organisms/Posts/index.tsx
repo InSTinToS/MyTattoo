@@ -11,10 +11,10 @@ const Posts = () => {
     <PostsStyle>
       <CreatePost forwardedAs='header' />
 
-      <ul>
+      <ul aria-label='Postagens' id='main'>
         {formattedPosts.map(({ headerData, id }) => (
           <li key={id}>
-            <Post postHeader={headerData} forwardedAs='section' />
+            <Post forwardedAs='section' postHeader={headerData} />
           </li>
         ))}
       </ul>

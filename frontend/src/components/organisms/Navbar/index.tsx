@@ -10,7 +10,7 @@ const Navbar = () => {
   const auth = false
 
   return (
-    <NavbarStyle>
+    <NavbarStyle id='nav'>
       <ul>
         <li>
           <DisplayOptions />

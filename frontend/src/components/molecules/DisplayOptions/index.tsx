@@ -18,29 +18,54 @@ const DisplayOptions = () => {
   } = useDisplayOptions()
 
   return (
-    <DisplayOptionsStyle>
-      <li className='feedOrientation' onClick={() => onLiClick('horizontal')}>
-        <button>
+    <DisplayOptionsStyle aria-label='Opções de visualização das postagens'>
+      <li className='feedOrientation'>
+        <label
+          htmlFor='horizontal'
+          aria-label='Visualizar postagens na horizontal'
+        >
+          <input
+            type='radio'
+            id='horizontal'
+            value='horizontal'
+            name='feedOrientation'
+            onClick={() => onLiClick('horizontal')}
+          />
+
           <DisplayHorizontal color={horizontalColor} />
-        </button>
+        </label>
       </li>
 
-      <li className='feedOrientation' onClick={() => onLiClick('vertical')}>
-        <button>
+      <li className='feedOrientation'>
+        <label htmlFor='vertical' aria-label='Visualizar postagens na vertical'>
+          <input
+            type='radio'
+            id='vertical'
+            defaultChecked
+            value='vertical'
+            name='feedOrientation'
+            onClick={() => onLiClick('vertical')}
+          />
+
           <DisplayVertical color={verticalColor} />
-        </button>
+        </label>
       </li>
 
       <li>
         <button
+          type='button'
+          id='filterButton'
+          aria-label={
+            showLeftSide ? 'Desabilitar filtros' : 'Habilitar filtros'
+          }
           onClick={() => {
             showLeftSide ? toggleShowLeftSide() : toggleShowLeftSide()
           }}
         >
           {showLeftSide ? (
-            <DisabledFilter aria-label='Desabilitar filtro' />
+            <DisabledFilter aria-live='polite' />
           ) : (
-            <Filter aria-label='Habilitar filtro' />
+            <Filter aria-live='polite' />
           )}
         </button>
       </li>

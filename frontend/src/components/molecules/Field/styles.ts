@@ -14,15 +14,15 @@ const Error = styled.div`
   color: ${({ theme }) => theme.colors.secondary};
   background-color: ${({ theme }) => theme.colors.red};
 
-  div + div {
+  > div {
     flex: 1;
 
-    margin-left: 16px;
+    margin-left: 8px;
   }
 `
 
 const Tooltip = styled(OriginalTooltip).attrs({ className: 'Tooltip' })`
-  .trigger .triggerAlert svg {
+  .trigger svg {
     height: 18px;
 
     path {
@@ -34,7 +34,7 @@ const Tooltip = styled(OriginalTooltip).attrs({ className: 'Tooltip' })`
     left: -13px;
     bottom: 16px;
 
-    .contentAlert svg {
+    .contentAlert {
       height: 18px;
 
       path {
@@ -47,12 +47,10 @@ const Tooltip = styled(OriginalTooltip).attrs({ className: 'Tooltip' })`
       left: 18px;
       bottom: 8px;
 
-      svg {
-        height: 8px;
+      height: 8px;
 
-        path {
-          fill: ${({ theme }) => theme.colors.red};
-        }
+      path {
+        fill: ${({ theme }) => theme.colors.red};
       }
     }
   }
@@ -91,7 +89,7 @@ const FieldStyle = styled.div<IFieldStyleProps>`
 
     margin: 0 16px;
 
-    svg path {
+    path {
       stroke: ${({ theme }) => theme.colors.secondary};
     }
   }
@@ -103,7 +101,7 @@ const FieldStyle = styled.div<IFieldStyleProps>`
 
       border: solid ${theme.colors.red} 1px;
 
-      .eye svg path {
+      .eye path {
         stroke: ${theme.colors.red};
       }
     `};
@@ -115,7 +113,7 @@ const FieldStyle = styled.div<IFieldStyleProps>`
       color: ${theme.colors.primary};
       border: solid ${theme.colors.primary} 1px;
 
-      .eye svg path {
+      .eye path {
         stroke: ${theme.colors.primary};
       }
     `};

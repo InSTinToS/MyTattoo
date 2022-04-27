@@ -47,7 +47,7 @@ const fakeTattooStyles = [
 const Styles = ({ showingStyles = true, ...props }: IStylesProps) => {
   return (
     showingStyles && (
-      <StylesStyle {...props}>
+      <StylesStyle aria-label='Estilos da postagem' {...props}>
         {fakeTattooStyles.map(tattooStyle => (
           <li key={tattooStyle}>
             <Button>{tattooStyle}</Button>

@@ -12,6 +12,10 @@ const InputStyle = styled.input<IInputStyleProps>`
   background-color: transparent;
   color: ${({ theme }) => theme.colors.secondary};
 
+  &:focus {
+    outline: ${({ outline }) => outline};
+  }
+
   &:-webkit-autofill {
     color: ${({ theme }) => theme.colors.secondary};
     -webkit-text-fill-color: ${({ theme }) => theme.colors.secondary};

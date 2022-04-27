@@ -26,19 +26,24 @@ const PostActions = ({
 
       <li>
         <IconButton
-          icon={<Balloon />}
           outlined={!commenting}
           onClick={onBalloonClick}
-          outlinedIcon={<OutlinedBalloon />}
+          icon={<Balloon aria-live='polite' />}
+          ariaLabel='Esconder comentários da postagem'
+          outlinedAriaLabel='Mostrar comentários da postagem'
+          outlinedIcon={<OutlinedBalloon aria-live='polite' />}
         />
       </li>
 
       <li>
         <IconButton
-          icon={<Tattoo />}
+          className='tattooButton'
           onClick={onTattooClick}
+          ariaLabel='Esconder estilos de tatuagens da postagem'
+          outlinedAriaLabel='Mostrar estilos de tatuagens da postagem'
           outlined={!showingStyles}
-          outlinedIcon={<OutlinedTattoo />}
+          icon={<Tattoo aria-live='polite' />}
+          outlinedIcon={<OutlinedTattoo aria-live='polite' />}
         />
       </li>
     </PostActionsStyle>

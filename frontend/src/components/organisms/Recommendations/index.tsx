@@ -11,14 +11,14 @@ import avatar from '@public/avatar2.jpg'
 const fakeRecommendations = [
   {
     avatar: avatar,
-    name: 'Vidan Tattoo',
     id: '1',
+    name: 'Vidan Tattoo',
     smallBio: 'The best of the world'
   },
   {
     avatar: avatar,
-    name: 'Vidan Tattoo',
     id: '2',
+    name: 'Vidan Tattoo',
     smallBio: 'The best of the world'
   }
 ]
@@ -29,10 +29,14 @@ const Recommendations = ({ title, ...props }: IRecommendationsProps) => {
   return (
     <RecommendationsStyle {...props}>
       <header>
-        <span>{title}</span>
+        <span tabIndex={0}>{title}</span>
 
-        <button type='button'>
-          <DropArrow condition={show} onClick={onArrowClick} />
+        <button
+          type='button'
+          onClick={onArrowClick}
+          aria-label={show ? `Esconder ${title}` : `Mostrar ${title}`}
+        >
+          <DropArrow condition={show} aria-live='polite' />
         </button>
       </header>
 

@@ -34,11 +34,12 @@ const Comments = () => {
 
   return (
     <>
-      <CommentsStyle>
+      <CommentsStyle aria-label='Comentários'>
         {fakeComments.map(({ name, content, id, avatar, isArtist }) => (
           <Comment
             key={id}
             name={name}
+            tabIndex={0}
             avatar={avatar}
             forwardedAs='li'
             content={content}

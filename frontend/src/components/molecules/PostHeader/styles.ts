@@ -1,6 +1,8 @@
+import { IPostHeaderStyleProps } from './types'
+
 import styled from 'styled-components'
 
-const PostHeaderStyle = styled.header<{ avatarSize: number }>`
+const PostHeaderStyle = styled.header<IPostHeaderStyleProps>`
   display: grid;
   grid:
     'avatar name' calc(40px / 2)
@@ -13,6 +15,7 @@ const PostHeaderStyle = styled.header<{ avatarSize: number }>`
     grid-area: avatar;
 
     border-radius: 50%;
+    outline-offset: -2px;
   }
 
   strong {
@@ -21,12 +24,8 @@ const PostHeaderStyle = styled.header<{ avatarSize: number }>`
   }
 
   b {
+    grid-area: isArtist;
     margin-left: 8px;
-    grid-area: isArtist;
-  }
-
-  .isArtist {
-    grid-area: isArtist;
 
     color: ${({ theme }) => theme.colors.primary};
   }

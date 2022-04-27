@@ -7,19 +7,29 @@ const PostHeader = ({
   name,
   avatar,
   isArtist,
-  description
+  description,
+  ...props
 }: IPostHeaderProps) => {
   const avatarSize = 40
 
   return (
-    <PostHeaderStyle avatarSize={avatarSize}>
-      <Avatar src={avatar} size={avatarSize} />
+    <PostHeaderStyle avatarSize={avatarSize} {...props}>
+      <Avatar
+        tabIndex={0}
+        src={avatar}
+        size={avatarSize}
+        alt='Avatar do autor da postagem'
+      />
 
-      <strong>{name}</strong>
+      {isArtist && <b tabIndex={0}>Artista</b>}
 
-      {isArtist && <b className='isArtist'>Artist</b>}
+      <strong aria-label='Nome do autor' tabIndex={0}>
+        {name}
+      </strong>
 
-      <p>{description}</p>
+      <p aria-label='Descrição da postagem' tabIndex={0}>
+        {description}
+      </p>
     </PostHeaderStyle>
   )
 }

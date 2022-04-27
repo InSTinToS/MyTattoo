@@ -56,13 +56,14 @@ const AuthModalStyle = styled.div`
 
       .Arrow {
         transform: rotate(-90deg);
-        svg path {
+
+        path {
           fill: ${({ theme }) => theme.colors.secondary};
         }
       }
 
       .Close {
-        svg path {
+        path {
           fill: ${({ theme }) => theme.colors.secondary};
         }
       }
@@ -78,6 +79,7 @@ const AuthModalStyle = styled.div`
 
     background-color: transparent;
   }
+
   .loadingWrapper {
     display: flex;
     align-items: center;

@@ -50,9 +50,11 @@ const SignUp = (props: ISignUpProps) => {
             Cadastrar
           </ModalButton>
 
-          {/* <GoogleButton icon={<Google size={24} />}>
-            Cadastrar com o Google
-          </GoogleButton> */}
+          {/*
+            <GoogleButton icon={<Google size={24} />}>
+              Cadastrar com o Google
+            </GoogleButton>
+          */}
         </form>
       )}
     </SignUpStyle>

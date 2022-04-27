@@ -15,6 +15,13 @@ const FeedStyle = styled.div`
     display: none;
   }
 
+  > a {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
   @media screen and (min-width: 1080px) {
     > section {
       width: calc(50vw - 16px);

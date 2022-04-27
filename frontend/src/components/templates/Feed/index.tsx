@@ -17,10 +17,15 @@ const Feed = () => {
   return (
     <>
       <Head>
-        <title>Feed</title>
+        <title>MyTattoo - Postagens</title>
       </Head>
 
       <FeedStyle>
+        <a href='#main'>Pular para postagens</a>
+        <a href='#leftSide'>Pular para editar filtros de postagens</a>
+        <a href='#rightSide'>Pular para sugestões</a>
+        <a href='#nav'>Pular para navegação</a>
+
         <FeedContext.Provider value={contextValue}>
           <Navbar />
 

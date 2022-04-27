@@ -22,9 +22,16 @@ const DisplayOptionsStyle = styled.ul`
 
   width: 100%;
 
+  input {
+    position: absolute;
+
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
   li {
-    &,
-    button {
+    label {
       display: flex;
       align-items: center;
       justify-content: center;

@@ -1,3 +1,5 @@
+import { HTMLAttributes } from 'react'
+
 interface IFilter {
   name: string
   id: string
@@ -16,7 +18,9 @@ type TOnFilterClick = (
 
 interface ILeftSideStyleProps {}
 
-interface ILeftSideProps extends ILeftSideStyleProps {}
+interface ILeftSideProps
+  extends ILeftSideStyleProps,
+    HTMLAttributes<HTMLDivElement> {}
 
 export type {
   IFiltersState,

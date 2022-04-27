@@ -3,10 +3,15 @@ import type { ICreatePostProps } from './types'
 
 import AddPhoto from 'components/atoms/Icon/icons/AddPhoto'
 import Plus from 'components/atoms/Icon/icons/Plus'
+import TextArea from 'components/atoms/TextArea'
 
 const CreatePost = ({ forwardedAs, ...props }: ICreatePostProps) => (
   <CreatePostStyle as={forwardedAs} {...props}>
-    <textarea />
+    <TextArea
+      id='createPost'
+      name='createPost'
+      placeholder='Faça uma postagem'
+    />
 
     <footer>
       <ul>

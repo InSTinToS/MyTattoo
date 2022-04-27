@@ -12,7 +12,7 @@ const Comment = ({
   ...props
 }: ICommentProps) => (
   <CommentStyle isArtist={isArtist} as={forwardedAs} {...props}>
-    <Avatar size={40} src={avatar} />
+    <Avatar size={40} src={avatar} aria-hidden='true' />
 
     <p>
       <b>{name}</b> {content}

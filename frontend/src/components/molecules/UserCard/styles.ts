@@ -16,20 +16,18 @@ const UserCardStyle = styled.button<IUserCardStyleProps>`
     background-color: ${({ theme }) => darken(0.05, theme.colors.background)};
   }
 
-  span {
+  strong {
+    grid-area: name;
     text-align: left;
 
-    &.name {
-      grid-area: name;
+    color: ${({ theme }) => theme.colors.secondary};
+  }
 
-      color: ${({ theme }) => theme.colors.secondary};
-    }
+  .smallBio {
+    text-align: left;
+    grid-area: smallBio;
 
-    &.smallBio {
-      grid-area: smallBio;
-
-      color: ${({ theme }) => lighten(0.6, theme.colors.background)};
-    }
+    color: ${({ theme }) => lighten(0.6, theme.colors.background)};
   }
 `
 

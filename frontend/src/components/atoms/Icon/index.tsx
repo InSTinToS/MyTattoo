@@ -3,16 +3,33 @@ import type { IIconProps } from './types'
 
 import { composeClassName } from 'utils/composeClassName'
 
-const Icon = ({ children, className, title, ...props }: IIconProps) => (
-  <IconStyle
-    xmlns='http://www.w3.org/2000/svg'
-    className={composeClassName('Icon', className)}
-    {...props}
-  >
-    <title>{title}</title>
+const Icon = ({
+  desc,
+  title,
+  children,
+  className,
+  labelledBy,
+  ...props
+}: IIconProps) => {
+  const descId = labelledBy ? `${labelledBy}Desc` : undefined
+  const titleId = labelledBy ? `${labelledBy}Title` : undefined
+  const ariaLabelledBy = descId && titleId ? `${titleId} ${descId}` : undefined
 
-    {children}
-  </IconStyle>
-)
+  return (
+    <IconStyle
+      role='img'
+      xmlns='http://www.w3.org/2000/svg'
+      aria-labelledby={ariaLabelledBy}
+      className={composeClassName('Icon', className)}
+      {...props}
+    >
+      <title id={titleId}>{title}</title>
+
+      <desc id={descId}>{desc}</desc>
+
+      {children}
+    </IconStyle>
+  )
+}
 
 export default Icon

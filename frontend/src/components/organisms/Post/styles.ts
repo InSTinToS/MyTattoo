@@ -1,7 +1,7 @@
 import { lighten } from 'polished'
 import styled from 'styled-components'
 
-const PostStyle = styled.div`
+const PostStyle = styled.section`
   width: 100%;
   padding: 16px;
   border-radius: 16px;
@@ -10,6 +10,7 @@ const PostStyle = styled.div`
 
   img {
     border-radius: 8px;
+    outline-offset: -8px;
   }
 
   article {
