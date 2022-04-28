@@ -4,11 +4,8 @@ import { createContext, useState } from 'react'
 
 const FeedContext = createContext<IFeedContext>({
   showLeftSide: true,
-  toggleShowLeftSide: null,
-  toggleShowAuthModal: null,
-  triggeringFeedback: null,
   showAuthModal: { page: 'sign-in', open: false }
-})
+} as IFeedContext)
 
 const useFeed = () => {
   const [showLeftSide, setShowLeftSide] = useState(true)

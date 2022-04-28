@@ -11,7 +11,7 @@
     "noEmit": true,
     "target": "es5",
     "allowJs": true,
-    "strict": false,
+    "strict": true,
     "baseUrl": "src",
     "jsx": "preserve",
     "module": "esnext",

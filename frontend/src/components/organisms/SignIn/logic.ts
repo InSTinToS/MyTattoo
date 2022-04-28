@@ -1,10 +1,12 @@
-import type { ISignInValues } from './types'
-
 import { FeedContext } from 'components/templates/Feed/logic'
 
+import useAppDispatch from 'hooks/useAppDispatch'
+
+import user from 'store/user'
+
 import type {
-  IRequest,
-  IResponse
+  IResponse,
+  IRequest as ISignInValues
 } from '@backend/modules/Authentication/useCases/signIn/SignIn.types'
 import type { UserModel } from '@backend/modules/Users/useCases/readUsers/ReadUsers.types'
 
@@ -39,7 +41,9 @@ const useSignIn = () => {
   const [loading, setLoading] = useState(false)
   const theme = useTheme()
 
-  const onSignInSubmit = async (dataToAuthenticate: IRequest) => {
+  const dispatch = useAppDispatch()
+
+  const onSignInSubmit = async (dataToAuthenticate: ISignInValues) => {
     setLoading(true)
 
     try {
@@ -52,6 +56,8 @@ const useSignIn = () => {
         `/users/${authData.id}`,
         { headers: { Authorization: `Bearer ${authData.token}` } }
       )
+
+      dispatch(user.actions.setUser(userData))
 
       triggeringFeedback({
         title: 'Sucesso',

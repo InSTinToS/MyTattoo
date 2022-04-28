@@ -19,6 +19,7 @@
     "^components/providers",
     "^components/templates",
     "^pages",
+    "^hooks",
     "^store",
     "^styles",
     "^tests",
