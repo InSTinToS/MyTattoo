@@ -17,7 +17,7 @@ describe('CreateUserService', () => {
 
   it('should be able to create a user', async () => {
     const createUserData: IRequest = {
-      username: 'InSTinToS22',
+      username: 'InSTinToS',
       password: 'Miguel@1234',
       email: 'instintos@instintos.com'
     }
@@ -56,13 +56,13 @@ describe('CreateUserService', () => {
       email: 'instintos@instintos.com'
     }
 
+    await createUserService.execute(createUserData)
+
     const createSecondUserData: IRequest = {
       username: 'InSTinToS',
       password: 'Miguel@1234',
       email: 'InSTinToS2@instintos.com'
     }
-
-    await createUserService.execute(createUserData)
 
     expect(
       createUserService.execute(createSecondUserData)
