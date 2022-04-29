@@ -1,6 +1,7 @@
 import 'reflect-metadata'
 import 'dotenv/config'
 import 'shared/containers'
+import 'express-async-errors'
 
 import { app } from './shared/routes'
 
