@@ -10,7 +10,7 @@ const UsersRoutes = Router()
 const readUsersController = new ReadUsersController()
 const createUserController = new CreateUserController()
 
-UsersRoutes.get('/:id', ensureAuthentication, readUsersController.handle)
+UsersRoutes.get('/:id?', ensureAuthentication, readUsersController.handle)
 UsersRoutes.post('/', createUserController.handle)
 
 export { UsersRoutes }
