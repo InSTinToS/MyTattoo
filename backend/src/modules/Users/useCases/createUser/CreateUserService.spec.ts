@@ -1,7 +1,5 @@
-import 'reflect-metadata'
-
-import { CreateUserService } from './CreateUserService'
-import { IRequest } from './CreateUser.types'
+import { CreateUserService } from '../createUser/CreateUserService'
+import { IRequest } from '../createUser/CreateUser.types'
 
 import { AppError } from '@shared/errors/AppError'
 

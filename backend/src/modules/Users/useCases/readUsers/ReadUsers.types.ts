@@ -18,4 +18,4 @@ type TExecute = (id?: IParams['id']) => Promise<TResponse>
 
 type THandle = RequestHandler<IParams, TResponse, any, any, ILocals>
 
-export type { TExecute, THandle, TResponse, UserModel }
+export type { TExecute, THandle, TResponse }
