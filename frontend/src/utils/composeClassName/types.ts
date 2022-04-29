@@ -1,6 +1,6 @@
 type TComposeClassName = (
   componentClassName: string,
-  propClassName: string
+  propClassName?: string
 ) => string
 
 export type { TComposeClassName }

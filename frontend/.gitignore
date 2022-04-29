@@ -32,3 +32,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# tests
+/src/tests/cypress/videos/*
+/src/tests/cypress/screenshots/*

@@ -1,6 +1,6 @@
 import { IResponse } from '@backend/modules/Users/useCases/createUser/CreateUser.types'
 
-import { uuid } from 'uuidv4'
+import { v4 as uuid } from 'uuid'
 
 describe('SignUp', () => {
   beforeEach(() => {
@@ -25,13 +25,11 @@ describe('SignUp', () => {
     }
 
     cy.intercept(
-      { method: 'POST', url: 'http://localhost:3001/users' },
-      { body: { data: responseData } }
+      { method: 'POST', url: `${Cypress.env('api')}users` },
+      responseData
     ).as('createUser')
 
     cy.get('html').contains('Sucesso')
     cy.get('input[id="usernameOrEmail"]')
   })
 })
-
-export {}

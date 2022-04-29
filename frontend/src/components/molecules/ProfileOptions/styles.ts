@@ -17,12 +17,14 @@ const ProfileOptionsStyle = styled.ul`
       width: 25px;
       height: 25px;
 
-      &.Heart svg path {
+      &.Heart path {
         fill: ${({ theme }) => theme.colors.red};
       }
 
-      &.ArtistHeart svg path {
-        fill: ${({ theme }) => theme.colors.secondary};
+      &.ArtistHeart {
+        path {
+          fill: ${({ theme }) => theme.colors.secondary};
+        }
       }
     }
   }

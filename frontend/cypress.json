@@ -1,6 +1,8 @@
 {
-  "baseUrl": "http://localhost:3000/",
-  "env": {},
+  "baseUrl": "http://localhost:3000",
+  "env": {
+    "api": "http://localhost:3001"
+  },
   "fixturesFolder": "./src/tests/cypress/fixtures",
   "integrationFolder": "./src/tests/cypress/integration",
   "pluginsFile": "./src/tests/cypress/plugins",

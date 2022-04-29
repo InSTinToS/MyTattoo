@@ -1,16 +1,15 @@
+import GlobalProvider from 'components/providers/GlobalProvider'
+
 import 'styles/bootstrap.scss'
 
-import favicon from '@public/favicon.ico'
-
 import 'bootstrap/dist/css/bootstrap.css'
-import GlobalProvider from 'components/providers/GlobalProvider'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <>
     <Head>
-      <link rel='icon' href={favicon} />
+      <meta name='viewport' content='width=device-width, initial-scale=1' />
     </Head>
 
     <GlobalProvider>

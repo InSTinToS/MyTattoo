@@ -1,3 +1,4 @@
+import { useNavbar } from './logic'
 import { NavbarStyle } from './styles'
 
 import DisplayOptions from 'components/molecules/DisplayOptions'
@@ -7,7 +8,7 @@ import Search from 'components/molecules/Search'
 import AuthOptions from 'components/organisms/AuthOptions'
 
 const Navbar = () => {
-  const auth = false
+  const { isAuth } = useNavbar()
 
   return (
     <NavbarStyle id='nav'>
@@ -20,7 +21,7 @@ const Navbar = () => {
           <Search />
         </li>
 
-        <li>{auth ? <ProfileOptions /> : <AuthOptions />}</li>
+        <li>{isAuth ? <ProfileOptions /> : <AuthOptions />}</li>
       </ul>
     </NavbarStyle>
   )

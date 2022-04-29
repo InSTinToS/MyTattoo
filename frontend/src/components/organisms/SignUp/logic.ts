@@ -4,8 +4,6 @@ import { signUpYupSchema } from './schema'
 
 import { FeedContext } from 'components/templates/Feed/logic'
 
-import type { IRequest } from '@backend/modules/Users/useCases/createUser/CreateUser.types'
-
 import { api } from 'api'
 import { useFormik } from 'formik'
 import { useContext, useState } from 'react'
@@ -23,7 +21,9 @@ const useSignUp = () => {
   const [loading, setLoading] = useState(false)
   const { triggeringFeedback, toggleShowAuthModal } = useContext(FeedContext)
 
-  const onSignUpSubmit: TOnSignupSubmit = async (dataToCreate: IRequest) => {
+  const onSignUpSubmit: TOnSignupSubmit = async (
+    dataToCreate: ISignUpValues
+  ) => {
     setLoading(true)
 
     try {
