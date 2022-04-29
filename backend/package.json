@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --poll --respawn -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/server.ts",
     "build": "babel src --extensions \".ts,.js\" --out-dir dist --copy-files ",
-    "test": "jest --runInBand --detectOpenHandles",
+    "test": "clear && jest --runInBand --detectOpenHandles",
     "upgrade-all": "yarn yarn-upgrade-all",
     "migrate": "dotenv -- cross-var \"pg-migrations apply -D ./src/shared/migrations/ -c %DB_URL%\"",
     "docker:up": "docker-compose up -d && yarn migrate",

@@ -8,7 +8,7 @@ interface IRequest {
   password: UserModel['password']
 }
 
-interface IResponse extends UserModel {}
+interface IResponse extends Omit<UserModel, 'password'> {}
 
 type THandle = RequestHandler<void, IResponse, IRequest>
 

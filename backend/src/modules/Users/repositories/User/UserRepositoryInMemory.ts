@@ -1,23 +1,29 @@
 import type { IUsersRepository } from '@modules/Users/repositories/User/IUserRepository.types'
 import { UserModel } from '@modules/Users/models/UserModel'
 
-class UsersRepository implements IUsersRepository {
-  private Users: UserModel[] = []
+class UsersRepositoryInMemory implements IUsersRepository {
+  private users: UserModel[] = []
 
   create: IUsersRepository['create'] = async data => {
     const newUser = new UserModel()
 
     Object.assign(newUser, data)
 
-    this.Users.push(newUser)
+    this.users.push(newUser)
 
     return newUser
   }
 
-  findById: (id: string) => Promise<UserModel>
-  findByEmail: (email: string) => Promise<UserModel>
-  findByUsername: (username: string) => Promise<UserModel>
-  findAll: IUsersRepository['findAll'] = async () => this.Users
+  findById: IUsersRepository['findById'] = async id =>
+    this.users.find(user => user.id === id)
+
+  findByEmail: IUsersRepository['findByEmail'] = async email =>
+    this.users.find(user => user.email === email)
+
+  findByUsername: IUsersRepository['findByUsername'] = async username =>
+    this.users.find(user => user.username === username)
+
+  findAll: IUsersRepository['findAll'] = async () => this.users
 }
 
-export { UsersRepository }
+export { UsersRepositoryInMemory }

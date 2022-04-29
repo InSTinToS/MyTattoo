@@ -2,13 +2,13 @@ import { v4 as uuid } from 'uuid'
 
 class UserModel {
   id: string
+  bio?: string
   email: string
-  username: string
+  avatar?: string
   password: string
+  username: string
   created_at: string
   updated_at: string
-  bio?: string
-  avatar?: string
   full_name?: string
   short_bio?: string
 
