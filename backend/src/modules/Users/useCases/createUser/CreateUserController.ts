@@ -9,9 +9,9 @@ class CreateUserController {
 
     const dataToCreate = req.body
 
-    const createdUser = await createUserService.execute(dataToCreate)
+    const response = await createUserService.execute(dataToCreate)
 
-    return res.status(201).json(createdUser)
+    return res.status(201).json(response)
   }
 }
 

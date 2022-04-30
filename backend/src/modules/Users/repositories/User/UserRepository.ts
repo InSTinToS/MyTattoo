@@ -1,4 +1,4 @@
-import { UserModel } from '../../models/UserModel'
+import { UserModel } from '../../entities/UserModel'
 
 import { connectToDB } from '@config/connectToDB'
 
@@ -33,9 +33,19 @@ class UsersRepository implements IUsersRepository {
       );
     `
 
-    const createdUser = (await database.query<UserModel>(query)).rows[0]
+    await database.query<UserModel>(query)
+
+    const createdUser = await this.findById(id)
 
     return createdUser
+  }
+
+  delete: IUsersRepository['delete'] = async id => {
+    const database = await connectToDB()
+
+    const query = `DELETE FROM Users WHERE id='${id}'`
+
+    await database.query(query)
   }
 
   findAll: IUsersRepository['findAll'] = async () => {
@@ -43,7 +53,7 @@ class UsersRepository implements IUsersRepository {
 
     const query = 'SELECT * FROM Users'
 
-    const allUsers = (await database.query<UserModel[]>(query)).rows
+    const allUsers = (await database.query<UserModel>(query)).rows
 
     return allUsers
   }

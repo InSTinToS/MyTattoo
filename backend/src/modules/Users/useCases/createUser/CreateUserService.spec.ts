@@ -1,8 +1,7 @@
 import { CreateUserService } from '../createUser/CreateUserService'
 import { IRequest } from '../createUser/CreateUser.types'
 
-import { AppError } from '@shared/errors/AppError'
-
+import { AppError } from '@modules/Error/entities/AppError'
 import { UsersRepositoryInMemory } from '@modules/Users/repositories/User/UserRepositoryInMemory'
 import { IUsersRepository } from '@modules/Users/repositories/User/IUserRepository.types'
 
@@ -22,11 +21,11 @@ describe('CreateUserService', () => {
       email: 'instintos@instintos.com'
     }
 
-    const { id } = await createUserService.execute(createUserData)
+    const { createdUser } = await createUserService.execute(createUserData)
 
-    const foundUser = await usersRepository.findById(id)
+    const foundUser = await usersRepository.findById(createdUser.id)
 
-    expect(foundUser.username).toBe(createUserData.username)
+    expect(foundUser.username).toBe(createdUser.username)
   })
 
   it('should not be able to create a user if email already exists', async () => {

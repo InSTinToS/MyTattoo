@@ -8,15 +8,19 @@ import type { IUsersRepository } from '@modules/Users/repositories/User/IUserRep
 class ReadUsersService {
   constructor(
     @inject('UsersRepository')
-    private UsersRepository: IUsersRepository
+    private usersRepository: IUsersRepository
   ) {}
 
   execute: TExecute = async id => {
-    const Users = id
-      ? await this.UsersRepository.findById(id)
-      : await this.UsersRepository.findAll()
+    if (id) {
+      const user = await this.usersRepository.findById(id)
 
-    return Users
+      return { user }
+    }
+
+    const users = await this.usersRepository.findAll()
+
+    return { users }
   }
 }
 

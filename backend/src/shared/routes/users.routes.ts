@@ -1,16 +1,17 @@
-import { ensureAuthentication } from '@shared/middlewares/ensureAuthentication'
-
 import { CreateUserController } from '@modules/Users/useCases/createUser/CreateUserController'
+import { DeleteUserController } from '@modules/Users/useCases/deleteUser/DeleteUserController'
 import { ReadUsersController } from '@modules/Users/useCases/readUsers/ReadUsersController'
 
 import { Router } from 'express'
 
-const UsersRoutes = Router()
+const usersRoutes = Router()
 
 const readUsersController = new ReadUsersController()
 const createUserController = new CreateUserController()
+const deleteUserController = new DeleteUserController()
 
-UsersRoutes.get('/:id?', ensureAuthentication, readUsersController.handle)
-UsersRoutes.post('/', createUserController.handle)
+usersRoutes.post('/', createUserController.handle)
+usersRoutes.get('/:id?', readUsersController.handle)
+usersRoutes.delete('/:id', deleteUserController.handle)
 
-export { UsersRoutes }
+export { usersRoutes }

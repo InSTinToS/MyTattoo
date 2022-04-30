@@ -1,5 +1,5 @@
 import type { IUsersRepository } from '@modules/Users/repositories/User/IUserRepository.types'
-import { UserModel } from '@modules/Users/models/UserModel'
+import { UserModel } from '@modules/Users/entities/UserModel'
 
 class UsersRepositoryInMemory implements IUsersRepository {
   private users: UserModel[] = []
@@ -12,6 +12,12 @@ class UsersRepositoryInMemory implements IUsersRepository {
     this.users.push(newUser)
 
     return newUser
+  }
+
+  delete: IUsersRepository['delete'] = async id => {
+    const indexToDelete = this.users.findIndex(user => user.id === id)
+
+    this.users.splice(indexToDelete, 1)
   }
 
   findById: IUsersRepository['findById'] = async id =>

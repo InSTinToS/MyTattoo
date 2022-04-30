@@ -2,12 +2,12 @@ import { ReadUsersService } from './ReadUsersService'
 
 import { UsersRepositoryInMemory } from '@modules/Users/repositories/User/UserRepositoryInMemory'
 import { IUsersRepository } from '@modules/Users/repositories/User/IUserRepository.types'
-import { UserModel } from '@modules/Users/models/UserModel'
+import { UserModel } from '@modules/Users/entities/UserModel'
 
 let usersRepository: IUsersRepository
 let readUsersService: ReadUsersService
 
-describe('ReadUsersService', () => {
+describe.only('ReadUsersService', () => {
   beforeEach(() => {
     usersRepository = new UsersRepositoryInMemory()
     readUsersService = new ReadUsersService(usersRepository)
@@ -27,7 +27,7 @@ describe('ReadUsersService', () => {
 
     const foundUser = await readUsersService.execute(createUserData.id)
 
-    expect(foundUser).toMatchObject(createUserData)
+    expect(foundUser.user).toMatchObject(createUserData)
   })
 
   it('should be able to read all users without use id', async () => {
@@ -54,6 +54,9 @@ describe('ReadUsersService', () => {
 
     const foundUsers = await readUsersService.execute()
 
-    expect(foundUsers).toMatchObject([createUserData, createSecondUserData])
+    expect(foundUsers.users).toMatchObject([
+      createUserData,
+      createSecondUserData
+    ])
   })
 })

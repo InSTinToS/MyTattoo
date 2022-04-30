@@ -2,10 +2,10 @@ import { SignInController } from '@modules/Authentication/useCases/signIn/SignIn
 
 import { Router } from 'express'
 
-const AuthRoutes = Router()
+const authRoutes = Router()
 
 const signInController = new SignInController()
 
-AuthRoutes.post('/sign-in', signInController.handle)
+authRoutes.post('/sign-in', signInController.handle)
 
-export { AuthRoutes }
+export { authRoutes }

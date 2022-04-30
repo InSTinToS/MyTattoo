@@ -1,4 +1,4 @@
-import { AppError } from '@shared/errors/AppError'
+import { AppError } from '@modules/Error/entities/AppError'
 
 import jwt from 'jsonwebtoken'
 
@@ -11,7 +11,6 @@ const ensureAuthentication: RequestHandler<any> = async (req, res, next) => {
 
   try {
     const { sub } = jwt.verify(token, process.env.JWT_SECRET)
-
     res.locals.user = { id: sub }
   } catch (error) {
     throw new AppError('Invalid JWT', 401)

@@ -9,9 +9,9 @@ class ReadUsersController {
 
     const readUsersService = container.resolve(ReadUsersService)
 
-    const Users = await readUsersService.execute(id)
+    const response = await readUsersService.execute(id)
 
-    res.json(Users)
+    res.json(response)
   }
 }
 

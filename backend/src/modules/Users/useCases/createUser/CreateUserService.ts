@@ -1,8 +1,7 @@
 import type { TExecute } from './CreateUser.types'
 
-import { AppError } from '@shared/errors/AppError'
-
-import { UserModel } from '@modules/Users/models/UserModel'
+import { AppError } from '@modules/Error/entities/AppError'
+import { UserModel } from '@modules/Users/entities/UserModel'
 
 import bcrypt from 'bcrypt'
 import { inject, injectable } from 'tsyringe'
@@ -28,14 +27,12 @@ class CreateUserService {
     if (foundUserByUsername) throw new AppError('Username already exists', 400)
 
     const newUser = new UserModel()
-
     data.password = bcrypt.hashSync(data.password, bcrypt.genSaltSync())
-
     Object.assign(newUser, data)
 
     const createdUser = await this.UsersRepository.create(newUser)
 
-    return createdUser
+    return { createdUser: { ...createdUser, password: undefined } }
   }
 }
 

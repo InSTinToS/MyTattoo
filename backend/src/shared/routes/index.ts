@@ -1,6 +1,9 @@
-import { UsersRoutes } from './users.routes'
-import { errorHandler } from './error.routes'
-import { AuthRoutes } from './auth.routes'
+import 'express-async-errors'
+
+import { usersRoutes } from './users.routes'
+import { authRoutes } from './auth.routes'
+
+import { ThrowAppErrorController } from '@modules/Error/useCases/throwError/ThrowAppErrorController'
 
 import cors from 'cors'
 import express from 'express'
@@ -10,9 +13,9 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-app.use('/users', UsersRoutes)
-app.use('/auth', AuthRoutes)
+app.use('/users', usersRoutes)
+app.use('/auth', authRoutes)
 
-app.use(errorHandler)
+app.use(new ThrowAppErrorController().handle)
 
 export { app }

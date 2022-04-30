@@ -1,4 +1,4 @@
-import { UserModel } from '@modules/Users/models/UserModel'
+import { UserModel } from '@modules/Users/entities/UserModel'
 
 import { RequestHandler } from 'express'
 
@@ -8,9 +8,15 @@ interface IRequest {
   password: UserModel['password']
 }
 
-interface IResponse extends Omit<UserModel, 'password'> {}
+interface IResponse {
+  createdUser: Omit<UserModel, 'password'>
+}
 
-type THandle = RequestHandler<void, IResponse, IRequest>
+interface IErrorResponse {
+  error: string
+}
+
+type THandle = RequestHandler<void, IResponse | IErrorResponse, IRequest>
 
 type TExecute = (data: IRequest) => Promise<IResponse>
 

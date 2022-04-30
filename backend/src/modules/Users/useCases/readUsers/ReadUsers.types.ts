@@ -1,21 +1,18 @@
-import { UserModel } from '@modules/Users/models/UserModel'
+import { UserModel } from '@modules/Users/entities/UserModel'
 
 import { RequestHandler } from 'express'
 
-interface ILocals {
-  user: {
-    id: UserModel['id']
-  }
-}
-
 interface IParams {
-  id?: string
+  id?: UserModel['id']
 }
 
-type TResponse = UserModel[] | UserModel
+interface IResponse {
+  user?: UserModel
+  users?: UserModel[]
+}
 
-type TExecute = (id?: IParams['id']) => Promise<TResponse>
+type TExecute = (id?: IParams['id']) => Promise<IResponse>
 
-type THandle = RequestHandler<IParams, TResponse, any, any, ILocals>
+type THandle = RequestHandler<IParams, IResponse>
 
-export type { TExecute, THandle, TResponse }
+export type { TExecute, THandle, IResponse }
