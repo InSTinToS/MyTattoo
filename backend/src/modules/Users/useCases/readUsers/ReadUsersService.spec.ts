@@ -1,4 +1,5 @@
 import { ReadUsersService } from './ReadUsersService'
+import { CreateUserService } from '../createUser/CreateUserService'
 
 import { UsersRepositoryInMemory } from '@modules/Users/repositories/User/UserRepositoryInMemory'
 import { IUsersRepository } from '@modules/Users/repositories/User/IUserRepository.types'
@@ -6,57 +7,51 @@ import { UserModel } from '@modules/Users/entities/UserModel'
 
 let usersRepository: IUsersRepository
 let readUsersService: ReadUsersService
+let createUserService: CreateUserService
 
 describe.only('ReadUsersService', () => {
   beforeEach(() => {
     usersRepository = new UsersRepositoryInMemory()
     readUsersService = new ReadUsersService(usersRepository)
+    createUserService = new CreateUserService(usersRepository)
   })
 
   it('should be able to read a user using id', async () => {
-    const createUserData: UserModel = {
-      id: '1',
-      updated_at: '1',
-      created_at: '1',
+    const createUserData = {
       username: 'InSTinToS',
       password: 'Miguel@1234',
       email: 'instintos@instintos.com'
     }
 
-    await usersRepository.create(createUserData)
+    const createdUserResponse = await createUserService.execute(createUserData)
 
-    const foundUser = await readUsersService.execute(createUserData.id)
+    const foundUser = await readUsersService.execute(
+      createdUserResponse.createdUser.id
+    )
 
-    expect(foundUser.user).toMatchObject(createUserData)
+    expect(foundUser.user.username).toBe(createUserData.username)
   })
 
   it('should be able to read all users without use id', async () => {
-    const createUserData: UserModel = {
-      id: '1',
-      updated_at: '1',
-      created_at: '1',
+    const createUserData = {
       username: 'InSTinToS',
       password: 'Miguel@1234',
       email: 'instintos@instintos.com'
     }
 
-    const createSecondUserData: UserModel = {
-      id: '1',
-      updated_at: '1',
-      created_at: '1',
+    const createSecondUserData = {
       username: 'InSTinToS2',
       password: 'Miguel@1234',
       email: 'instintos2@instintos.com'
     }
 
-    await usersRepository.create(createUserData)
-    await usersRepository.create(createSecondUserData)
+    createUserService.execute(createUserData)
+
+    await createUserService.execute(createSecondUserData)
 
     const foundUsers = await readUsersService.execute()
 
-    expect(foundUsers.users).toMatchObject([
-      createUserData,
-      createSecondUserData
-    ])
+    expect(foundUsers.users[0].username).toBe(createUserData.username)
+    expect(foundUsers.users[1].username).toBe(createSecondUserData.username)
   })
 })
