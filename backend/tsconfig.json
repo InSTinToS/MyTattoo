@@ -1,21 +1,23 @@
 {
   "compilerOptions": {
     "target": "es2018",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "module": "commonjs",
+    "composite": true,
+    "outDir": "./dist",
     "baseUrl": "./src",
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
     "paths": {
       "@modules/*": ["modules/*"],
       "@config/*": ["config/*"],
       "@shared/*": ["shared/*"],
-      "@docs/*": ["docs/*"],
-      "@prisma/*": ["src/prisma/*"]
-    },
-    "resolveJsonModule": true,
-    "outDir": "./dist",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
-  }
+      "@common/*": ["../../common/interfaces/*"]
+    }
+  },
+  "references": [{ "path": "../common" }],
+  "include": ["./src/**/*"]
 }
