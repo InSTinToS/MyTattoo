@@ -1,7 +1,6 @@
+import { container } from 'tsyringe'
 import { THandle } from '../deleteUser/DeleteUser.types'
 import { DeleteUserService } from './DeleteUserService'
-
-import { container } from 'tsyringe'
 
 class DeleteUserController {
   handle: THandle = async (req, res) => {

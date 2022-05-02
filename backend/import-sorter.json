@@ -35,6 +35,11 @@
           "regex": "^@config",
           "orderLevel": 4,
           "disableSort": true
+        },
+        {
+          "regex": "^@common",
+          "orderLevel": 5,
+          "disableSort": true
         }
       ]
     }

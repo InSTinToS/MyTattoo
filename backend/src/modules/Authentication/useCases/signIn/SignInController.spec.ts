@@ -3,11 +3,11 @@ import { ISuperResponse } from '@shared/types/supertest'
 
 import { connectToDB } from '@config/connectToDB'
 
+import { TCreateUserResponse } from '@common/types/users/createUser.types'
+
 import { Client } from 'pg'
 import request from 'supertest'
 import { IResponse as ISignInResponse } from './SignIn.types'
-
-import type { IResponse as ICreateUserResponse } from '../../../Users/useCases/createUser/CreateUser.types'
 
 let dbConnection: Client
 describe('SignInController', () => {
@@ -26,7 +26,7 @@ describe('SignInController', () => {
       email: 'instintos@instintos.com'
     }
 
-    const createUserResponse: ISuperResponse<ICreateUserResponse> =
+    const createUserResponse: ISuperResponse<TCreateUserResponse> =
       await request(app).post('/users').send(createUserData)
 
     const signInResponse: ISuperResponse<ISignInResponse> = await request(app)

@@ -1,9 +1,8 @@
-import { ReadUsersService } from './ReadUsersService'
-import { CreateUserService } from '../createUser/CreateUserService'
-
 import { UsersRepositoryInMemory } from '@modules/Users/repositories/User/UserRepositoryInMemory'
 import { IUsersRepository } from '@modules/Users/repositories/User/IUserRepository.types'
-import { UserModel } from '@modules/Users/entities/UserModel'
+
+import { CreateUserService } from '../createUser/CreateUserService'
+import { ReadUsersService } from './ReadUsersService'
 
 let usersRepository: IUsersRepository
 let readUsersService: ReadUsersService

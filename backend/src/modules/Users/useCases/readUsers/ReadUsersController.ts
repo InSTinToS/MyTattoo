@@ -1,7 +1,6 @@
 import type { THandle } from './ReadUsers.types'
-import { ReadUsersService } from './ReadUsersService'
-
 import { container } from 'tsyringe'
+import { ReadUsersService } from './ReadUsersService'
 
 class ReadUsersController {
   handle: THandle = async (req, res) => {

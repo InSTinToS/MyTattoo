@@ -1,9 +1,8 @@
-import { TExecute } from './DeleteUser.types'
-
 import { AppError } from '@modules/Error/entities/AppError'
 import { IUsersRepository } from '@modules/Users/repositories/User/IUserRepository.types'
 
 import { inject, injectable } from 'tsyringe'
+import { TExecute } from './DeleteUser.types'
 
 @injectable()
 class DeleteUserService {

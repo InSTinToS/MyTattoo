@@ -5,9 +5,10 @@ import { connectToDB } from '@config/connectToDB'
 
 import { TCreateUserResponse } from '@common/types/users/createUser.types'
 import { TDeleteUserResponse } from '@common/types/users/deleteUser.types'
+import { TReadUsersResponse } from '@common/types/users/readUsers.types'
+
 import { Client } from 'pg'
 import request from 'supertest'
-import { IResponse } from '../readUsers/ReadUsers.types'
 
 let dbConnection: Client
 
@@ -37,9 +38,9 @@ describe('DeleteUserController', () => {
       app
     ).delete(`/users/${createdResponse.body.createdUser.id}`)
 
-    const foundDeletedUser: ISuperResponse<IResponse> = await request(app).get(
-      `/users/${deletedResponse.body.deletedUser.id}`
-    )
+    const foundDeletedUser: ISuperResponse<TReadUsersResponse> = await request(
+      app
+    ).get(`/users/${deletedResponse.body.deletedUser.id}`)
 
     expect(foundDeletedUser.body.user).toBe(undefined)
   })

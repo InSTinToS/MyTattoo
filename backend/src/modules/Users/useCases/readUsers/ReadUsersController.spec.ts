@@ -3,10 +3,14 @@ import { ISuperResponse } from '@shared/types/supertest'
 
 import { connectToDB } from '@config/connectToDB'
 
+import {
+  IReadUsersRequestParams,
+  TReadUsersResponse
+} from '@common/types/users/readUsers.types'
+import { TCreateUserResponse } from '@common/types/users/createUser.types'
+
 import { Client } from 'pg'
 import request from 'supertest'
-import { IResponse as ICreateUserResponse } from '../createUser/CreateUser.types'
-import { IResponse as IReadUsersResponse } from '../readUsers/ReadUsers.types'
 
 let dbConnection: Client
 
@@ -20,7 +24,7 @@ describe('ReadUserController', () => {
   })
 
   it('should be able to read a user using id', async () => {
-    const createdUserResponse: ISuperResponse<ICreateUserResponse> =
+    const createdUserResponse: ISuperResponse<TCreateUserResponse> =
       await request(app).post('/users').send({
         username: 'InSTinToS',
         password: 'Miguel@1234',
@@ -29,7 +33,7 @@ describe('ReadUserController', () => {
 
     const createdUser = createdUserResponse.body.createdUser
 
-    const readUserResponse: ISuperResponse<IReadUsersResponse> = await request(
+    const readUserResponse: ISuperResponse<TReadUsersResponse> = await request(
       app
     ).get(`/users/${createdUser.id}`)
 
@@ -39,14 +43,14 @@ describe('ReadUserController', () => {
   })
 
   it('should be able to read all users', async () => {
-    const createdUserResponse: ISuperResponse<ICreateUserResponse> =
+    const createdUserResponse: ISuperResponse<TCreateUserResponse> =
       await request(app).post('/users').send({
         username: 'InSTinToS',
         password: 'Miguel@1234',
         email: 'instintos@instintos.com'
       })
 
-    const createdSecondUserResponse: ISuperResponse<ICreateUserResponse> =
+    const createdSecondUserResponse: ISuperResponse<TCreateUserResponse> =
       await request(app).post('/users').send({
         username: 'InSTinToS2',
         password: 'Miguel@1234',
@@ -56,7 +60,7 @@ describe('ReadUserController', () => {
     const createdUser = createdUserResponse.body.createdUser
     const createdSecondUser = createdSecondUserResponse.body.createdUser
 
-    const readUserResponse: ISuperResponse<IReadUsersResponse> = await request(
+    const readUserResponse: ISuperResponse<TReadUsersResponse> = await request(
       app
     ).get('/users')
 
