@@ -61,9 +61,6 @@ describe('ReadUserController', () => {
       app
     ).get('/users')
 
-    console.log([createdUser, createdSecondUser])
-    console.log(readUserResponse.body.users)
-
     expect([createdUser, createdSecondUser]).toStrictEqual(
       readUserResponse.body.users
     )

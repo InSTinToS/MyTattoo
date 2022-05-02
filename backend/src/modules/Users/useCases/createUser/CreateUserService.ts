@@ -27,8 +27,10 @@ class CreateUserService {
     if (foundUserByUsername) throw new AppError('Username already exists', 400)
 
     const newUser = new UserModel()
-    data.password = bcrypt.hashSync(data.password, bcrypt.genSaltSync())
+
     Object.assign(newUser, data)
+
+    newUser.password = bcrypt.hashSync(data.password, 10)
 
     const createdUser = await this.UsersRepository.create(newUser)
 

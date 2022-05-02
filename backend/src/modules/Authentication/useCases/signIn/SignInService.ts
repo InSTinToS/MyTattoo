@@ -27,7 +27,7 @@ class SignInService {
 
     if (!foundUser) throw new AppError('Email or password invalid', 401)
 
-    const authorized = bcrypt.compare(password, foundUser.password)
+    const authorized = await bcrypt.compare(password, foundUser.password)
 
     if (!authorized) throw new AppError('Email or password invalid', 401)
 
