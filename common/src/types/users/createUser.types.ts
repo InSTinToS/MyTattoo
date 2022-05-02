@@ -1,5 +1,5 @@
 import { UserModel } from '@backend/modules/Users/entities/UserModel'
-import { TResponse } from '../global/TResponse.types'
+import type { TResponse } from '../global/TResponse.types'
 
 interface ICreateUserRequest {
   email: UserModel['email']
