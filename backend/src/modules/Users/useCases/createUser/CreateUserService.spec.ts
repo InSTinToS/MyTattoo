@@ -3,8 +3,8 @@ import { UsersRepositoryInMemory } from '@modules/Users/repositories/User/UserRe
 import { IUsersRepository } from '@modules/Users/repositories/User/IUserRepository.types'
 
 import { CreateUserService } from '../createUser/CreateUserService'
-import { IRequest } from './CreateUser.types'
 
+import type { ICreateUserRequest } from '@common/types/users/createUser.types'
 let usersRepository: IUsersRepository
 let createUserService: CreateUserService
 
@@ -15,7 +15,7 @@ describe('CreateUserService', () => {
   })
 
   it('should be able to create a user', async () => {
-    const createUserData: IRequest = {
+    const createUserData: ICreateUserRequest = {
       username: 'InSTinToS',
       password: 'Miguel@1234',
       email: 'instintos@instintos.com'
@@ -29,13 +29,13 @@ describe('CreateUserService', () => {
   })
 
   it('should not be able to create a user if email already exists', async () => {
-    const createUserData: IRequest = {
+    const createUserData: ICreateUserRequest = {
       username: 'InSTinToS',
       password: 'Miguel@1234',
       email: 'instintos@instintos.com'
     }
 
-    const createSecondUserData: IRequest = {
+    const createSecondUserData: ICreateUserRequest = {
       username: 'InSTinToS2',
       password: 'Miguel@1234',
       email: 'instintos@instintos.com'
@@ -49,7 +49,7 @@ describe('CreateUserService', () => {
   })
 
   it('should not be able to create a user if username already exists', async () => {
-    const createUserData: IRequest = {
+    const createUserData: ICreateUserRequest = {
       username: 'InSTinToS',
       password: 'Miguel@1234',
       email: 'instintos@instintos.com'
@@ -57,7 +57,7 @@ describe('CreateUserService', () => {
 
     await createUserService.execute(createUserData)
 
-    const createSecondUserData: IRequest = {
+    const createSecondUserData: ICreateUserRequest = {
       username: 'InSTinToS',
       password: 'Miguel@1234',
       email: 'InSTinToS2@instintos.com'

@@ -1,23 +1,11 @@
-import { UserModel } from '@modules/Users/entities/UserModel'
-
+import type {
+  ICreateUserRequest,
+  TCreateUserResponse
+} from '@common/types/users/createUser.types'
 import { RequestHandler } from 'express'
 
-interface IRequest {
-  email: UserModel['email']
-  username: UserModel['username']
-  password: UserModel['password']
-}
+type THandle = RequestHandler<void, TCreateUserResponse, ICreateUserRequest>
 
-interface IResponse {
-  createdUser: Omit<UserModel, 'password'>
-}
+type TExecute = (data: ICreateUserRequest) => Promise<TCreateUserResponse>
 
-interface IErrorResponse {
-  error: string
-}
-
-type THandle = RequestHandler<void, IResponse | IErrorResponse, IRequest>
-
-type TExecute = (data: Request) => Promise<IResponse>
-
-export type { THandle, IRequest, IResponse, TExecute }
+export type { THandle, TExecute }

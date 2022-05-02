@@ -2,9 +2,7 @@ import { AppError } from '@modules/Error/entities/AppError'
 
 import { ErrorRequestHandler } from 'express'
 
-interface IThrowAppErrorResponse {
-  error: string
-}
+import type { IThrowAppErrorResponse } from '@common/types/errors/ThrowAppError.types'
 
 type THandle = ErrorRequestHandler<any, IThrowAppErrorResponse>
 
@@ -13,4 +11,4 @@ type TExecute = (error: Error | AppError) => {
   error: IThrowAppErrorResponse['error']
 }
 
-export { THandle, IThrowAppErrorResponse, TExecute }
+export type { THandle, TExecute }

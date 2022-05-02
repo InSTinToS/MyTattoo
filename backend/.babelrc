@@ -12,7 +12,7 @@
           "@config": ["./src/config"],
           "@shared": ["./src/shared"],
           "@modules": ["./src/modules"],
-          "@common": ["../common/interfaces"]
+          "@common": ["../common/src"]
         }
       }
     ],

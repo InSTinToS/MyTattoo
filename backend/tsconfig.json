@@ -17,7 +17,7 @@
       "@modules/*": ["modules/*"],
       "@config/*": ["config/*"],
       "@shared/*": ["shared/*"],
-      "@common/*": ["../../common/interfaces/*"]
+      "@common/*": ["../../common/src/*"]
     }
   }
 }

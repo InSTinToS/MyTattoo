@@ -5,12 +5,16 @@ import { connectToDB } from '@config/connectToDB'
 
 import { Client } from 'pg'
 import request from 'supertest'
-import { IRequest, IResponse } from './CreateUser.types'
+
+import type {
+  ICreateUserRequest,
+  TCreateUserResponse
+} from '@common/types/users/createUser.types'
 
 let dbConnection: Client
-let response: ISuperResponse<IResponse>
+let response: ISuperResponse<TCreateUserResponse>
 
-const createUserData: IRequest = {
+const createUserData: ICreateUserRequest = {
   username: 'InSTinToS',
   password: 'Miguel@1234',
   email: 'instintos@instintos.com'
@@ -40,30 +44,27 @@ describe('CreateUserController', () => {
   })
 
   it('should not be able to create a user if email already exists', async () => {
-    const createSecondUserData: IRequest = {
+    const createSecondUserData: ICreateUserRequest = {
       username: 'InSTinToS2',
       password: 'Miguel@1234',
       email: 'instintos@instintos.com'
     }
 
-    const responseCreateSecondUser: ISuperResponse<IResponse> = await request(
-      app
-    )
-      .post('/users')
-      .send(createSecondUserData)
+    const responseCreateSecondUser: ISuperResponse<TCreateUserResponse> =
+      await request(app).post('/users').send(createSecondUserData)
 
     expect(responseCreateSecondUser.statusCode).toBe(400)
     expect(responseCreateSecondUser.body.error).toBe('E-mail already exists')
   })
 
   it('should not be able to create a user if username already exists', async () => {
-    const createSecondUserData: IRequest = {
+    const createSecondUserData: ICreateUserRequest = {
       username: 'InSTinToS',
       password: 'Miguel@1234',
       email: 'instintos2@instintos.com'
     }
 
-    const response: ISuperResponse<IResponse> = await request(app)
+    const response: ISuperResponse<TCreateUserResponse> = await request(app)
       .post('/users')
       .send(createSecondUserData)
 
