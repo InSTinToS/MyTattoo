@@ -3,11 +3,11 @@ import { ISuperResponse } from '@shared/types/supertest'
 
 import { connectToDB } from '@config/connectToDB'
 
+import { TCreateUserResponse } from '@common/types/users/createUser.types'
+import { TDeleteUserResponse } from '@common/types/users/deleteUser.types'
 import { Client } from 'pg'
 import request from 'supertest'
-import { IResponse as ICreateUserResponse } from '../createUser/CreateUser.types'
-import { IResponse as IDeleteUserResponse } from '../deleteUser/DeleteUser.types'
-import { IResponse as IReadUsersResponse } from '../readUsers/ReadUsers.types'
+import { IResponse } from '../readUsers/ReadUsers.types'
 
 let dbConnection: Client
 
@@ -27,25 +27,25 @@ describe('DeleteUserController', () => {
       email: 'instintos@instintos.com'
     }
 
-    const createdResponse: ISuperResponse<ICreateUserResponse> = await request(
+    const createdResponse: ISuperResponse<TCreateUserResponse> = await request(
       app
     )
       .post('/users')
       .send(userToCreate)
 
-    const deletedResponse: ISuperResponse<IDeleteUserResponse> = await request(
+    const deletedResponse: ISuperResponse<TDeleteUserResponse> = await request(
       app
     ).delete(`/users/${createdResponse.body.createdUser.id}`)
 
-    const foundDeletedUser: ISuperResponse<IReadUsersResponse> = await request(
-      app
-    ).get(`/users/${deletedResponse.body.deletedUser.id}`)
+    const foundDeletedUser: ISuperResponse<IResponse> = await request(app).get(
+      `/users/${deletedResponse.body.deletedUser.id}`
+    )
 
     expect(foundDeletedUser.body.user).toBe(undefined)
   })
 
   it('should not be able to delete a non-existing user', async () => {
-    const deletedResponse: ISuperResponse<IDeleteUserResponse> = await request(
+    const deletedResponse: ISuperResponse<TDeleteUserResponse> = await request(
       app
     ).delete('/users/0')
 
