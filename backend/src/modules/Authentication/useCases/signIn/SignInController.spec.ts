@@ -7,8 +7,8 @@ import { TCreateUserResponse } from '@common/types/users/createUser.types'
 
 import { Client } from 'pg'
 import request from 'supertest'
-import { IResponse as ISignInResponse } from './SignIn.types'
 
+import type { TSignInResponse } from '@common/types/authentication/signIn.types'
 let dbConnection: Client
 describe('SignInController', () => {
   beforeAll(async () => {
@@ -29,7 +29,7 @@ describe('SignInController', () => {
     const createUserResponse: ISuperResponse<TCreateUserResponse> =
       await request(app).post('/users').send(createUserData)
 
-    const signInResponse: ISuperResponse<ISignInResponse> = await request(app)
+    const signInResponse: ISuperResponse<TSignInResponse> = await request(app)
       .post('/auth/sign-in')
       .send({
         usernameOrEmail: createUserData.username,

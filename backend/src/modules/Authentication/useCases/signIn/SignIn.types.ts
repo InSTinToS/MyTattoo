@@ -1,17 +1,12 @@
 import { RequestHandler } from 'express'
 
-interface IRequest {
-  password: string
-  usernameOrEmail: string
-}
+import type {
+  ISignInRequest,
+  TSignInResponse
+} from '@common/types/authentication/signIn.types'
 
-interface IResponse {
-  id: string
-  token: string
-}
+type THandle = RequestHandler<void, TSignInResponse, ISignInRequest>
 
-type THandle = RequestHandler<void, IResponse, IRequest>
+type TExecute = (data: ISignInRequest) => Promise<TSignInResponse>
 
-type TExecute = (data: IRequest) => Promise<IResponse>
-
-export type { THandle, IRequest, IResponse, TExecute }
+export type { THandle, TExecute }
