@@ -18,6 +18,6 @@ interface IErrorResponse {
 
 type THandle = RequestHandler<void, IResponse | IErrorResponse, IRequest>
 
-type TExecute = (data: IRequest) => Promise<IResponse>
+type TExecute = (data: Request) => Promise<IResponse>
 
 export type { THandle, IRequest, IResponse, TExecute }

@@ -1,7 +1,3 @@
-import { IResponse as ICreateUserResponse } from '../createUser/CreateUser.types'
-import { IResponse as IDeleteUserResponse } from '../deleteUser/DeleteUser.types'
-import { IResponse as IReadUsersResponse } from '../readUsers/ReadUsers.types'
-
 import { app } from '@shared/routes'
 import { ISuperResponse } from '@shared/types/supertest'
 
@@ -9,6 +5,9 @@ import { connectToDB } from '@config/connectToDB'
 
 import { Client } from 'pg'
 import request from 'supertest'
+import { IResponse as ICreateUserResponse } from '../createUser/CreateUser.types'
+import { IResponse as IDeleteUserResponse } from '../deleteUser/DeleteUser.types'
+import { IResponse as IReadUsersResponse } from '../readUsers/ReadUsers.types'
 
 let dbConnection: Client
 

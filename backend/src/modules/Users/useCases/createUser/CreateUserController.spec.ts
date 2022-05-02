@@ -1,5 +1,3 @@
-import { IRequest, IResponse } from '../createUser/CreateUser.types'
-
 import { app } from '@shared/routes'
 import { ISuperResponse } from '@shared/types/supertest'
 
@@ -7,6 +5,7 @@ import { connectToDB } from '@config/connectToDB'
 
 import { Client } from 'pg'
 import request from 'supertest'
+import { IRequest, IResponse } from './CreateUser.types'
 
 let dbConnection: Client
 let response: ISuperResponse<IResponse>

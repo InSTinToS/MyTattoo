@@ -1,4 +1,6 @@
 {
+  "include": ["./src/**/*"],
+  "references": [{ "path": "../common" }],
   "compilerOptions": {
     "target": "es2018",
     "composite": true,
@@ -17,7 +19,5 @@
       "@shared/*": ["shared/*"],
       "@common/*": ["../../common/interfaces/*"]
     }
-  },
-  "references": [{ "path": "../common" }],
-  "include": ["./src/**/*"]
+  }
 }

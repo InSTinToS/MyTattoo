@@ -1,5 +1,3 @@
-import { IResponse as ISignInResponse } from './SignIn.types'
-
 import { app } from '@shared/routes'
 import { ISuperResponse } from '@shared/types/supertest'
 
@@ -7,6 +5,7 @@ import { connectToDB } from '@config/connectToDB'
 
 import { Client } from 'pg'
 import request from 'supertest'
+import { IResponse as ISignInResponse } from './SignIn.types'
 
 import type { IResponse as ICreateUserResponse } from '../../../Users/useCases/createUser/CreateUser.types'
 
