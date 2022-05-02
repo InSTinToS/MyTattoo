@@ -9,6 +9,7 @@ import cors from 'cors'
 import express from 'express'
 
 const app = express()
+const errorHandler = new ThrowAppErrorController().handle
 
 app.use(cors())
 app.use(express.json())
@@ -16,6 +17,6 @@ app.use(express.json())
 app.use('/users', usersRoutes)
 app.use('/auth', authRoutes)
 
-app.use(new ThrowAppErrorController().handle)
+app.use(errorHandler)
 
 export { app }
