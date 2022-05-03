@@ -37,25 +37,26 @@ const LeftSide = (props: ILeftSideProps) => {
 
       <ul id='filters'>
         <li id='filtersToAdd'>
-          {filters?.unsigned?.length > 0 && (
-            <ul>
-              {filters?.unsigned?.map(({ id, name }) => (
-                <li key={id}>
-                  <Button
-                    icon={<Plus />}
-                    onClick={() => {
-                      onFilterClick({ id, name }, 'add')
-                    }}
-                  >
-                    {name}
-                  </Button>
-                </li>
-              ))}
-            </ul>
-          )}
+          {filters?.unsigned?.length !== undefined &&
+            filters.unsigned.length > 0 && (
+              <ul>
+                {filters?.unsigned?.map(({ id, name }) => (
+                  <li key={id}>
+                    <Button
+                      icon={<Plus />}
+                      onClick={() => {
+                        onFilterClick({ id, name }, 'add')
+                      }}
+                    >
+                      {name}
+                    </Button>
+                  </li>
+                ))}
+              </ul>
+            )}
         </li>
 
-        {filters?.removed?.length > 0 && (
+        {filters?.removed?.length !== undefined && filters.removed.length > 0 && (
           <li id='removedFilters'>
             <ul>
               {filters?.removed?.map(({ id, name }) => (
@@ -74,7 +75,7 @@ const LeftSide = (props: ILeftSideProps) => {
           </li>
         )}
 
-        {filters?.added?.length > 0 && (
+        {filters?.added?.length !== undefined && filters.added.length > 0 && (
           <li id='addedFilters'>
             <ul>
               {filters?.added?.map(({ id, name }) => (

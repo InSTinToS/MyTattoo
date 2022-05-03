@@ -3,19 +3,19 @@ import { IInputProps } from 'components/atoms/Input/types'
 import { FormikProps } from 'formik'
 
 interface IUseFieldParams<FormValues> {
-  name: string
-  type?: string
+  name: IInputProps['name']
+  type: IInputProps['type']
   formik: FormikProps<FormValues>
 }
 
 interface IFieldStyleProps {
-  hasError: boolean
+  hasError: any
   hasFilled: boolean
 }
 
 interface IFieldProps<FormValues>
-  extends IUseFieldParams<FormValues>,
-    Omit<IInputProps, 'name'> {
+  extends Omit<IUseFieldParams<FormValues>, 'name' | 'type'>,
+    IInputProps {
   label: string
 }
 

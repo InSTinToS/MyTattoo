@@ -45,7 +45,7 @@ const Field = <FormValues,>({
               <Alert className='contentAlert' />
 
               <div role='tooltip' id={`${name}Error`}>
-                {errorMessage}
+                {errorMessage as any}
               </div>
             </Error>
           }
@@ -58,7 +58,7 @@ const Field = <FormValues,>({
         id={name}
         name={name}
         type={inputType}
-        value={inputValue}
+        value={inputValue as any}
         onBlur={onInputBlur}
         onChange={onInputChange}
         {...props}

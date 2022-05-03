@@ -24,28 +24,28 @@ const useLeftSide = () => {
       case 'add':
         setFilters(prev => ({
           ...prev,
-          unsigned: prev.unsigned?.filter(
+          unsigned: prev?.unsigned?.filter(
             prevFilter => prevFilter.id !== filter.id
           ),
-          added: prev.added ? [...prev.added, filter] : [filter]
+          added: prev?.added ? [...prev.added, filter] : [filter]
         }))
         break
 
       case 'remove':
         setFilters(prev => ({
           ...prev,
-          added: prev.added?.filter(prevFilter => prevFilter.id !== filter.id),
-          removed: prev.removed ? [...prev.removed, filter] : [filter]
+          added: prev?.added?.filter(prevFilter => prevFilter.id !== filter.id),
+          removed: prev?.removed ? [...prev.removed, filter] : [filter]
         }))
         break
 
       case 'unsign':
         setFilters(prev => ({
           ...prev,
-          removed: prev.removed?.filter(
+          removed: prev?.removed?.filter(
             prevFilter => prevFilter.id !== filter.id
           ),
-          unsigned: prev.unsigned ? [...prev.unsigned, filter] : [filter]
+          unsigned: prev?.unsigned ? [...prev.unsigned, filter] : [filter]
         }))
         break
 

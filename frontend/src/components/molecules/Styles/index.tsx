@@ -3,8 +3,6 @@ import type { IStylesProps } from './types'
 
 import Button from '../Button'
 
-import { memo } from 'react'
-
 const fakeTattooStyles = [
   'Maori',
   'Old School',
@@ -44,18 +42,17 @@ const fakeTattooStyles = [
   'Aquarela'
 ]
 
-const Styles = ({ showingStyles = true, ...props }: IStylesProps) => {
-  return (
-    showingStyles && (
-      <StylesStyle aria-label='Estilos da postagem' {...props}>
-        {fakeTattooStyles.map(tattooStyle => (
-          <li key={tattooStyle}>
-            <Button>{tattooStyle}</Button>
-          </li>
-        ))}
-      </StylesStyle>
-    )
+const Styles = ({ showingStyles = true, ...props }: IStylesProps) =>
+  showingStyles ? (
+    <StylesStyle aria-label='Estilos da postagem' {...props}>
+      {fakeTattooStyles.map(tattooStyle => (
+        <li key={tattooStyle}>
+          <Button>{tattooStyle}</Button>
+        </li>
+      ))}
+    </StylesStyle>
+  ) : (
+    <></>
   )
-}
 
-export default memo(Styles)
+export default Styles

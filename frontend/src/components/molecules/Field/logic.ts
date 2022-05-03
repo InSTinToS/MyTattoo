@@ -9,9 +9,11 @@ const useField = <FormValues>({
 }: IUseFieldParams<FormValues>) => {
   const [showPassword, setShowPassword] = useState(false)
 
-  const inputValue = formik.values[name]
-  const errorMessage = formik.errors[name]
-  const inputTouched = formik.touched[name]
+  const nameIndex = name as keyof FormValues
+
+  const inputValue = name ? formik.values[nameIndex] : undefined
+  const errorMessage = name ? formik.errors[nameIndex] : undefined
+  const inputTouched = name ? formik.touched[nameIndex] : undefined
   const hasFilled = !!inputValue
 
   const onInputBlur = formik.handleBlur
