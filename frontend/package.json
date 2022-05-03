@@ -13,6 +13,7 @@
     "jest:coverage": "jest --coverage=true",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
+    "cy:dashboard": "npx cypress run --record --key 597c09d6-ded9-4dc7-a63b-5f7c102257ce",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook"
   },

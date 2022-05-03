@@ -7,7 +7,7 @@ import { uuid } from 'uuidv4'
 
 const request: ICreateUserRequest = {
   username: 'InSTinToS',
-  password: 'InSTinToS2@1234',
+  password: 'InSTinToS@1234',
   email: 'instintos@gmail.com'
 }
 
