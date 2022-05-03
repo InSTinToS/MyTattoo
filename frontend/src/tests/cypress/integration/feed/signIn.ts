@@ -1,6 +1,5 @@
-import { IResponse } from '@backend/modules/Authentication/useCases/signIn/SignIn.types'
-
-import { v4 as uuid } from 'uuid'
+import readUsers from 'tests/fakes/readUser'
+import signIn from 'tests/fakes/signIn'
 
 describe('SignIn', () => {
   beforeEach(() => {
@@ -9,34 +8,27 @@ describe('SignIn', () => {
   })
 
   it('should be able to signIn', () => {
-    cy.get('input[id="usernameOrEmail"]').type('InSTinToS')
-    cy.get('input[id="password"]').type('Miguel@1234')
+    cy.get('input[id="usernameOrEmail"]').type(signIn.request.usernameOrEmail)
+    cy.get('input[id="password"]').type(signIn.request.password)
 
     cy.get('button[type="submit"]').contains('Entrar').click()
-
-    const signInResponse: IResponse = {
-      id: uuid(),
-      token: uuid()
-    }
-
-    const usersResponse = { id: signInResponse.id, username: 'InSTinToS' }
 
     const api = Cypress.env('api')
 
     cy.intercept(
-      {
-        method: 'POST',
-        url: `${api}/auth/sign-in`
-      },
-      signInResponse
+      { method: 'POST', url: `${api}/auth/sign-in` },
+      signIn.response
     ).as('sign-in')
 
     cy.intercept(
-      { method: 'GET', url: `${api}/users/${signInResponse.id}` },
-      usersResponse
+      {
+        method: 'GET',
+        url: `${api}/users/${readUsers.request.id}`
+      },
+      readUsers.response(true)
     ).as('users')
 
     cy.get('html').contains('Sucesso')
-    cy.get('html').contains(usersResponse.username)
+    cy.get('html').contains(readUsers.response(true).user?.username as string)
   })
 })

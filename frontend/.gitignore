@@ -36,3 +36,6 @@ yarn-error.log*
 # tests
 /src/tests/cypress/videos/*
 /src/tests/cypress/screenshots/*
+
+# vscode
+.vscode

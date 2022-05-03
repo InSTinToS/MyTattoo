@@ -19,9 +19,10 @@ const hasInputError = async ({
   testingRequired
 }: IHasInputErrorParams) => {
   await act(async () => {
-    testingRequired
-      ? await userEvent.click(input)
-      : await typeAndVerify(input, testValue)
+    if (testValue)
+      testingRequired
+        ? await userEvent.click(input)
+        : await typeAndVerify(input, testValue)
 
     await userEvent.keyboard('{Tab}')
   })

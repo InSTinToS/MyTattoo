@@ -1,6 +1,4 @@
-import { IResponse } from '@backend/modules/Users/useCases/createUser/CreateUser.types'
-
-import { v4 as uuid } from 'uuid'
+import createUser from 'tests/fakes/createUser'
 
 describe('SignUp', () => {
   beforeEach(() => {
@@ -9,24 +7,18 @@ describe('SignUp', () => {
   })
 
   it('should be able to register', () => {
-    cy.get('input[id="username"]').type('InSTinToS')
-    cy.get('input[id="email"]').type('miguelandradebarreto2@gmail.com')
-    cy.get('input[id="password"]').type('Miguel@1234')
-    cy.get('input[id="confirmPassword"]').type('Miguel@1234')
+    cy.get('input[id="username"]').type(createUser.request.username)
+    cy.get('input[id="email"]').type(createUser.request.email)
+    cy.get('input[id="password"]').type(createUser.request.password)
+    cy.get('input[id="confirmPassword"]').type(createUser.request.password)
 
     cy.get('button[type="submit"]').contains('Cadastrar').click()
 
-    const responseData: IResponse = {
-      id: uuid(),
-      username: 'InSTinToS',
-      updated_at: new Date().toUTCString(),
-      created_at: new Date().toUTCString(),
-      email: 'miguelandradebarreto2@gmail.com'
-    }
+    const api = Cypress.env('api')
 
     cy.intercept(
-      { method: 'POST', url: `${Cypress.env('api')}users` },
-      responseData
+      { method: 'POST', url: `${api}/users` },
+      createUser.response
     ).as('createUser')
 
     cy.get('html').contains('Sucesso')

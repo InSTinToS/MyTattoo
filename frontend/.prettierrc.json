@@ -26,7 +26,7 @@
     "^types",
     "^utils",
     "^@public",
-    "^@backend",
+    "^@common",
     "<THIRD_PARTY_MODULES>"
   ]
 }

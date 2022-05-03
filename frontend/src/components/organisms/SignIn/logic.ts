@@ -7,10 +7,10 @@ import useAppDispatch from 'hooks/useAppDispatch'
 import user from 'store/user'
 
 import type {
-  IResponse,
-  IRequest as ISignInValues
-} from '@backend/modules/Authentication/useCases/signIn/SignIn.types'
-import type { UserModel } from '@backend/modules/Users/useCases/readUsers/ReadUsers.types'
+  ISignInRequest as ISignInValues,
+  TSignInResponse
+} from '@common/types/authentication/signIn.types'
+import type { TReadUsersResponse } from '@common/types/users/readUsers.types'
 
 import { api } from 'api'
 import { AxiosResponse } from 'axios'
@@ -35,27 +35,30 @@ const useSignIn = () => {
     try {
       setLoading(true)
 
-      const res: AxiosResponse<IResponse> = await api.post(
+      const signInResponse: AxiosResponse<TSignInResponse> = await api.post(
         '/auth/sign-in',
         dataToAuthenticate
       )
-      const { data: authData } = res
 
-      const { data: userData }: AxiosResponse<UserModel> = await api.get(
-        `/users/${authData.id}`,
-        { headers: { Authorization: `Bearer ${authData.token}` } }
-      )
+      const { token, id } = signInResponse.data
+
+      const readUsersResponse: AxiosResponse<TReadUsersResponse> =
+        await api.get(`/users/${id}`, {
+          headers: { Authorization: `Bearer ${token}` }
+        })
+
+      const { user: userData } = readUsersResponse.data
 
       const expiresTokenDate = add(new Date(), { days: 1 }).toUTCString()
 
-      document.cookie = `token=${authData.token}; expiresIn=${expiresTokenDate}`
+      document.cookie = `token=${token}; expiresIn=${expiresTokenDate}`
 
       dispatch(user.actions.setUser(userData))
 
       triggeringFeedback({
         title: 'Sucesso',
         color: theme.colors.green,
-        content: `Bem-vindo de volta, ${userData.username}!`
+        content: `Bem-vindo de volta, ${userData?.username}!`
       })
 
       toggleShowAuthModal({ page: 'sign-in', open: false })

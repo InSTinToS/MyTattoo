@@ -27,8 +27,8 @@
     "incremental": true,
     "paths": {
       "@public/*": ["../public/*"],
-      "@backend/*": ["../../backend/src/*"]
+      "@common/*": ["../../common/src/*"]
     }
   },
-  "references": [{ "path": "../backend" }]
+  "references": [{ "path": "../common" }]
 }

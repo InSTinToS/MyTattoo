@@ -1,4 +1,4 @@
-import { IRequest } from '@backend/modules/Users/useCases/createUser/CreateUser.types'
+import { ICreateUserRequest } from '@common/types/users/createUser.types'
 
 import { FormikConfig } from 'formik'
 
@@ -6,8 +6,8 @@ interface ISignUpStyleProps {}
 
 interface ISignUpProps extends ISignUpStyleProps {}
 
-interface ISignUpValues extends Partial<IRequest> {
-  confirmPassword?: IRequest['password']
+interface ISignUpValues extends Partial<ICreateUserRequest> {
+  confirmPassword?: ICreateUserRequest['password']
 }
 
 type TOnSignupSubmit = FormikConfig<ISignUpValues>['onSubmit']
