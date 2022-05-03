@@ -6,8 +6,8 @@ interface IReadUsersRequestParams {
 }
 
 interface IResponse {
-  user?: UserModel
-  users?: UserModel[]
+  user?: Omit<UserModel, 'password'>
+  users?: Omit<UserModel, 'password'>[]
 }
 
 type TReadUsersResponse = TResponse<IResponse>
