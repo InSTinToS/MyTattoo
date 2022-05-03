@@ -1,12 +1,12 @@
-import { UserModel } from '@backend/modules/Users/entities/UserModel'
 import type { TResponse } from '../global/TResponse.types'
+import { IUserModel } from './userModel.types'
 
 interface IDeleteUserRequestParams {
-  id: UserModel['id']
+  id: IUserModel['id']
 }
 
 interface IResponse {
-  deletedUser: Omit<UserModel, 'password'>
+  deletedUser: Omit<IUserModel, 'password'>
 }
 
 type TDeleteUserResponse = TResponse<IResponse>

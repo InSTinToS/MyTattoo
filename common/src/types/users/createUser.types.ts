@@ -1,14 +1,14 @@
-import { UserModel } from '@backend/modules/Users/entities/UserModel'
 import type { TResponse } from '../global/TResponse.types'
+import { IUserModel } from './userModel.types'
 
 interface ICreateUserRequest {
-  email: UserModel['email']
-  username: UserModel['username']
-  password: UserModel['password']
+  email: IUserModel['email']
+  username: IUserModel['username']
+  password: IUserModel['password']
 }
 
 interface IResponse {
-  createdUser: Omit<UserModel, 'password'>
+  createdUser: Omit<IUserModel, 'password'>
 }
 
 type TCreateUserResponse = TResponse<IResponse>

@@ -1,13 +1,13 @@
-import { UserModel } from '@backend/modules/Users/entities/UserModel'
 import { TResponse } from '../global/TResponse.types'
+import { IUserModel } from './userModel.types'
 
 interface IReadUsersRequestParams {
-  id?: UserModel['id']
+  id?: IUserModel['id']
 }
 
 interface IResponse {
-  user?: Omit<UserModel, 'password'>
-  users?: Omit<UserModel, 'password'>[]
+  user?: Omit<IUserModel, 'password'>
+  users?: Omit<IUserModel, 'password'>[]
 }
 
 type TReadUsersResponse = TResponse<IResponse>
