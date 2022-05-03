@@ -1,6 +1,8 @@
+import { IUserModel } from '@common/types/users/userModel.types'
+
 import { v4 as uuid } from 'uuid'
 
-class UserModel {
+class UserModel implements IUserModel {
   id: string
   bio?: string
   email: string
