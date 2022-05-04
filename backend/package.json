@@ -9,7 +9,7 @@
     "test": "clear && jest --runInBand --forceExit",
     "upgrade-all": "yarn yarn-upgrade-all",
     "migrate": "dotenv -- cross-var \"pg-migrations apply -D ./src/shared/migrations/ -c %DB_URL%\"",
-    "docker:up": "docker-compose up -d && yarn migrate",
+    "docker:afterUp": "yarn migrate & yarn dev",
     "docker:prune": "docker-compose down && docker system prune -a -f --volumes",
     "docker:restart": "docker-compose down && docker-compose up -d && yarn migrate"
   },

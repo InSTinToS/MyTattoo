@@ -25,10 +25,11 @@ services:
     networks:
       - 'my-tattoo-network'
     ports:
-      - 3333:3333
+      - ${PORT}:3001
     volumes:
       - ./src:/app/backend/src
     links:
       - my-tattoo-database
     depends_on:
       - my-tattoo-database
+    command: sh -c "yarn docker:afterUp"
