@@ -4,6 +4,7 @@ module.exports = withImages({
   esModule: true,
   inlineImageLimit: false,
   optimizeFonts: false,
+  swcMinify: false,
   env: {},
   images: {
     disableStaticImages: true

@@ -20,7 +20,8 @@ class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
+          enhanceApp: (App: any) => (props: any) =>
+            sheet.collectStyles(<App {...props} />)
         })
 
       const initialProps = await Document.getInitialProps(ctx)
@@ -46,10 +47,18 @@ class MyDocument extends Document {
           <base href={process.env.NEXT_PUBLIC_WEB_URL} target='_blank' />
 
           <link rel='icon' href={favicon} />
-          <link rel='preconnect' href='https://fonts.gstatic.com' />
+
+          <link rel='preconnect' href='https://fonts.googleapis.com' />
+
           <link
+            rel='preconnect'
+            href='https://fonts.gstatic.com'
+            crossOrigin=''
+          />
+
+          <link
+            href='https://fonts.googleapis.com/css2?family=Roboto&display=swap'
             rel='stylesheet'
-            href='https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap'
           />
 
           <meta charSet='utf-8' />
