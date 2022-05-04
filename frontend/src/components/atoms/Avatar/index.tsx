@@ -6,9 +6,7 @@ import { composeClassName } from 'utils/composeClassName'
 const Avatar = ({ size, className, ...props }: IAvatarProps) => (
   <AvatarStyle
     alt='avatar'
-    width={size}
-    height={size}
-    layout='fixed'
+    style={{ width: size, height: size }}
     className={composeClassName('Avatar', className)}
     {...props}
   />

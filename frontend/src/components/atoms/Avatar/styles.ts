@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import styled from 'styled-components'
 
-const AvatarStyle = styled(Image)`
+const AvatarStyle = styled.img`
   border-radius: 50%;
 `
 

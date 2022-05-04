@@ -62,7 +62,7 @@ class MyDocument extends Document {
           />
           <meta
             name='description'
-            content='Rede social para tatuadores e pessoas que gostam de tatuagens'
+            content='Rede social para pessoas que gostam de tatuagens'
           />
         </Head>
 

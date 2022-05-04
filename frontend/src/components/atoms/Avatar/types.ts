@@ -1,8 +1,10 @@
-import { ImageProps } from 'next/image'
+import { ComponentPropsWithoutRef } from 'react'
 
-interface IAvatarStyleProps extends ImageProps {}
+interface IAvatarStyleProps {}
 
-interface IAvatarProps extends IAvatarStyleProps {
+interface IAvatarProps
+  extends IAvatarStyleProps,
+    ComponentPropsWithoutRef<'img'> {
   size: number
 }
 
