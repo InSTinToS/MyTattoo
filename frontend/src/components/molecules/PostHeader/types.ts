@@ -1,5 +1,6 @@
 interface IPostHeaderStyleProps {
   avatarSize: number
+  isArtist: boolean
 }
 
 interface IPostHeaderProps {

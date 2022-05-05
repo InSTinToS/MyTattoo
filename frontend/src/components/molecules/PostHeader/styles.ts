@@ -1,13 +1,15 @@
 import { IPostHeaderStyleProps } from './types'
 
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const PostHeaderStyle = styled.header<IPostHeaderStyleProps>`
   display: grid;
-  grid:
-    'avatar name' calc(40px / 2)
-    'avatar isArtist' calc(40px / 2)
-    'description description' auto / 40px auto;
+  ${({ isArtist }) => css`
+    grid:
+      'avatar name' calc(40px / 2)
+      'avatar ${isArtist ? 'isArtist' : 'name'}' calc(40px / 2)
+      'description description' auto / 40px auto;
+  `}
 
   margin-bottom: 16px;
 
@@ -19,8 +21,12 @@ const PostHeaderStyle = styled.header<IPostHeaderStyleProps>`
   }
 
   strong {
-    margin-left: 8px;
     grid-area: name;
+
+    display: flex;
+    align-items: center;
+
+    margin-left: 8px;
   }
 
   b {
