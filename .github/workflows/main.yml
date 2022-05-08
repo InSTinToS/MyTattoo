@@ -1,0 +1,18 @@
+name: CI
+
+on:
+  push:
+    branches: [frontend]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Github checkout
+        uses: actions/checkout@v3
+
+      - name: Cypress
+        uses: cypress-io/github-action@v2.9.7
+        with:
+          project: ./frontend
