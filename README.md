@@ -1,3 +1,3 @@
 # MyTattoo
 # Repositório migrado para
-https://github.com/mytattoo-org
+https://github.com/orgs/mytattoo-org/repositories
